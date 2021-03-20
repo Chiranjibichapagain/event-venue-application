@@ -7,6 +7,15 @@
 
   &__items {
     margin: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__vl {
+    background-color: bisque;
+    width: 2px;
+    height: 150px;
   }
 
   &__info-div {
@@ -27,5 +36,9 @@
       font-weight: 600;
       margin-bottom: 20px;
     }
+  }
+
+  &__a-tag {
+    text-decoration: none;
   }
 }
