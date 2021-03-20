@@ -1,10 +1,11 @@
 import React from 'react';
 
+import logo from '../../Assets/logo2.svg';
 import './Nav.scss';
 const Nav = () => {
   return (
-    <div>
-      <h1>This is Nav</h1>
+    <div className="nav">
+      <img className="nav__logo" src={logo} alt="logo" />
     </div>
   );
 };
