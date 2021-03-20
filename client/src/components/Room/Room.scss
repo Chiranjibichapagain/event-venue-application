@@ -9,14 +9,33 @@
   animation-timing-function: ease-in-out;
 }
 
+.girl-body {
+  animation-name: girl-body;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
 .check-1 {
-  display: none;
+  opacity: 0;
+  animation-name: check-1;
+  animation-duration: 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
 }
 .check-2 {
-  display: none;
+  opacity: 0;
+  animation-name: check-2;
+  animation-duration: 1s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
 }
 .check-3 {
-  display: none;
+  opacity: 0;
+  animation-name: check-3;
+  animation-duration: 1s;
+  animation-delay: 7s;
+  animation-fill-mode: forwards;
 }
 
 .man-left {
@@ -28,19 +47,75 @@
 .man-right {
   animation-name: man-right;
   animation-duration: 20s;
-  animation-delay: 3s;
+  animation-delay: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-  //   animation-direction: reverse;
-}
-
-.man-right {
 }
 
 .r-m-head {
+  animation-name: r-m-h;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 .l-m-body {
+  animation-name: l-m-b;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes check-1 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes check-2 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes check-3 {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes l-m-b {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(8deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes r-m-h {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(0.1deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
 }
 
 @keyframes girl-head {
@@ -52,6 +127,17 @@
   }
   100% {
     transform: rotateY(0deg);
+  }
+}
+@keyframes girl-body {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(6deg);
+  }
+  100% {
+    transform: rotateX(0deg);
   }
 }
 
@@ -79,6 +165,7 @@
     transform: scaleX(1);
   }
 }
+
 @keyframes man-right {
   0% {
     transform: scaleX(1);
