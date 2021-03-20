@@ -1,0 +1,31 @@
+@import '../../scss/config';
+
+.footer {
+  width: 100vw;
+  background-color: $primary;
+  overflow: hidden;
+
+  &__items {
+    margin: 15px;
+  }
+
+  &__info-div {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    margin: 0px;
+    color: $light;
+
+    &--small {
+      margin-left: 1em;
+    }
+
+    &--big {
+      font-size: $t-medium;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+  }
+}

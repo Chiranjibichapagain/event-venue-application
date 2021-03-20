@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { UserData } from '../../types';
 
-import logo from '../../Assets/logo2.svg';
+import logo from '../../Assets/logo3.png';
 
 import './Nav.scss';
 
