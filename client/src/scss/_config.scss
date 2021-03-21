@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
 //Colors
 
 $primary: #195e4b;
@@ -15,7 +19,14 @@ $r-big: 12px;
 
 //texts size
 
-$t-small: 16px;
-$t-medium: 20px;
-$t-big: 28px;
-$t-xl: 35px;
+$t-small: 1vw;
+$t-medium: 2vw;
+$t-big: 3vw;
+$t-xl: 4vw;
+
+//Fonts
+
+$montserrat: 'Montserrat', sans-serif;
+$aleo: 'Aleo', serif;
+$rubik: 'Rubik', sans-serif;
+$roboto: 'Roboto', sans-serif;
