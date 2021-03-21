@@ -1,12 +1,11 @@
 @import '../../scss/config';
 
 .footer {
-  width: 100vw;
   background-color: $primary;
   overflow: hidden;
 
   &__items {
-    margin: 15px;
+    padding: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
