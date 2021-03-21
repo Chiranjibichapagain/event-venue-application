@@ -10,6 +10,40 @@
     font-family: $rubik;
     font-size: $t-xl;
     font-weight: bold;
-    color: $primary;
+    color: $light;
+    position: fixed;
+    text-shadow: 0px 2px 5px rgb(51, 51, 51);
+    top: 15vh;
+    z-index: 2;
+  }
+
+  &__btn {
+    position: fixed;
+    width: 15vw;
+    height: 10vh;
+    top: 40vh;
+    opacity: 0;
+    animation-name: btn;
+    animation-delay: 3s;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes btn {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

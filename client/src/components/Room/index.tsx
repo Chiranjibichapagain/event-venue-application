@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './Room.scss';
 const Room = () => {
+  const [scroll, setScroll] = useState(false);
+
+  const changeNavStyle = () => {
+    window.scrollY >= 50 ? setScroll(true) : setScroll(false);
+  };
+  window.addEventListener('scroll', changeNavStyle);
+
   return (
-    <svg className="room" viewBox="0 0 9422 3360">
+    <svg className={scroll ? 'room room--scroll' : 'room'} viewBox="0 0 9422 3360">
       <g id="Group 68">
         <g className="girl-head">
           <path
@@ -11,6 +18,7 @@ const Room = () => {
             d="M7769.08 1976.76C7769.08 1976.76 7724.92 2134.99 7700.11 2217.1C7698.94 2220.99 7698.69 2225.1 7699.39 2229.11C7700.09 2233.11 7701.71 2236.9 7704.14 2240.16C7706.56 2243.42 7709.72 2246.07 7713.35 2247.89C7716.98 2249.71 7720.99 2250.66 7725.05 2250.66H7880.02C7886.71 2250.65 7893.15 2248.07 7897.99 2243.45C7902.84 2238.83 7905.72 2232.53 7906.04 2225.84L7916.48 2005.57L7769.08 1976.76Z"
             fill="#0F1011"
           />
+          0px 2px 5px grey;
           <path
             id="Vector_2"
             d="M8006.57 2328.74C8006.57 2328.74 7961.5 2304.9 7971.45 2182.21L7878.36 2165.03C7878.36 2165.03 7888.91 2275.01 7841.86 2309.98L8006.57 2328.74Z"

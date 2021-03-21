@@ -1,0 +1,14 @@
+@import '../../scss/config';
+
+.button {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+
+  &--big {
+    background-color: $secondary;
+    box-shadow: $sh-small;
+    font-size: $t-medium;
+  }
+}
