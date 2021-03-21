@@ -9,7 +9,7 @@ const LandingPage = () => {
   };
   return (
     <div className="landing">
-      <h1 className="landing__head">YOUR EVENT PLANNER</h1>
+      <h1 className="landing__head">YOU THINK, WE ORGANIZE!</h1>
       <Room />
       <div className="landing__btn">
         <Button text="Get Started" modifier="big" handleClick={handleClick} />
