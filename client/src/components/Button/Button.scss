@@ -5,10 +5,17 @@
   height: 100%;
   cursor: pointer;
   border: none;
+  transition: 0.3s ease-in-out;
 
   &--big {
     background-color: $secondary;
+    border: 2px solid $secondary;
     box-shadow: $sh-small;
     font-size: $t-medium;
+    color: $dark;
+  }
+
+  &--big:hover {
+    transform: scale(1.2);
   }
 }
