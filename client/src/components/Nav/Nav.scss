@@ -28,6 +28,8 @@
   }
 
   &__profile-name {
+    font-size: 10px;
+    font-weight: bold;
     margin: 5px 0px 0px 0px;
     color: $dark;
   }
@@ -37,7 +39,7 @@
     align-items: center;
   }
   &__profile-img {
-    width: 4vw;
-    border-radius: $r-small;
+    width: 3vw;
+    border-radius: $r-medium;
   }
 }
