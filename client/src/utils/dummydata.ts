@@ -25,7 +25,9 @@ export const data = [
       'Sauna',
       '53 inch LED TV',
       'Ciggrate balcony'
-    ]
+    ],
+    price: 120,
+    address: 'Markkinatie 16 00800 Helsinki'
   },
   {
     id: 2,
@@ -42,7 +44,9 @@ export const data = [
       'Bathroom',
       '53 inch LED TV',
       'Ciggrate balcony'
-    ]
+    ],
+    price: 130,
+    address: 'Alutie 16 00800 Helsinki'
   },
   {
     id: 3,
@@ -59,7 +63,9 @@ export const data = [
       'Fully equipped kitchen',
       'Bathroom',
       '53 inch LED TV'
-    ]
+    ],
+    price: 180,
+    address: 'maalatie 27 00500 Espoo'
   },
   {
     id: 4,
@@ -69,7 +75,9 @@ export const data = [
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
     photos: [image1, image2, image3, image4, image5, image6, image7, image8],
-    features: ['Internet', 'Sound system', 'HD projector', 'Bathroom', 'Sauna', 'Ciggrate balcony']
+    features: ['Internet', 'Sound system', 'HD projector', 'Bathroom', 'Sauna', 'Ciggrate balcony'],
+    price: 200,
+    address: 'markkinatie 77 00800 Helsinki'
   },
   {
     id: 5,
@@ -87,6 +95,8 @@ export const data = [
       'Bathroom',
       '53 inch LED TV',
       'Ciggrate balcony'
-    ]
+    ],
+    price: 120,
+    address: 'markkikaari 1 00800 Helsinki'
   }
 ];
