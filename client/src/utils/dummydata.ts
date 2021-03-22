@@ -10,7 +10,7 @@ import image8 from '../Assets/data_photos/slidebean-_6rmAEDLtiQ-unsplash.jpg';
 export const data = [
   {
     id: 1,
-    venueName: 'Longue1',
+    venueName: 'Longue-1',
     area: '120 msq',
     people: 30,
     description:
@@ -31,7 +31,7 @@ export const data = [
   },
   {
     id: 2,
-    venueName: 'Longue2',
+    venueName: 'Longue-2',
     area: '100 msq',
     people: 20,
     description:
@@ -50,7 +50,7 @@ export const data = [
   },
   {
     id: 3,
-    venueName: 'Longue3',
+    venueName: 'Longue-3',
     area: '160 msq',
     people: 50,
     description:
@@ -69,7 +69,7 @@ export const data = [
   },
   {
     id: 4,
-    venueName: 'Longue4',
+    venueName: 'Longue-4',
     area: '200 msq',
     people: 120,
     description:
@@ -81,12 +81,32 @@ export const data = [
   },
   {
     id: 5,
-    venueName: 'Longue5',
+    venueName: 'Longue-5',
     area: '120 msq',
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
     photos: [image4, image1, image2, image3, image5, image6, image7, image8],
+    features: [
+      'Internet',
+      'Sound system',
+      'HD projector',
+      'Fully equipped kitchen',
+      'Bathroom',
+      '53 inch LED TV',
+      'Ciggrate balcony'
+    ],
+    price: 120,
+    address: 'markkikaari 1 00800 Helsinki'
+  },
+  {
+    id: 6,
+    venueName: 'Longue-5',
+    area: '120 msq',
+    people: 30,
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
+    photos: [image7, image4, image1, image2, image3, image5, image6, image8],
     features: [
       'Internet',
       'Sound system',

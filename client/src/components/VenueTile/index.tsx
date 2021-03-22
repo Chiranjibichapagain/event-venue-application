@@ -21,12 +21,22 @@ const VenueTile = ({ data }: VenueProps) => {
         <img src={data.photos[0]} className="tile__image" alt="test" />
         <div className="tile__top-box">
           <p className="tile__price">{data.price}€</p>
-          <FaExternalLinkAlt style={{ cursor: 'pointer' }} className="tile__icon" size={20} />
+          <FaExternalLinkAlt
+            style={{ cursor: 'pointer' }}
+            className="tile__icon tile__icon--link"
+            size={20}
+          />
         </div>
 
         <div className="tile__arrows">
-          <FaArrowLeft style={{ cursor: 'pointer' }} color="rgba(255, 255, 255, 0.808)" size={20} />
+          <FaArrowLeft
+            className="tile__icon tile__icon--arrow"
+            style={{ cursor: 'pointer' }}
+            color="rgba(255, 255, 255, 0.808)"
+            size={20}
+          />
           <FaArrowRight
+            className="tile__icon tile__icon--arrow"
             style={{ cursor: 'pointer' }}
             color="rgba(255, 255, 255, 0.808)"
             size={20}
