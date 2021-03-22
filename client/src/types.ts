@@ -12,3 +12,19 @@ export type ButtonProps = {
   modifier?: string;
   handleClick: (() => void) | ((id: any) => void);
 };
+
+export type Venue = {
+  id: number;
+  venueName: string;
+  area: string;
+  people: number;
+  description: string;
+  photos: any[];
+  features: string[];
+  price: number;
+  address: string;
+};
+
+export type VenueProps = {
+  data: Venue;
+};

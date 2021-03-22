@@ -10,17 +10,18 @@ import {
 } from 'react-icons/fa';
 
 import testImg from '../../Assets/data_photos/col-legi-de-farmaceutics-de-barcelona-yjydNkTYy4U-unsplash.jpg';
+import { VenueProps } from '../../types';
 
 import './VenueTile.scss';
 
-const VenueTile = () => {
+const VenueTile = ({ data }: VenueProps) => {
   return (
     <div className="tile">
       <div className="tile__image-div">
-        <img src={testImg} className="tile__image" alt="test" />
+        <img src={data.photos[0]} className="tile__image" alt="test" />
         <div className="tile__top-box">
-          <p className="tile__price">120€</p>
-          <FaExternalLinkAlt style={{ cursor: 'pointer' }} color="white" size={20} />
+          <p className="tile__price">{data.price}€</p>
+          <FaExternalLinkAlt style={{ cursor: 'pointer' }} className="tile__icon" size={20} />
         </div>
 
         <div className="tile__arrows">
@@ -33,20 +34,20 @@ const VenueTile = () => {
         </div>
       </div>
       <div className="tile__info-div">
-        <p className="tile__text tile__text--big">Longue 1</p>
+        <p className="tile__text tile__text--big">{data.venueName}</p>
         <div className="tile__info-item">
           <div className="tile__info">
             <FaRulerHorizontal size={20} color="white" />
-            <p className="tile__text tile__text--small">120 msq</p>
+            <p className="tile__text tile__text--small">{data.area}</p>
           </div>
           <div className="tile__info">
             <FaUsers size={20} color="white" />
-            <p className="tile__text tile__text--small">120</p>
+            <p className="tile__text tile__text--small">{data.people}</p>
           </div>
         </div>
         <div className="tile__info-item tile__info-item--address">
           <FaMapMarkerAlt size={20} color="white" />
-          <p className="tile__text tile__text--small">Markkinatie 20 S20 00700 Helsinki</p>
+          <p className="tile__text tile__text--small">{data.address}</p>
         </div>
       </div>
     </div>

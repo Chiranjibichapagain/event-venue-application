@@ -15,7 +15,7 @@ export const data = [
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
-    photos: [image1, image2, image3, image4, image5, image6, image7, image8],
+    photos: [image2, image1, image3, image4, image5, image6, image7, image8],
     features: [
       'Internet',
       'Sound system',
@@ -36,7 +36,7 @@ export const data = [
     people: 20,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
-    photos: [image1, image2, image3, image4, image5, image6, image7, image8],
+    photos: [image6, image1, image2, image3, image4, image5, image7, image8],
     features: [
       'Internet',
       'HD projector',
@@ -55,7 +55,7 @@ export const data = [
     people: 50,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
-    photos: [image1, image2, image3, image4, image5, image6, image7, image8],
+    photos: [image3, image1, image2, image4, image5, image6, image7, image8],
     features: [
       'Internet',
       'Sound system',
@@ -86,7 +86,7 @@ export const data = [
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
-    photos: [image1, image2, image3, image4, image5, image6, image7, image8],
+    photos: [image4, image1, image2, image3, image5, image6, image7, image8],
     features: [
       'Internet',
       'Sound system',
