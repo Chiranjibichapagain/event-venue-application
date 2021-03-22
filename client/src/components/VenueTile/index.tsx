@@ -9,16 +9,24 @@ import {
   FaMapMarkerAlt
 } from 'react-icons/fa';
 
-import testImg from '../../Assets/data_photos/col-legi-de-farmaceutics-de-barcelona-yjydNkTYy4U-unsplash.jpg';
 import { VenueProps } from '../../types';
 
 import './VenueTile.scss';
 
 const VenueTile = ({ data }: VenueProps) => {
+  const [currentImage, setCurrentImage] = useState<number>(0);
+
+  const handleRightArrow = () => {
+    setCurrentImage(currentImage === data.photos.length - 1 ? 0 : currentImage + 1);
+  };
+  const handleLeftArrow = () => {
+    setCurrentImage(currentImage === 0 ? data.photos.length - 1 : currentImage - 1);
+  };
+
   return (
     <div className="tile">
       <div className="tile__image-div">
-        <img src={data.photos[0]} className="tile__image" alt="test" />
+        <img src={data.photos[currentImage]} className="tile__image" alt="test" />
         <div className="tile__top-box">
           <p className="tile__price">{data.price}€</p>
           <FaExternalLinkAlt
@@ -30,17 +38,29 @@ const VenueTile = ({ data }: VenueProps) => {
 
         <div className="tile__arrows">
           <FaArrowLeft
+            onClick={handleLeftArrow}
             className="tile__icon tile__icon--arrow"
             style={{ cursor: 'pointer' }}
             color="rgba(255, 255, 255, 0.808)"
             size={20}
           />
           <FaArrowRight
+            onClick={handleRightArrow}
             className="tile__icon tile__icon--arrow"
             style={{ cursor: 'pointer' }}
             color="rgba(255, 255, 255, 0.808)"
             size={20}
           />
+        </div>
+        <div className="tile__circle-div">
+          {data.photos.map((photo: any, index) => (
+            <div
+              key={index}
+              className={
+                index === currentImage ? 'tile__circle tile__circle--selected' : 'tile__circle'
+              }
+            ></div>
+          ))}
         </div>
       </div>
       <div className="tile__info-div">

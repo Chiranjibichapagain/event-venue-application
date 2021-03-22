@@ -21,6 +21,9 @@
     height: 300px;
     object-fit: cover;
     border-radius: 6px 6px 0px 0px;
+    animation-name: image-anim;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
   }
 
   &__top-box {
@@ -53,6 +56,8 @@
     margin: 5px 10px;
 
     &--small {
+      font-family: $open-sans;
+      font-weight: bold;
       font-size: $t-x-s;
       color: $dark;
     }
@@ -92,5 +97,34 @@
     &--arrow {
       -webkit-filter: drop-shadow(0px 0px 2px rgba(44, 44, 44, 0.753));
     }
+  }
+
+  &__circle-div {
+    position: absolute;
+    width: 95%;
+    top: 280px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__circle {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.87);
+
+    &--selected {
+      background-color: $red;
+    }
+  }
+}
+
+@keyframes image-anim {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
