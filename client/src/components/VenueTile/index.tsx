@@ -28,7 +28,7 @@ const VenueTile = ({ data }: VenueProps) => {
       <div className="tile__image-div">
         <img src={data.photos[currentImage]} className="tile__image" alt="test" />
         <div className="tile__top-box">
-          <p className="tile__price">{data.price}€</p>
+          <p className="tile__price">{data.price}€/h</p>
           <FaExternalLinkAlt
             style={{ cursor: 'pointer' }}
             className="tile__icon tile__icon--link"

@@ -26,7 +26,7 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 120,
+    price: 80,
     address: 'Markkinatie 16 00800 Helsinki'
   },
   {
@@ -45,7 +45,7 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 130,
+    price: 90,
     address: 'Alutie 16 00800 Helsinki'
   },
   {
@@ -64,7 +64,7 @@ export const data = [
       'Bathroom',
       '53 inch LED TV'
     ],
-    price: 180,
+    price: 100,
     address: 'maalatie 27 00500 Espoo'
   },
   {
@@ -76,7 +76,7 @@ export const data = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
     photos: [image1, image2, image3, image4, image5, image6, image7, image8],
     features: ['Internet', 'Sound system', 'HD projector', 'Bathroom', 'Sauna', 'Ciggrate balcony'],
-    price: 200,
+    price: 150,
     address: 'markkinatie 77 00800 Helsinki'
   },
   {
@@ -96,7 +96,7 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 120,
+    price: 90,
     address: 'markkikaari 1 00800 Helsinki'
   },
   {
@@ -116,7 +116,7 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 120,
+    price: 90,
     address: 'markkikaari 1 00800 Helsinki'
   }
 ];
