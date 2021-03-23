@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FilterProps } from '../../types';
 
 import './Filters.scss';
 
-const Filters = () => {
+const Filters = ({ setPrice, setSize }: FilterProps) => {
   return (
     <div className="filter">
       <p className="filter__title filter__title--big">Filters</p>
       <div className="filter__filter-div">
         <p className="filter__title filter__title-small">Price</p>
-        <div className="filter__item">
+        <div
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPrice(e.target.value)}
+          className="filter__item"
+        >
           <div className="filter__radio-group">
-            <input className="filter__radio" type="radio" id="expensive" value="expensive" />
+            <input className="filter__radio" type="radio" name="price" value="expensive" />
             <label className="filter__label">Expensive first</label>
           </div>
           <div className="filter__radio-group">
-            <input className="filter__radio" type="radio" id="cheap" value="cheap" />
+            <input className="filter__radio" type="radio" name="price" value="cheap" />
             <label className="filter__label">Cheap first</label>
           </div>
         </div>
@@ -22,13 +26,16 @@ const Filters = () => {
 
       <div className="filter__filter-div">
         <p className="filter__title filter__title-small">Size</p>
-        <div className="filter__item">
+        <div
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSize(e.target.value)}
+          className="filter__item"
+        >
           <div className="filter__radio-group">
-            <input className="filter__radio" type="radio" id="big" value="big" />
+            <input className="filter__radio" type="radio" name="size" value="big" />
             <label className="filter__label">Big first</label>
           </div>
           <div className="filter__radio-group">
-            <input className="filter__radio" type="radio" id="small" value="small" />
+            <input className="filter__radio" type="radio" name="size" value="small" />
             <label className="filter__label">Small first</label>
           </div>
         </div>

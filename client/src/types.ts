@@ -28,3 +28,8 @@ export type Venue = {
 export type VenueProps = {
   data: Venue;
 };
+
+export type FilterProps = {
+  setSize: React.Dispatch<React.SetStateAction<string>>;
+  setPrice: React.Dispatch<React.SetStateAction<string>>;
+};
