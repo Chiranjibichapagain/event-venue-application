@@ -29,13 +29,18 @@ const HomePage = () => {
       }
     };
 
-    setVenues(priceFilter);
-  };
+    const sizeFilter = () => {
+      if (!size) {
+        return data;
+      } else if (size === 'small') {
+        return priceFilter.sort((a, b) => a.people - b.people);
+      } else {
+        return priceFilter.sort((a, b) => b.people - a.people);
+      }
+    };
 
-  console.log(
-    'xxxx--',
-    venues.map((v) => v.price)
-  );
+    setVenues(sizeFilter);
+  };
 
   return (
     <div className="home">
