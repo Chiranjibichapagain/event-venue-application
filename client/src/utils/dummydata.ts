@@ -101,7 +101,7 @@ export const data = [
   },
   {
     id: 6,
-    venueName: 'Longue-5',
+    venueName: 'Longue-6',
     area: '120 msq',
     people: 30,
     description:
