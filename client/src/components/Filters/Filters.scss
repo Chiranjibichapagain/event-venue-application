@@ -1,0 +1,24 @@
+@import '../../scss/config';
+
+.filter {
+  display: flex;
+  background-color: azure;
+  margin-bottom: 30px;
+
+  &__title {
+    font-weight: bold;
+
+    &--big {
+      font-family: $open-sans;
+      font-size: $t-medium;
+    }
+    &--small {
+      font-family: $roboto;
+      font-size: $t-small;
+      font-weight: 800;
+    }
+  }
+
+  &__filter-div {
+  }
+}
