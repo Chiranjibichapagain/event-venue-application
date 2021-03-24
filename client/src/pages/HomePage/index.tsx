@@ -14,9 +14,11 @@ const HomePage = () => {
 
   useEffect(() => {
     handleFilter();
-  }, [price, size]);
-
-  console.log('items--', price);
+    console.log(
+      'venuee--',
+      venues.map((v) => v.price)
+    );
+  }, [price, size, venues]);
 
   const handleFilter = () => {
     const priceFilter = () => {
@@ -28,18 +30,17 @@ const HomePage = () => {
         return data.sort((a, b) => b.price - a.price);
       }
     };
-
     const sizeFilter = () => {
       if (!size) {
-        return data;
+        return priceFilter();
       } else if (size === 'small') {
-        return priceFilter.sort((a, b) => a.people - b.people);
+        return priceFilter().sort((a, b) => a.people - b.people);
       } else {
-        return priceFilter.sort((a, b) => b.people - a.people);
+        return priceFilter().sort((a, b) => b.people - a.people);
       }
     };
 
-    setVenues(sizeFilter);
+    setVenues(sizeFilter());
   };
 
   return (
