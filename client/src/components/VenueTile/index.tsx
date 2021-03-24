@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import {
   FaArrowLeft,
@@ -14,6 +15,7 @@ import { VenueProps } from '../../types';
 import './VenueTile.scss';
 
 const VenueTile = ({ data }: VenueProps) => {
+  const history = useHistory();
   const [currentImage, setCurrentImage] = useState<number>(0);
 
   const handleRightArrow = () => {
@@ -23,6 +25,10 @@ const VenueTile = ({ data }: VenueProps) => {
     setCurrentImage(currentImage === 0 ? data.photos.length - 1 : currentImage - 1);
   };
 
+  const detailsPage = (id) => {
+    history.push(`/venue/${id}`);
+  };
+
   return (
     <div className="tile">
       <div className="tile__image-div">
@@ -30,6 +36,7 @@ const VenueTile = ({ data }: VenueProps) => {
         <div className="tile__top-box">
           <p className="tile__price">{data.price}€/h</p>
           <FaExternalLinkAlt
+            onClick={() => detailsPage(data.id)}
             style={{ cursor: 'pointer' }}
             className="tile__icon tile__icon--link"
             size={20}
