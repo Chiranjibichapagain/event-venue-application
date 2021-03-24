@@ -100,11 +100,14 @@
   &__info-text-div {
     display: flex;
     align-items: center;
+    margin: 5px 0px 20px 0px;
   }
 
   &__info-text {
+    font-size: $t-x-s;
+    font-family: $rubik;
     color: $dark;
-    margin: 5px 0px 20px 15px;
+    margin: 0px 40px 0px 10px;
   }
 
   &__desc-title {

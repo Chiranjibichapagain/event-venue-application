@@ -64,7 +64,13 @@ const VenuePage = ({ match }) => {
           <div className="venue__info-div">
             <h1 className="venue__venue-name">{venue.venueName}</h1>
             <div className="venue__info-text-div">
+              <FaMapMarkerAlt
+                className="venue__icon venue__icon--arrow"
+                color="#f2f2f2"
+                size={20}
+              />
               <p className="venue__info-text">{venue.address}</p>
+              <FaUsers className="venue__icon venue__icon--arrow" color="#f2f2f2" size={20} />
               <p className="venue__info-text">{venue.people}</p>
             </div>
             <p className="venue__desc">{venue.description}</p>
