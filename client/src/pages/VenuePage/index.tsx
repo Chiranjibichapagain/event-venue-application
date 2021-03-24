@@ -28,14 +28,14 @@ const VenuePage = ({ match }) => {
               className="venue__icon venue__icon--arrow"
               style={{ cursor: 'pointer' }}
               color="rgba(255, 255, 255, 0.808)"
-              size={20}
+              size={30}
             />
             <FaArrowRight
               onClick={handleRightArrow}
               className="venue__icon venue__icon--arrow"
               style={{ cursor: 'pointer' }}
               color="rgba(255, 255, 255, 0.808)"
-              size={20}
+              size={30}
             />
           </div>
           <div className="venue__circle-div">
