@@ -12,6 +12,7 @@ const Routes = () => (
     <ProtectedRoute exact path="/" component={HomePage} />
     <Route exact path="/welcomepage" component={LandingPage} />
     <ProtectedRoute exact path="/venue/:venueId" component={VenuePage} />
+    <ProtectedRoute exact path="/venue/:venueData/booking" component={VenuePage} />
     <ProtectedRoute exact path="/admin" component={AdminPage} />
     {/* path '/' without exact will take anything that doesn't match to other routes to this route */}
     <Route path="/" component={LandingPage} />

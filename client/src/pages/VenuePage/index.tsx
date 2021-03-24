@@ -65,17 +65,15 @@ const VenuePage = ({ match }) => {
             <h1 className="venue__venue-name">{venue.venueName}</h1>
             <p className="venue__address">{venue.address}</p>
             <p className="venue__desc">{venue.description}</p>
+            <p className="venue__desc-title">features</p>
             <div className="venue__features">
               {venue.features.map((f) => (
-                <div>
-                  {' '}
-                  <p>{f}</p>{' '}
-                </div>
+                <p className="venue__feature">{f}</p>
               ))}
             </div>
-            <div className="classes__bottom-div">
+            <div className="venue__bottom-div">
               <div className="venue__price-div">{venue.price}€</div>
-              <div>
+              <div className="venue__botton-div">
                 {' '}
                 <Button text="Book it" modifier="small" handleClick={toBooking} />{' '}
               </div>

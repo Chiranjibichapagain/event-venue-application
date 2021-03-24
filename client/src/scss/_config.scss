@@ -6,7 +6,7 @@
 //Colors
 
 $primary: #195e4b;
-$secondary: #30da9d;
+$secondary: #2cad7e;
 $red: #f33501;
 $lightGreen: #caebe2;
 $lightRed: #fda084;
@@ -39,3 +39,11 @@ $open-sans: 'Open Sans', sans-serif;
 $sh-big: 0px 2px 8px rgba(0, 0, 0, 0.822);
 $sh-small: 0px 1px 3px rgba(0, 0, 0, 0.671);
 $sh-text: 0px 2px 3px rgb(85, 84, 84);
+
+//mixins
+
+@mixin absolute-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -4,22 +4,25 @@
   width: 95vw;
   margin: 0px auto;
   display: flex;
+  justify-content: space-around;
   align-items: center;
 
   &__image-div {
-    width: 60%;
+    width: 55%;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: $r-big;
+    box-shadow: $sh-small;
   }
 
   &__image {
     width: 100%;
-    height: 500px;
+    height: 550px;
     object-fit: cover;
-    border-radius: 6px 6px 0px 0px;
+    border-radius: $r-big;
     animation-name: image-anim;
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
@@ -36,7 +39,7 @@
   }
   &__arrows {
     position: absolute;
-    bottom: 200px;
+    bottom: 250px;
     width: 95%;
     display: flex;
     justify-content: space-between;
@@ -72,5 +75,77 @@
     &--selected {
       background-color: $red;
     }
+  }
+
+  &__info-div {
+    width: 35%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+  }
+
+  &__venue-name {
+    margin: 0;
+    font-size: $t-big;
+    color: $primary;
+  }
+
+  &__address {
+    color: $dark;
+    margin-top: 5px;
+  }
+
+  &__desc-title {
+    margin: 10px 0px 0px 0px;
+    font-weight: bold;
+    color: $primary;
+    font-size: $t-small;
+  }
+
+  &__desc {
+    margin: 0;
+    color: $dark;
+    font-size: $t-small;
+    font-family: $aleo;
+    line-height: 1.5;
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0px 20px;
+  }
+
+  &__feature {
+    color: $dark;
+    font-family: $rubik;
+    margin: 5px 10px;
+    background-color: $light;
+    padding: 10px;
+    border-radius: $r-big;
+  }
+
+  &__bottom-div {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+  }
+
+  &__price-div {
+    width: 30%;
+    height: 60px;
+    background-color: $secondary;
+    border-radius: 12px 0px 12px 0px;
+    font-size: $t-medium;
+    color: $light;
+    @include absolute-center;
+  }
+
+  &__botton-div {
+    width: 40%;
+    height: 100%;
   }
 }
