@@ -97,10 +97,14 @@
     color: $primary;
   }
 
-  &__address {
+  &__info-text-div {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info-text {
     color: $dark;
     margin: 5px 0px 20px 15px;
-    font-style: italic;
   }
 
   &__desc-title {

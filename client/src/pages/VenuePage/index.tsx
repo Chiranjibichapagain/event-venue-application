@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../../components/Button';
 import { Venue } from '../../types';
 import { data } from '../../utils/dummydata';
@@ -63,7 +63,10 @@ const VenuePage = ({ match }) => {
 
           <div className="venue__info-div">
             <h1 className="venue__venue-name">{venue.venueName}</h1>
-            <p className="venue__address">{venue.address}</p>
+            <div className="venue__info-text-div">
+              <p className="venue__info-text">{venue.address}</p>
+              <p className="venue__info-text">{venue.people}</p>
+            </div>
             <p className="venue__desc">{venue.description}</p>
             <p className="venue__desc-title">features</p>
             <div className="venue__features">
