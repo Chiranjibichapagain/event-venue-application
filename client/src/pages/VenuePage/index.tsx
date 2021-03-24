@@ -72,7 +72,7 @@ const VenuePage = ({ match }) => {
               ))}
             </div>
             <div className="venue__bottom-div">
-              <div className="venue__price-div">{venue.price}€</div>
+              <div className="venue__price-div">{venue.price}€/h</div>
               <div className="venue__botton-div">
                 {' '}
                 <Button text="Book it" modifier="small" handleClick={toBooking} />{' '}
