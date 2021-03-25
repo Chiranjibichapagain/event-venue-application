@@ -17,6 +17,7 @@
     align-items: center;
     width: 40%;
     padding: 15px;
+    margin-bottom: 20px;
   }
 
   &__people-div {
@@ -42,5 +43,21 @@
   }
 
   &__body {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__calender {
+    width: 60%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__btn-div {
+    height: 45px;
   }
 }

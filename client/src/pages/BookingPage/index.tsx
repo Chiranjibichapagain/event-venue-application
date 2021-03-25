@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Calendar from 'react-calendar';
 
 import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
@@ -25,12 +26,16 @@ const BookingPage = () => {
         <p className="booking__text booking__text--medium">100€/h</p>
       </div>
       <div className="booking__body">
-        <div>calander</div>
+        <div className="booking__calender">
+          <Calendar />
+        </div>
         <div className="booking__form">
           <p>Booking Date: </p>
           <div className="booking__time-div"></div>
+          <div className="booking__btn-div">
+            <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
+          </div>
         </div>
-        <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
       </div>
     </div>
   );
