@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-import { Calendar, DayRange } from 'react-modern-calendar-datepicker';
+import { Calendar, Day } from 'react-modern-calendar-datepicker';
 
 import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
@@ -15,21 +15,9 @@ const BookingPage = () => {
   const toPay = () => {
     history.push(`/venue/${price}/payment`);
   };
-  const defaultFrom = {
-    year: 2019,
-    month: 4,
-    day: 16
-  };
-  const defaultTo = {
-    year: 2019,
-    month: 4,
-    day: 19
-  };
 
-  const [selectedDayRange, setSelectedDayRange] = React.useState<DayRange>({
-    from: null,
-    to: null
-  });
+  const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
+  console.log('test---', selectedDays);
 
   return (
     <div className="booking">
@@ -44,9 +32,14 @@ const BookingPage = () => {
       <div className="booking__body">
         <div className="booking__calender">
           <Calendar
-            value={selectedDayRange}
-            onChange={setSelectedDayRange}
+            value={selectedDays}
+            onChange={setSelectedDays}
+            onDisabledDayError={() => window.alert('This date are already booked!')}
             shouldHighlightWeekends
+            disabledDays={[
+              { day: 1, month: 3, year: 2021 },
+              { day: 2, month: 3, year: 2021 }
+            ]}
           />
         </div>
         <div className="booking__form">
