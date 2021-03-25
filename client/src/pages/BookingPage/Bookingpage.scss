@@ -4,6 +4,43 @@
   width: 95vw;
   margin: 0px auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  &__head {
+    background-color: $light;
+    box-shadow: $sh-small;
+    border-radius: $r-big;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    padding: 15px;
+  }
+
+  &__people-div {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    color: $dark;
+    margin: 0;
+    color: $primary;
+
+    &--big {
+      font-family: $open-sans;
+      font-size: $t-medium;
+      font-weight: 800;
+    }
+
+    &--medium {
+      font-size: $t-small;
+      margin-left: 15px;
+    }
+  }
+
+  &__body {
+  }
 }

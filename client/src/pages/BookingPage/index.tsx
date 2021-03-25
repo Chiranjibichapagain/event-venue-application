@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
 
 import './Bookingpage.scss';
@@ -16,13 +17,12 @@ const BookingPage = () => {
   return (
     <div className="booking">
       <div className="booking__head">
-        <p>Longue 1</p>
-        <div>
-          <p>200</p>
+        <p className="booking__text booking__text--big">Longue 1</p>{' '}
+        <div className="booking__people-div">
+          <FaUsers color="#2a2a2a" size={35} />
+          <p className="booking__text booking__text--medium">200</p>
         </div>
-        <div>
-          <p>100€/h</p>
-        </div>
+        <p className="booking__text booking__text--medium">100€/h</p>
       </div>
       <div className="booking__body">
         <div>calander</div>
