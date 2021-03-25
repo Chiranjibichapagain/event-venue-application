@@ -42,6 +42,11 @@ const BookingPage = () => {
             ]}
           />
         </div>
+        <div className="booking__time">
+          <p className="booking__text booking__text--medium">Select a time</p>
+          <input type="time" />
+          <input type="time" />
+        </div>
         <div className="booking__form">
           <p>Booking Date: </p>
           <div className="booking__time-div"></div>
