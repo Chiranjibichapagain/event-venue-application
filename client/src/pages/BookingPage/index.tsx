@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Calendar from 'react-calendar';
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+import { Calendar, DayRange } from 'react-modern-calendar-datepicker';
 
 import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
@@ -14,6 +15,21 @@ const BookingPage = () => {
   const toPay = () => {
     history.push(`/venue/${price}/payment`);
   };
+  const defaultFrom = {
+    year: 2019,
+    month: 4,
+    day: 16
+  };
+  const defaultTo = {
+    year: 2019,
+    month: 4,
+    day: 19
+  };
+
+  const [selectedDayRange, setSelectedDayRange] = React.useState<DayRange>({
+    from: null,
+    to: null
+  });
 
   return (
     <div className="booking">
@@ -27,7 +43,11 @@ const BookingPage = () => {
       </div>
       <div className="booking__body">
         <div className="booking__calender">
-          <Calendar />
+          <Calendar
+            value={selectedDayRange}
+            onChange={setSelectedDayRange}
+            shouldHighlightWeekends
+          />
         </div>
         <div className="booking__form">
           <p>Booking Date: </p>
