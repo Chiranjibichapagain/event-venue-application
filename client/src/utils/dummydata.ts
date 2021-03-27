@@ -27,7 +27,8 @@ export const data = [
       'Ciggrate balcony'
     ],
     price: 80,
-    address: 'Markkinatie 16 00800 Helsinki'
+    address: 'Markkinatie 16 00800 Helsinki',
+    bookings: [{ date: { day: 3, month: 3, year: 2021 }, time: [] }]
   },
   {
     id: 2,

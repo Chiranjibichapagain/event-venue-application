@@ -17,7 +17,8 @@ const BookingPage = () => {
   };
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
-  console.log('test---', selectedDays);
+  const [time, setTime] = useState({ start: '', end: '' });
+  console.log('test---', time);
 
   return (
     <div className="booking">
@@ -44,8 +45,8 @@ const BookingPage = () => {
         </div>
         <div className="booking__time">
           <p className="booking__text booking__text--medium">Select a time</p>
-          <input type="time" />
-          <input type="time" />
+          <input type="time" onChange={({ target }) => setTime({ ...time, start: target.value })} />
+          <input type="time" onChange={({ target }) => setTime({ ...time, end: target.value })} />
         </div>
         <div className="booking__form">
           <p>Booking Date: </p>
