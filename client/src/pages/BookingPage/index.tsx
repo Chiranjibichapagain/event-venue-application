@@ -5,6 +5,7 @@ import { Calendar, Day } from 'react-modern-calendar-datepicker';
 
 import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 import './Bookingpage.scss';
 
@@ -18,6 +19,10 @@ const BookingPage = () => {
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
   console.log('test---', selectedDays);
+
+  const handleInputChange = () => {
+    console.log('handled');
+  };
 
   return (
     <div className="booking">
@@ -45,19 +50,22 @@ const BookingPage = () => {
           />
         </div>
         <div className="booking__form">
-          <div className="booking__misc-info">
-            <p>
-              Booking Date:{' '}
-              {selectedDays.map((d) => (
-                <li>{`${d.day}- ${d.month}- ${d.year}`}</li>
-              ))}{' '}
-            </p>
-            <p>Total: {selectedDays.length * 1000}€</p>
-          </div>
-          <div className="booking__customer-info"></div>
-          <div className="booking__btn-div">
-            <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
-          </div>
+          <p className="booking__text booking__text--medium">
+            Booking Date(s) :{' '}
+            {selectedDays.map((d) => (
+              <li className="booking__list">{`${d.day}- ${d.month}- ${d.year}`}</li>
+            ))}{' '}
+          </p>
+          <p className="booking__text booking__text--small">Total: {selectedDays.length * 1000}€</p>
+          <Input type="text" placeholder="Full Name" handleInputChange={handleInputChange} />
+          <Input type="text" placeholder="Email address" handleInputChange={handleInputChange} />
+          <Input type="text" placeholder="Phone Number" handleInputChange={handleInputChange} />
+          <textarea
+            className="booking__textarea"
+            rows={5}
+            placeholder="Write message, questions etc."
+          />
+          <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
         </div>
       </div>
     </div>

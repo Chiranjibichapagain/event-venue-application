@@ -33,3 +33,10 @@ export type FilterProps = {
   setSize: React.Dispatch<React.SetStateAction<string>>;
   setPrice: React.Dispatch<React.SetStateAction<string>>;
 };
+
+export type InputProps = {
+  handleInputChange: () => void;
+  placeholder: string;
+  type: string;
+  modifier?: string;
+};
