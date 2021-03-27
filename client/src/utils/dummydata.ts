@@ -26,15 +26,18 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 80,
+    price: 1000,
     address: 'Markkinatie 16 00800 Helsinki',
     bookings: [
       {
-        date: { day: 3, month: 3, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 15,
+        month: 4,
+        year: 2021
+      },
+      {
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   },
@@ -54,15 +57,18 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 90,
+    price: 950,
     address: 'Alutie 16 00800 Helsinki',
     bookings: [
       {
-        date: { day: 28, month: 3, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 13,
+        month: 4,
+        year: 2021
+      },
+      {
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   },
@@ -82,22 +88,18 @@ export const data = [
       'Bathroom',
       '53 inch LED TV'
     ],
-    price: 100,
+    price: 800,
     address: 'maalatie 27 00500 Espoo',
     bookings: [
       {
-        date: { day: 5, month: 4, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 15,
+        month: 4,
+        year: 2021
       },
       {
-        date: { day: 6, month: 4, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   },
@@ -110,22 +112,18 @@ export const data = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
     photos: [image1, image2, image3, image4, image5, image6, image7, image8],
     features: ['Internet', 'Sound system', 'HD projector', 'Bathroom', 'Sauna', 'Ciggrate balcony'],
-    price: 150,
+    price: 1150,
     address: 'markkinatie 77 00800 Helsinki',
     bookings: [
       {
-        date: { day: 12, month: 4, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 15,
+        month: 4,
+        year: 2021
       },
       {
-        date: { day: 13, month: 4, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   },
@@ -146,15 +144,18 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 90,
+    price: 1000,
     address: 'markkikaari 1 00800 Helsinki',
     bookings: [
       {
-        date: { day: 3, month: 3, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 15,
+        month: 4,
+        year: 2021
+      },
+      {
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   },
@@ -175,15 +176,18 @@ export const data = [
       '53 inch LED TV',
       'Ciggrate balcony'
     ],
-    price: 90,
+    price: 1100,
     address: 'markkikaari 1 00800 Helsinki',
     bookings: [
       {
-        date: { day: 3, month: 3, year: 2021 },
-        time: [
-          { start: '12:00', end: '16:00' },
-          { start: '16:50', end: '18:00' }
-        ]
+        day: 15,
+        month: 4,
+        year: 2021
+      },
+      {
+        day: 16,
+        month: 4,
+        year: 2021
       }
     ]
   }

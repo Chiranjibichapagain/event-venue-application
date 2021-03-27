@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
@@ -17,8 +17,7 @@ const BookingPage = () => {
   };
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
-  const [time, setTime] = useState({ start: '', end: '' });
-  console.log('test---', time);
+  console.log('test---', selectedDays);
 
   return (
     <div className="booking">
@@ -28,11 +27,13 @@ const BookingPage = () => {
           <FaUsers color="#2a2a2a" size={35} />
           <p className="booking__text booking__text--medium">200</p>
         </div>
-        <p className="booking__text booking__text--medium">100€/h</p>
+        <p className="booking__text booking__text--medium">1000€/day</p>
       </div>
       <div className="booking__body">
-        <div className="booking__calender">
+        <div className="booking__date-picker">
           <Calendar
+            calendarClassName="calender"
+            calendarSelectedDayClassName="calender__selected"
             value={selectedDays}
             onChange={setSelectedDays}
             onDisabledDayError={() => window.alert('This date are already booked!')}
@@ -43,14 +44,17 @@ const BookingPage = () => {
             ]}
           />
         </div>
-        <div className="booking__time">
-          <p className="booking__text booking__text--medium">Select a time</p>
-          <input type="time" onChange={({ target }) => setTime({ ...time, start: target.value })} />
-          <input type="time" onChange={({ target }) => setTime({ ...time, end: target.value })} />
-        </div>
         <div className="booking__form">
-          <p>Booking Date: </p>
-          <div className="booking__time-div"></div>
+          <div className="booking__misc-info">
+            <p>
+              Booking Date:{' '}
+              {selectedDays.map((d) => (
+                <li>{`${d.day}- ${d.month}- ${d.year}`}</li>
+              ))}{' '}
+            </p>
+            <p>Total: {selectedDays.length * 1000}€</p>
+          </div>
+          <div className="booking__customer-info"></div>
           <div className="booking__btn-div">
             <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
           </div>
