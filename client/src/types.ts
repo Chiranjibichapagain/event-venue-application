@@ -39,4 +39,6 @@ export type InputProps = {
   placeholder: string;
   type: string;
   modifier?: string;
+  value: string | number;
+  id: string;
 };

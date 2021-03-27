@@ -5,6 +5,7 @@ import { Calendar, Day } from 'react-modern-calendar-datepicker';
 
 import { FaUsers } from 'react-icons/fa';
 import Button from '../../components/Button';
+import { useBookingForm } from '../../Hooks/useBookingForm';
 import Input from '../../components/Input';
 
 import './Bookingpage.scss';
@@ -16,13 +17,16 @@ const BookingPage = () => {
   const toPay = () => {
     history.push(`/venue/${price}/payment`);
   };
+  const [fields, setFields] = useBookingForm({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const { name, email, phone, message } = fields;
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
-  console.log('test---', selectedDays);
-
-  const handleInputChange = () => {
-    console.log('handled');
-  };
 
   return (
     <div className="booking">
@@ -57,10 +61,31 @@ const BookingPage = () => {
             ))}{' '}
           </p>
           <p className="booking__text booking__text--small">Total: {selectedDays.length * 1000}€</p>
-          <Input type="text" placeholder="Full Name" handleInputChange={handleInputChange} />
-          <Input type="text" placeholder="Email address" handleInputChange={handleInputChange} />
-          <Input type="text" placeholder="Phone Number" handleInputChange={handleInputChange} />
+          <Input
+            value={name}
+            id="name"
+            type="text"
+            placeholder="Full Name"
+            handleInputChange={setFields}
+          />
+          <Input
+            value={email}
+            id="email"
+            type="email"
+            placeholder="Email address"
+            handleInputChange={setFields}
+          />
+          <Input
+            value={phone}
+            id="phone"
+            type="tel"
+            placeholder="Phone Number"
+            handleInputChange={setFields}
+          />
           <textarea
+            onChange={setFields}
+            value={message}
+            id="message"
             className="booking__textarea"
             rows={5}
             placeholder="Write message, questions etc."
