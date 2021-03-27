@@ -28,7 +28,15 @@ export const data = [
     ],
     price: 80,
     address: 'Markkinatie 16 00800 Helsinki',
-    bookings: [{ date: { day: 3, month: 3, year: 2021 }, time: [] }]
+    bookings: [
+      {
+        date: { day: 3, month: 3, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   },
   {
     id: 2,
@@ -47,7 +55,16 @@ export const data = [
       'Ciggrate balcony'
     ],
     price: 90,
-    address: 'Alutie 16 00800 Helsinki'
+    address: 'Alutie 16 00800 Helsinki',
+    bookings: [
+      {
+        date: { day: 28, month: 3, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   },
   {
     id: 3,
@@ -66,7 +83,23 @@ export const data = [
       '53 inch LED TV'
     ],
     price: 100,
-    address: 'maalatie 27 00500 Espoo'
+    address: 'maalatie 27 00500 Espoo',
+    bookings: [
+      {
+        date: { day: 5, month: 4, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      },
+      {
+        date: { day: 6, month: 4, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   },
   {
     id: 4,
@@ -78,7 +111,23 @@ export const data = [
     photos: [image1, image2, image3, image4, image5, image6, image7, image8],
     features: ['Internet', 'Sound system', 'HD projector', 'Bathroom', 'Sauna', 'Ciggrate balcony'],
     price: 150,
-    address: 'markkinatie 77 00800 Helsinki'
+    address: 'markkinatie 77 00800 Helsinki',
+    bookings: [
+      {
+        date: { day: 12, month: 4, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      },
+      {
+        date: { day: 13, month: 4, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   },
   {
     id: 5,
@@ -98,7 +147,16 @@ export const data = [
       'Ciggrate balcony'
     ],
     price: 90,
-    address: 'markkikaari 1 00800 Helsinki'
+    address: 'markkikaari 1 00800 Helsinki',
+    bookings: [
+      {
+        date: { day: 3, month: 3, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   },
   {
     id: 6,
@@ -118,6 +176,15 @@ export const data = [
       'Ciggrate balcony'
     ],
     price: 90,
-    address: 'markkikaari 1 00800 Helsinki'
+    address: 'markkikaari 1 00800 Helsinki',
+    bookings: [
+      {
+        date: { day: 3, month: 3, year: 2021 },
+        time: [
+          { start: '12:00', end: '16:00' },
+          { start: '16:50', end: '18:00' }
+        ]
+      }
+    ]
   }
 ];
