@@ -22,7 +22,7 @@ const VenuePage = ({ match }) => {
   };
 
   const toBooking = () => {
-    history.push(`/venue/${venue}/booking`);
+    history.push(`/venue/${venue?.id}/booking`);
   };
 
   return (
