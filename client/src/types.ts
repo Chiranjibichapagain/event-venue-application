@@ -37,6 +37,7 @@ export type FilterProps = {
 export type InputProps = {
   handleInputChange: () => void;
   handleClick?: () => void;
+  handleFocus?: () => void;
   placeholder: string;
   type: string;
   modifier?: string;

@@ -11,6 +11,7 @@ import './PaymentPage.scss';
 const PaymentPage = ({ match }) => {
   const history = useHistory();
   const [flipped, setFlipped] = useState(false);
+  const [placeholder, setPlaceholder] = useState('Month/Year');
   const [fields, setFields] = useBookingForm({
     number: '000000000000',
     name: 'Full Name',
@@ -32,8 +33,8 @@ const PaymentPage = ({ match }) => {
           bank="itau"
           type="gold"
           brand="visa"
-          number={fields.number}
-          cvv={fields.cvv}
+          number={fields.number.substring(0, 15)}
+          cvv={fields.cvv.substring(0, 3)}
           holderName={fields.name}
           expiration={fields.expiry.replace('-', '/')}
           flipped={flipped}
@@ -68,8 +69,9 @@ const PaymentPage = ({ match }) => {
             id="expiry"
             value={fields.expiry}
             handleInputChange={setFields}
-            placeholder="Month/Year"
+            placeholder={placeholder}
             modifier="month"
+            handleFocus={() => setPlaceholder('')}
           />
         </form>
         <Button text="Confirm & pay" modifier="small" handleClick={toPay} />

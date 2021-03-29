@@ -9,19 +9,17 @@ const Input = ({
   modifier,
   id,
   handleClick,
-  minLength,
-  maxLength
+  handleFocus
 }: InputProps) => {
   return (
     <input
       id={id}
       onClick={handleClick}
       onChange={handleInputChange}
+      onFocus={handleFocus}
       placeholder={placeholder}
       type={type}
       className={`input input--${modifier}`}
-      min={2020}
-      max={2040}
     />
   );
 };

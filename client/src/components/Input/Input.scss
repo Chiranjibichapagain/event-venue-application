@@ -14,4 +14,12 @@
     position: absolute;
     color: #999999;
   }
+
+  &--month {
+    color: $light;
+  }
+
+  &--month:focus {
+    color: $dark;
+  }
 }
