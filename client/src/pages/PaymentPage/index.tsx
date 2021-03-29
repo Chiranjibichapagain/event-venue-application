@@ -12,10 +12,10 @@ const PaymentPage = ({ match }) => {
   const history = useHistory();
   const [flipped, setFlipped] = useState(false);
   const [fields, setFields] = useBookingForm({
-    number: '',
-    name: '',
+    number: '000000000000',
+    name: 'Full Name',
     cvv: '',
-    expiry: ''
+    expiry: 'Month-Year'
   });
 
   console.log('oooooo--', flipped);
@@ -30,7 +30,7 @@ const PaymentPage = ({ match }) => {
       <div className="pay__body">
         <PaymentCard
           bank="itau"
-          type="black"
+          type="gold"
           brand="visa"
           number={fields.number}
           cvv={fields.cvv}
@@ -68,7 +68,8 @@ const PaymentPage = ({ match }) => {
             id="expiry"
             value={fields.expiry}
             handleInputChange={setFields}
-            placeholder="Month"
+            placeholder="Month/Year"
+            modifier="month"
           />
         </form>
         <Button text="Confirm & pay" modifier="small" handleClick={toPay} />

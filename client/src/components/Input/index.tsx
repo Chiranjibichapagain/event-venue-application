@@ -20,8 +20,8 @@ const Input = ({
       placeholder={placeholder}
       type={type}
       className={`input input--${modifier}`}
-      min={minLength}
-      max={maxLength}
+      min={2020}
+      max={2040}
     />
   );
 };

@@ -8,4 +8,10 @@
   padding: 5px 10px;
   font-size: $t-x-s;
   background-color: $light;
+
+  &--month::before {
+    content: attr(placeholder);
+    position: absolute;
+    color: #999999;
+  }
 }
