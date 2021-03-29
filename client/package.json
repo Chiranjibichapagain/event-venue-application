@@ -23,7 +23,7 @@
     "react-google-login": "^5.2.2",
     "react-icons": "^4.2.0",
     "react-modern-calendar-datepicker": "^3.1.6",
-    "react-payment-inputs": "^1.1.7",
+    "react-payment-card-component": "^0.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-time-picker": "^4.2.1",

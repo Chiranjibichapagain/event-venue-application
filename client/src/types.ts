@@ -36,9 +36,12 @@ export type FilterProps = {
 
 export type InputProps = {
   handleInputChange: () => void;
+  handleClick?: () => void;
   placeholder: string;
   type: string;
   modifier?: string;
   value: string | number;
   id: string;
+  minLength?: number;
+  maxLength?: number;
 };

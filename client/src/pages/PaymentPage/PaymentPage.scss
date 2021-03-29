@@ -1,9 +1,10 @@
 @import '../../scss/config';
 
-.booking {
+.pay {
   width: 95vw;
   margin: 0px auto;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
