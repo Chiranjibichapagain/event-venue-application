@@ -5,8 +5,10 @@ import Button from '../../components/Button';
 
 import './PaymentPage.scss';
 
-const PaymentPage = () => {
+const PaymentPage = ({ match }) => {
   const history = useHistory();
+
+  console.log('oooooo--', match.params.bookingInfo);
 
   const toPay = () => {
     history.push('/');

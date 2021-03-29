@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 
-import { FaUsers } from 'react-icons/fa';
+import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../../components/Button';
 import { useBookingForm } from '../../Hooks/useBookingForm';
 import Input from '../../components/Input';
@@ -16,7 +16,6 @@ const BookingPage = ({ match }) => {
   const venue = data && data.find((item) => item.id === parseInt(id));
 
   const history = useHistory();
-  const price = 20;
 
   const [fields, setFields] = useBookingForm({
     name: '',
@@ -28,15 +27,28 @@ const BookingPage = ({ match }) => {
   const { name, email, phone, message } = fields;
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
+  const totalCost = venue ? venue.price * selectedDays.length : 0;
+
+  const bookingInfo = {
+    selectedDays,
+    totalCost,
+    fields
+  };
+
+  console.log('try-it', bookingInfo);
 
   const toPay = () => {
-    history.push(`/venue/${price}/payment`);
+    history.push(`/venue/${totalCost}/payment`);
   };
 
   return (
     <div className="booking">
       <div className="booking__head">
         <p className="booking__text booking__text--big">{venue?.venueName}</p>{' '}
+        <div className="booking__people-div">
+          <FaMapMarkerAlt color="#2a2a2a" size={30} />
+          <p className="booking__text booking__text--medium"> {venue?.address} </p>
+        </div>
         <div className="booking__people-div">
           <FaUsers color="#2a2a2a" size={35} />
           <p className="booking__text booking__text--medium"> {venue?.people} </p>
