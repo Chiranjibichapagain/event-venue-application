@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from '../../components/Button';
 
 import Input from '../../components/Input';
 import { useForm } from '../../Hooks/useForm';
@@ -6,6 +7,7 @@ import { useForm } from '../../Hooks/useForm';
 import './AdminLoginPage.scss';
 
 function AdminLoginPage() {
+  const [pageView, setPageView] = useState('login');
   const [fields, setFields] = useForm({
     name: '',
     email: '',
@@ -13,40 +15,74 @@ function AdminLoginPage() {
     rePassword: ''
   });
   const { name, email, password, rePassword } = fields;
+
+  const handleLogin = () => {
+    console.log('loggedd in!!');
+  };
+
   return (
     <div className="admin-log">
-      <div className="admin-log__login">
-        <Input
-          type="text"
-          handleInputChange={setFields}
-          placeholder="Email"
-          id="email"
-          value={email}
-        />
-        <Input
-          type="password"
-          handleInputChange={setFields}
-          placeholder="Password"
-          id="password"
-          value={password}
-        />
-      </div>
-      <div className="admin-log__register">
-        <Input
-          type="text"
-          handleInputChange={setFields}
-          placeholder="Email"
-          id="email"
-          value={email}
-        />
-        <Input
-          type="password"
-          handleInputChange={setFields}
-          placeholder="Password"
-          id="password"
-          value={password}
-        />
-      </div>
+      {pageView === 'login' && (
+        <div className="admin-log__form">
+          <h1 className="admin-log__heading">Log In</h1>
+          <Input
+            type="text"
+            handleInputChange={setFields}
+            placeholder="Email"
+            id="email"
+            value={email}
+          />
+          <Input
+            type="password"
+            handleInputChange={setFields}
+            placeholder="Password"
+            id="password"
+            value={password}
+          />
+          <Button text="Login" modifier="small" handleClick={handleLogin} />
+          <p>
+            Create a new account? <span onClick={() => setPageView('register')}>Create</span>
+          </p>
+        </div>
+      )}
+
+      {pageView === 'register' && (
+        <div className="admin-log__form">
+          <h1 className="admin-log__heading">Create an Account</h1>
+          <Input
+            type="text"
+            handleInputChange={setFields}
+            placeholder="Full Name"
+            id="name"
+            value={name}
+          />
+          <Input
+            type="text"
+            handleInputChange={setFields}
+            placeholder="Email"
+            id="email"
+            value={email}
+          />
+          <Input
+            type="password"
+            handleInputChange={setFields}
+            placeholder="Password"
+            id="password"
+            value={password}
+          />
+          <Input
+            type="password"
+            handleInputChange={setFields}
+            placeholder="Re-Password"
+            id="rePpassword"
+            value={rePassword}
+          />
+          <Button text="Create Account" modifier="small" handleClick={handleLogin} />
+          <p>
+            Already have an account? <span onClick={() => setPageView('login')}>Login</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 }
