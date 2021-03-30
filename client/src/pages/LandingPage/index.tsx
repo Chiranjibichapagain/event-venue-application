@@ -1,11 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import Button from '../../components/Button';
 import Room from '../../components/Room';
 
 import './LandingPage.scss';
+
 const LandingPage = () => {
+  const history = useHistory();
+
   const handleClick = () => {
-    console.log('clicked');
+    history.push('/');
   };
   return (
     <div className="landing">
