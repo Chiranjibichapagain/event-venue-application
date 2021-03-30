@@ -1,0 +1,47 @@
+@import '../../scss/config';
+
+.admin {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  &__aside {
+    width: 18%;
+    height: 100vh;
+    background-color: $light;
+    border-radius: $r-medium;
+    border-top: 4px solid $light;
+    border-left: 4px solid $light;
+  }
+
+  &__nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5em;
+    border-radius: 6px 0px 0px 6px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &--active {
+      background-color: $lightRed;
+    }
+  }
+
+  &__icon {
+    margin-right: 0.8em;
+    font-size: $t-medium;
+    color: $primary;
+  }
+
+  &__nav-text {
+    width: 5em;
+    color: $dark;
+    font-size: $t-small;
+  }
+
+  &__main {
+    width: 72%;
+  }
+}
