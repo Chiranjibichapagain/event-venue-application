@@ -11,11 +11,11 @@ import PaymentPage from './pages/PaymentPage';
 
 const Routes = () => (
   <Switch>
-    <ProtectedRoute exact path="/" component={HomePage} />
+    <Route exact path="/" component={HomePage} />
     <Route exact path="/welcomepage" component={LandingPage} />
-    <ProtectedRoute exact path="/venue/:venueId" component={VenuePage} />
-    <ProtectedRoute exact path="/venue/:venueId/booking" component={BookingPage} />
-    <ProtectedRoute exact path="/venue/:bookingInfo/payment" component={PaymentPage} />
+    <Route exact path="/venue/:venueId" component={VenuePage} />
+    <Route exact path="/venue/:venueId/booking" component={BookingPage} />
+    <Route exact path="/venue/:bookingInfo/payment" component={PaymentPage} />
     <ProtectedRoute exact path="/admin" component={AdminPage} />
     {/* path '/' without exact will take anything that doesn't match to other routes to this route */}
     <Route path="/" component={LandingPage} />

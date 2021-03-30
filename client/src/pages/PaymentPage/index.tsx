@@ -10,6 +10,7 @@ import './PaymentPage.scss';
 
 const PaymentPage = ({ match }) => {
   const history = useHistory();
+  const [payType, setPayType] = useState('card');
   const [flipped, setFlipped] = useState(false);
   const [placeholder, setPlaceholder] = useState('Month/Year');
   const [fields, setFields] = useBookingForm({
@@ -19,15 +20,13 @@ const PaymentPage = ({ match }) => {
     expiry: 'Month-Year'
   });
 
-  console.log('oooooo--', flipped);
-
   const toPay = () => {
     history.push('/');
   };
 
   return (
     <div className="pay">
-      <div className="pay__head">This is payment page</div>
+      <h1 className="pay__head">Make payment</h1>
       <div className="pay__body">
         <PaymentCard
           bank="itau"
@@ -39,7 +38,7 @@ const PaymentPage = ({ match }) => {
           expiration={fields.expiry.replace('-', '/')}
           flipped={flipped}
         />
-        <form>
+        <form className="pay__form">
           <Input
             type="number"
             id="number"
@@ -55,16 +54,6 @@ const PaymentPage = ({ match }) => {
             placeholder="Card holder's name"
           />
           <Input
-            type="text"
-            id="cvv"
-            value={fields.cvv}
-            handleInputChange={setFields}
-            handleClick={() => setFlipped(true)}
-            placeholder="CVV"
-            minLength={3}
-            maxLength={3}
-          />
-          <Input
             type="month"
             id="expiry"
             value={fields.expiry}
@@ -73,8 +62,19 @@ const PaymentPage = ({ match }) => {
             modifier="month"
             handleFocus={() => setPlaceholder('')}
           />
+          <Input
+            type="text"
+            id="cvv"
+            value={fields.cvv}
+            handleInputChange={setFields}
+            handleFocus={() => setFlipped(true)}
+            handleBlur={() => setFlipped(false)}
+            placeholder="CVV"
+            minLength={3}
+            maxLength={3}
+          />
+          <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
         </form>
-        <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
       </div>
     </div>
   );

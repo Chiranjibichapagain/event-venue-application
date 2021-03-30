@@ -38,6 +38,7 @@ export type InputProps = {
   handleInputChange: () => void;
   handleClick?: () => void;
   handleFocus?: () => void;
+  handleBlur?: () => void;
   placeholder: string;
   type: string;
   modifier?: string;

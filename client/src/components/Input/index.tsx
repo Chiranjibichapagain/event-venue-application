@@ -9,7 +9,8 @@ const Input = ({
   modifier,
   id,
   handleClick,
-  handleFocus
+  handleFocus,
+  handleBlur
 }: InputProps) => {
   return (
     <input
@@ -17,6 +18,7 @@ const Input = ({
       onClick={handleClick}
       onChange={handleInputChange}
       onFocus={handleFocus}
+      onBlur={handleBlur}
       placeholder={placeholder}
       type={type}
       className={`input input--${modifier}`}
