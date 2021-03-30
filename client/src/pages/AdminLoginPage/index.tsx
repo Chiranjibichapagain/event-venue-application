@@ -19,6 +19,9 @@ function AdminLoginPage() {
   const handleLogin = () => {
     console.log('loggedd in!!');
   };
+  const handleCreateAccount = () => {
+    console.log('created!!');
+  };
 
   return (
     <div className="admin-log">
@@ -40,8 +43,11 @@ function AdminLoginPage() {
             value={password}
           />
           <Button text="Login" modifier="small" handleClick={handleLogin} />
-          <p>
-            Create a new account? <span onClick={() => setPageView('register')}>Create</span>
+          <p className="admin-log__text">
+            Create a new account?{' '}
+            <span className="admin-log__link" onClick={() => setPageView('register')}>
+              Create
+            </span>
           </p>
         </div>
       )}
@@ -77,9 +83,12 @@ function AdminLoginPage() {
             id="rePpassword"
             value={rePassword}
           />
-          <Button text="Create Account" modifier="small" handleClick={handleLogin} />
-          <p>
-            Already have an account? <span onClick={() => setPageView('login')}>Login</span>
+          <Button text="Create Account" modifier="small" handleClick={handleCreateAccount} />
+          <p className="admin-log__text">
+            Already have an account?{' '}
+            <span className="admin-log__link" onClick={() => setPageView('login')}>
+              Login
+            </span>
           </p>
         </div>
       )}

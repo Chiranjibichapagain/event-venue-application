@@ -2,7 +2,7 @@
 
 .admin-log {
   width: 90%;
-  margin: 10px auto;
+  margin: 0px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,7 @@
   &__heading {
     font-family: $open-sans;
     color: $dark;
+    letter-spacing: 5px;
   }
 
   &__form {
@@ -18,5 +19,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: form 1s ease-in-out, forwards;
+  }
+
+  &__text {
+    font-size: $t-x-s;
+    color: $dark;
+  }
+
+  &__link {
+    font-size: $t-x-s;
+    color: $link;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+@keyframes form {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
