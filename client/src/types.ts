@@ -13,6 +13,12 @@ export type ButtonProps = {
   handleClick: (() => void) | ((id: any) => void);
 };
 
+export type booking = {
+  day: number;
+  month: number;
+  year: number;
+};
+
 export type Venue = {
   id: number;
   venueName: string;
@@ -23,6 +29,7 @@ export type Venue = {
   features: string[];
   price: number;
   address: string;
+  bookings: booking[];
 };
 
 export type VenueProps = {
