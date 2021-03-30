@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useBookingForm = (initialState: any) => {
+export const useForm = (initialState: any) => {
   const [fields, setFields] = useState(initialState);
 
   return [

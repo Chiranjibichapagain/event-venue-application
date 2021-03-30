@@ -3,17 +3,16 @@ import { useHistory } from 'react-router-dom';
 import PaymentCard from 'react-payment-card-component';
 
 import Button from '../../components/Button';
-import { useBookingForm } from '../../Hooks/useBookingForm';
+import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
 
 import './PaymentPage.scss';
 
 const PaymentPage = ({ match }) => {
   const history = useHistory();
-  const [payType, setPayType] = useState('card');
   const [flipped, setFlipped] = useState(false);
   const [placeholder, setPlaceholder] = useState('Month/Year');
-  const [fields, setFields] = useBookingForm({
+  const [fields, setFields] = useForm({
     number: '000000000000',
     name: 'Full Name',
     cvv: '',

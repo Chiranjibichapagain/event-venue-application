@@ -5,11 +5,11 @@ import { Calendar, Day } from 'react-modern-calendar-datepicker';
 
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../../components/Button';
-import { useBookingForm } from '../../Hooks/useBookingForm';
+import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
+import { data } from '../../utils/dummydata';
 
 import './Bookingpage.scss';
-import { data } from '../../utils/dummydata';
 
 const BookingPage = ({ match }) => {
   const id = match.params.venueId;
@@ -17,7 +17,7 @@ const BookingPage = ({ match }) => {
 
   const history = useHistory();
 
-  const [fields, setFields] = useBookingForm({
+  const [fields, setFields] = useForm({
     name: '',
     email: '',
     phone: '',
