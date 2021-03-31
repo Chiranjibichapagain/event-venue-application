@@ -1,27 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
-import { Calendar, Day } from 'react-modern-calendar-datepicker';
+
 import { FaCalendar, FaIgloo, FaPlusCircle } from 'react-icons/fa';
 
 import { data } from '../../utils/dummydata';
 
 import './AdminPage.scss';
 import Input from '../../components/Input';
-import { Venue } from '../../types';
+import AdminBooking from '../../components/AdminBooking';
 
 function AdminPage() {
   const [view, setView] = useState('bookings');
-  const [venueSelection, setVenueSelection] = useState('Longue-1');
-  const [venue, setVenue] = useState<Venue>();
-  const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
-
-  useEffect(() => {
-    const venueData = data.find((v) => v.venueName === venueSelection);
-    console.log('try--', venueData);
-    setVenue(venueData);
-  }, [venueSelection]);
-
-  console.log('xx--', venueSelection);
 
   return (
     <div className="admin">
@@ -56,28 +44,7 @@ function AdminPage() {
       </div>
 
       <div className="admin__main">
-        {view === 'bookings' && (
-          <div className="admin__bookings">
-            <select
-              className="admin__select"
-              onChange={(e: any): void => setVenueSelection(e.target.value)}
-              value={venueSelection}
-            >
-              {data.map((v, index) => (
-                <option key={index}>{v.venueName}</option>
-              ))}
-            </select>
-            <Calendar
-              calendarClassName="admin__calender"
-              calendarSelectedDayClassName="calender__selected"
-              value={selectedDays}
-              onChange={setSelectedDays}
-              onDisabledDayError={() => window.alert('This date are already booked!')}
-              shouldHighlightWeekends
-              disabledDays={venue?.bookings}
-            />
-          </div>
-        )}
+        {view === 'bookings' && <AdminBooking data={data} />}
         {view === 'venues' && (
           <div>
             <h1>Venue List</h1>

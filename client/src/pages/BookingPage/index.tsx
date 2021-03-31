@@ -8,12 +8,14 @@ import Button from '../../components/Button';
 import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
 import { data } from '../../utils/dummydata';
+import { useExtractDays } from '../../Hooks/useExtractDays';
 
 import './Bookingpage.scss';
 
 const BookingPage = ({ match }) => {
   const id = match.params.venueId;
   const venue = data && data.find((item) => item.id === parseInt(id));
+  const [bookings] = useExtractDays(venue);
 
   const history = useHistory();
 
@@ -64,7 +66,7 @@ const BookingPage = ({ match }) => {
             onChange={setSelectedDays}
             onDisabledDayError={() => window.alert('This date are already booked!')}
             shouldHighlightWeekends
-            disabledDays={venue?.bookings}
+            disabledDays={bookings}
           />
         </div>
         <div className="booking__form">

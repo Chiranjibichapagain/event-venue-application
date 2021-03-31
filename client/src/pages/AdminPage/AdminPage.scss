@@ -53,27 +53,4 @@
     letter-spacing: 5px;
     margin: 0;
   }
-
-  &__bookings {
-    width: 50%;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__select {
-    width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: $r-small;
-    background-color: white;
-    padding: 5px 10px;
-    margin-bottom: 20px;
-    font-size: $t-small;
-  }
-
-  &__calender {
-    width: 100%;
-  }
 }

@@ -1,3 +1,5 @@
+import { Day } from 'react-modern-calendar-datepicker';
+
 export type UserData = {
   email: string;
   familyName: string;
@@ -13,10 +15,16 @@ export type ButtonProps = {
   handleClick: (() => void) | ((id: any) => void);
 };
 
-export type booking = {
-  day: number;
-  month: number;
-  year: number;
+export type ClientInfo = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+export type Booking = {
+  dateInfo: Day;
+  clientInfo: ClientInfo;
 };
 
 export type Venue = {
@@ -29,7 +37,7 @@ export type Venue = {
   features: string[];
   price: number;
   address: string;
-  bookings: booking[];
+  bookings: Booking[];
 };
 
 export type VenueProps = {
@@ -53,4 +61,8 @@ export type InputProps = {
   id: string;
   minLength?: number;
   maxLength?: number;
+};
+
+export type AdminBookingsProps = {
+  data: Venue[];
 };

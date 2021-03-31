@@ -30,14 +30,32 @@ export const data = [
     address: 'Markkinatie 16 00800 Helsinki',
     bookings: [
       {
-        day: 15,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 15,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 16,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   },
@@ -61,14 +79,32 @@ export const data = [
     address: 'Alutie 16 00800 Helsinki',
     bookings: [
       {
-        day: 13,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 2,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 6,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   },
@@ -92,14 +128,32 @@ export const data = [
     address: 'maalatie 27 00500 Espoo',
     bookings: [
       {
-        day: 15,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 13,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 16,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   },
@@ -116,14 +170,32 @@ export const data = [
     address: 'markkinatie 77 00800 Helsinki',
     bookings: [
       {
-        day: 15,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 10,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 11,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   },
@@ -148,14 +220,32 @@ export const data = [
     address: 'markkikaari 1 00800 Helsinki',
     bookings: [
       {
-        day: 15,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 11,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 14,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   },
@@ -180,14 +270,32 @@ export const data = [
     address: 'markkikaari 1 00800 Helsinki',
     bookings: [
       {
-        day: 15,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 15,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Chiranjibi Chapagain',
+          email: 'chiranjibichapagain@gmail.com',
+          phone: '0767888876',
+          message:
+            'Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       },
       {
-        day: 16,
-        month: 4,
-        year: 2021
+        dateInfo: {
+          day: 16,
+          month: 4,
+          year: 2021
+        },
+        clientInfo: {
+          name: 'Rajiv Koirala',
+          email: 'rajivkoirala@gmail.com',
+          phone: '0767009976',
+          message:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec dui massa. Nulla vehicula massa eu risus ornare vestibulum. Donec congue feugiat diam. Sed elementum quam sit amet nibh convallis, non vehicula metus pretium. Sed imperdiet tristique ligula in efficitur. Nunc id lorem elementum, scelerisque velit sed, pellentesque magna. Proin sed turpis efficitur, euismod sem quis, ornare nisl. '
+        }
       }
     ]
   }
