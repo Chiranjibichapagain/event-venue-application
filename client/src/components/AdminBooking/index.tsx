@@ -15,7 +15,7 @@ const AdminBooking = ({ data }: AdminBookingsProps) => {
   const [bookings] = useExtractDays(venue);
   const bookingInfo = venue?.bookings.find((b) => b.dateInfo === selectedDays[0]);
 
-  console.log('selected--', selectedDays);
+  console.log('selected--', bookingInfo);
 
   useEffect(() => {
     const venueData = data.find((v) => v.venueName === venueSelection);
@@ -42,30 +42,32 @@ const AdminBooking = ({ data }: AdminBookingsProps) => {
           shouldHighlightWeekends
         />
       </div>
-      <div className="admin-bookings__info">
-        <h2 className="admin-bookings__info-title">Booking Details</h2>
-        <div className="admin-bookings__info-item">
-          <FaCalendar size={30} color="#195e4b" />
-          <p className="admin-bookings__info-text">{`${bookingInfo?.dateInfo.day}-${bookingInfo?.dateInfo.month}-${bookingInfo?.dateInfo.year}`}</p>
+      {bookingInfo && (
+        <div className="admin-bookings__info">
+          <h2 className="admin-bookings__info-title">Booking Details</h2>
+          <div className="admin-bookings__info-item">
+            <FaCalendar size={30} color="#195e4b" />
+            <p className="admin-bookings__info-text">{`${bookingInfo?.dateInfo.day}-${bookingInfo?.dateInfo.month}-${bookingInfo?.dateInfo.year}`}</p>
+          </div>
+          <div className="admin-bookings__info-item">
+            <FaUser size={30} color="#195e4b" />
+            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.name}</p>
+          </div>
+          <div className="admin-bookings__info-item">
+            <FaEnvelope size={30} color="#195e4b" />
+            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.email}</p>
+          </div>
+          <div className="admin-bookings__info-item">
+            <FaPhoneAlt size={30} color="#195e4b" />
+            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.phone}</p>
+          </div>
+          <div className="admin-bookings__info-item">
+            <p className="admin-bookings__info-text admin-bookings__info-text--msg">
+              {bookingInfo?.clientInfo.message}
+            </p>
+          </div>
         </div>
-        <div className="admin-bookings__info-item">
-          <FaUser size={30} color="#195e4b" />
-          <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.name}</p>
-        </div>
-        <div className="admin-bookings__info-item">
-          <FaEnvelope size={30} color="#195e4b" />
-          <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.email}</p>
-        </div>
-        <div className="admin-bookings__info-item">
-          <FaPhoneAlt size={30} color="#195e4b" />
-          <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.phone}</p>
-        </div>
-        <div className="admin-bookings__info-item">
-          <p className="admin-bookings__info-text admin-bookings__info-text--msg">
-            {bookingInfo?.clientInfo.message}
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

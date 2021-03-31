@@ -9,6 +9,7 @@
 
   &__calender-div {
     width: 50%;
+    height: 100%;
   }
 
   &__info {
@@ -25,7 +26,7 @@
   &__info-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
 
   &__info-text {
