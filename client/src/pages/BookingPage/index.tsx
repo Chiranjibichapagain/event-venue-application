@@ -2,8 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
-
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+
 import Button from '../../components/Button';
 import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';

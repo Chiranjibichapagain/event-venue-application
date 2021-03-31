@@ -56,10 +56,10 @@ function AdminPage() {
       </div>
 
       <div className="admin__main">
-        <h1 className="admin__heading">Admin Dashboard</h1>
         {view === 'bookings' && (
-          <div>
+          <div className="admin__bookings">
             <select
+              className="admin__select"
               onChange={(e: any): void => setVenueSelection(e.target.value)}
               value={venueSelection}
             >
