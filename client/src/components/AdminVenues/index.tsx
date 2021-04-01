@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AdminVenuesProps, Venue } from '../../types';
 import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -9,6 +10,7 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
   const [venueSelection, setVenueSelection] = useState('Longue-1');
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [venue, setVenue] = useState<Venue>();
+  const history = useHistory();
 
   useEffect(() => {
     const venueData = data.find((v) => v.venueName === venueSelection);
@@ -20,6 +22,10 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
   };
   const handleLeftArrow = () => {
     venue && setCurrentImage(currentImage === 0 ? venue.photos.length - 1 : currentImage - 1);
+  };
+
+  const editVenue = () => {
+    history.push(`/admin/venueEdit/${venue?.id}`);
   };
 
   return (
@@ -93,7 +99,7 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
             <div className="admin-venues__bottom-div">
               <div className="admin-venues__price-div">{venue.price}€/h</div>
               <div className="admin-venues__button-div">
-                <Button modifier="small" handleClick={() => console.log('xxx')} text="Edit" />
+                <Button modifier="small" handleClick={editVenue} text="Edit" />
               </div>
             </div>
           </div>

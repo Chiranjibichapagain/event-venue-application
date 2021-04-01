@@ -9,6 +9,7 @@ import BookingPage from './pages/BookingPage';
 import ProtectedRoute from './utils/ProtectedRoute';
 import PaymentPage from './pages/PaymentPage';
 import AdminLoginPage from './pages/AdminLoginPage';
+import VenueEditPage from './pages/VenueEditPage';
 
 const Routes = () => (
   <Switch>
@@ -19,6 +20,7 @@ const Routes = () => (
     <Route exact path="/venue/:bookingInfo/payment" component={PaymentPage} />
     <Route exact path="/admin" component={AdminPage} />
     <Route exact path="/admin/login" component={AdminLoginPage} />
+    <Route exact path="/admin/venueEdit/:id" component={VenueEditPage} />
     {/* path '/' without exact will take anything that doesn't match to other routes to this route */}
     <Route path="/" component={LandingPage} />
   </Switch>
