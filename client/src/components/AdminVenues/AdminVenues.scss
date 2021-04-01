@@ -1,0 +1,14 @@
+@import '../../scss/config';
+
+.admin-venues {
+  &__select {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: $r-small;
+    background-color: white;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    font-size: $t-small;
+  }
+}

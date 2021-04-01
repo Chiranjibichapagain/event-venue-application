@@ -7,6 +7,8 @@ import { data } from '../../utils/dummydata';
 import './AdminPage.scss';
 import Input from '../../components/Input';
 import AdminBooking from '../../components/AdminBooking';
+import AdminVenues from '../../components/AdminVenues';
+import AdminAddVenue from '../../components/AdminAddVenue';
 
 function AdminPage() {
   const [view, setView] = useState('bookings');
@@ -45,16 +47,8 @@ function AdminPage() {
 
       <div className="admin__main">
         {view === 'bookings' && <AdminBooking data={data} />}
-        {view === 'venues' && (
-          <div>
-            <h1>Venue List</h1>
-          </div>
-        )}
-        {view === 'new-venue' && (
-          <div>
-            <h1>Create New venue</h1>
-          </div>
-        )}
+        {view === 'venues' && <AdminVenues data={data} />}
+        {view === 'new-venue' && <AdminAddVenue />}
       </div>
     </div>
   );

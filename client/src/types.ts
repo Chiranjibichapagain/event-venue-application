@@ -66,3 +66,7 @@ export type InputProps = {
 export type AdminBookingsProps = {
   data: Venue[];
 };
+
+export type AdminVenuesProps = {
+  data: Venue[];
+};
