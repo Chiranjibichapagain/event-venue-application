@@ -3,6 +3,7 @@ import { AdminVenuesProps, Venue } from '../../types';
 import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 
 import './AdminVenues.scss';
+import Button from '../Button';
 
 const AdminVenues = ({ data }: AdminVenuesProps) => {
   const [venueSelection, setVenueSelection] = useState('Longue-1');
@@ -23,7 +24,6 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
 
   return (
     <div className="admin-venues">
-      <h1 className="admin-venues__title">Venues</h1>
       <select
         className="admin-venues__select"
         onChange={(e: any): void => setVenueSelection(e.target.value)}
@@ -92,7 +92,9 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
             </div>
             <div className="admin-venues__bottom-div">
               <div className="admin-venues__price-div">{venue.price}€/h</div>
-              <div className="admin-venues__botton-div"></div>
+              <div className="admin-venues__button-div">
+                <Button modifier="small" handleClick={() => console.log('xxx')} text="Edit" />
+              </div>
             </div>
           </div>
         </div>
