@@ -1,0 +1,22 @@
+@import '../../scss/config';
+
+.textarea {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1.5px solid $dark;
+  border-radius: $r-small;
+  margin: 10px 0px;
+  font-size: $t-small;
+}
+
+@media screen and (max-width: 768px) {
+  .textarea {
+    font-size: $t-big;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .textarea {
+    font-size: $t-xl;
+  }
+}
