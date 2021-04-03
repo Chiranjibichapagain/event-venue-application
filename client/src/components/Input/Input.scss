@@ -9,7 +9,7 @@
   padding: 5px 10px;
   font-size: $t-x-s;
   background-color: $light;
-  color: red;
+  color: $dark;
 
   &--month::before {
     content: attr(placeholder);

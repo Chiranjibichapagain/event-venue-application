@@ -16,13 +16,11 @@ const VenueEditPage = ({ match }) => {
 
   const { name } = fields;
 
-  console.log('xxxx--', name);
-
   return (
     <div className="venue-edit">
       <h1 className="venue-edit__heading">Update Venue Information</h1>
-      <div>
-        <Input id="name" value="venue 101" handleInputChange={setFields} type="text" />
+      <div className="venue-edit__form">
+        <Input id="name" value={name} handleInputChange={setFields} type="text" />
       </div>
     </div>
   );

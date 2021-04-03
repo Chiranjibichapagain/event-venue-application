@@ -1,1 +1,16 @@
 @import '../../scss/config';
+
+.venue-edit {
+  width: 95vw;
+  margin: 0px auto;
+  @include absolute-center;
+  flex-direction: column;
+
+  &__heading {
+    margin: 0 0 20px 0;
+  }
+
+  &__form {
+    width: 40%;
+  }
+}
