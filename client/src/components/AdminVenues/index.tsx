@@ -92,8 +92,10 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
             <p className="admin-venues__desc">{venue.description}</p>
             <p className="admin-venues__desc-title">features</p>
             <div className="admin-venues__features">
-              {venue.features.map((f) => (
-                <p className="admin-venues__feature">{f}</p>
+              {venue.features.map((f, index) => (
+                <p key={index} className="admin-venues__feature">
+                  {f}
+                </p>
               ))}
             </div>
             <div className="admin-venues__bottom-div">
