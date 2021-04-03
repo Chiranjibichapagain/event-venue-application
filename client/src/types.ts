@@ -54,7 +54,7 @@ export type InputProps = {
   handleClick?: () => void;
   handleFocus?: () => void;
   handleBlur?: () => void;
-  placeholder: string;
+  placeholder?: string;
   type: string;
   modifier?: string;
   value: string | number;
