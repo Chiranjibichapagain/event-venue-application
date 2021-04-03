@@ -1,8 +1,9 @@
 import React from 'react';
+import { TextareaProps } from '../../types';
 
 import './Textarea.scss';
 
-const Textarea = ({ placeholder, handleInputChange, value, id, rows }) => {
+const Textarea = ({ placeholder, handleInputChange, value, id, rows }: TextareaProps) => {
   return (
     <textarea
       className="textarea"

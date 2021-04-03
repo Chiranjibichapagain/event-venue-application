@@ -62,6 +62,14 @@ export type InputProps = {
   minLength?: number;
   maxLength?: number;
 };
+export type TextareaProps = {
+  handleInputChange: () => void;
+  placeholder?: string;
+  type: string;
+  value: string | number;
+  id: string;
+  rows: number;
+};
 
 export type AdminBookingsProps = {
   data: Venue[];

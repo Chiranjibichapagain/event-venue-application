@@ -5,6 +5,7 @@ import { useForm } from '../../Hooks/useForm';
 
 import './VenueEditPage.scss';
 import Input from '../../components/Input';
+import Textarea from '../../components/Textarea';
 
 const VenueEditPage = ({ match }) => {
   const id = match.params.id;
@@ -16,11 +17,12 @@ const VenueEditPage = ({ match }) => {
     area: venue?.area,
     address: venue?.address,
     people: venue?.people,
-    desription: venue?.description
+    description: venue?.description
   });
 
   const { name, price, address, people, area, description } = fields;
 
+  console.log('xxxx--', description);
   return (
     <div className="venue-edit">
       <h1 className="venue-edit__heading">Update Venue Information</h1>
@@ -31,6 +33,13 @@ const VenueEditPage = ({ match }) => {
         <Input id="people" value={people} handleInputChange={setFields} type="number" />
         <Input id="price" value={price} handleInputChange={setFields} type="number" />
         <Input id="name" value={name} handleInputChange={setFields} type="text" />
+        <Textarea
+          id="description"
+          value={description}
+          handleInputChange={setFields}
+          type="text"
+          rows={4}
+        />
       </div>
     </div>
   );
