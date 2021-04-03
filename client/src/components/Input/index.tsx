@@ -8,6 +8,7 @@ const Input = ({
   type,
   modifier,
   id,
+  value,
   handleClick,
   handleFocus,
   handleBlur
@@ -15,6 +16,7 @@ const Input = ({
   return (
     <input
       id={id}
+      value={value}
       onClick={handleClick}
       onChange={handleInputChange}
       onFocus={handleFocus}
