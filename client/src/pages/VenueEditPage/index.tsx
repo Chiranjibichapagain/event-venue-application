@@ -7,6 +7,9 @@ import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
 
+import image1 from '../../Assets/data_photos/chuttersnap-Q_KdjKxntH8-unsplash.jpg';
+import image8 from '../../Assets/data_photos/slidebean-_6rmAEDLtiQ-unsplash.jpg';
+
 import './VenueEditPage.scss';
 
 const VenueEditPage = ({ match }) => {
@@ -14,6 +17,25 @@ const VenueEditPage = ({ match }) => {
   const venue = data && data.find((item) => item.id === parseInt(id));
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
+
+  const options = [
+    {
+      value: 'image1',
+      label: (
+        <div>
+          <img src={image1} height="30px" width="30px" />
+        </div>
+      )
+    },
+    {
+      value: 'image8',
+      label: (
+        <div>
+          <img src={image8} height="30px" width="30px" />
+        </div>
+      )
+    }
+  ];
 
   const [fields, setFields] = useForm({
     name: venue?.venueName,
@@ -69,12 +91,12 @@ const VenueEditPage = ({ match }) => {
           onChange={handleFeatureListChange}
         />
         <Select
-          options={photoOptions}
+          options={options}
           className="venue-edit__select"
           isMulti
           id="features"
           placeholder="Select features"
-          defaultValue={defaultPhotos}
+          defaultValue={options}
           onChange={handlePhotoListChange}
         />
       </div>
