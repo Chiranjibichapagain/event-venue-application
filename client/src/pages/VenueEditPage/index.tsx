@@ -1,11 +1,13 @@
 import React from 'react';
+import Select from 'react-select';
 
 import { data } from '../../utils/dummydata';
+import { options } from '../../utils/venueFeatures';
 import { useForm } from '../../Hooks/useForm';
-
-import './VenueEditPage.scss';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
+
+import './VenueEditPage.scss';
 
 const VenueEditPage = ({ match }) => {
   const id = match.params.id;
@@ -40,6 +42,7 @@ const VenueEditPage = ({ match }) => {
           type="text"
           rows={4}
         />
+        <Select options={options} className="basic-multi-select" isMulti />
       </div>
     </div>
   );
