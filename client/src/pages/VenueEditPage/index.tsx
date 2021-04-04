@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select';
 
 import { data } from '../../utils/dummydata';
@@ -12,6 +12,7 @@ import './VenueEditPage.scss';
 const VenueEditPage = ({ match }) => {
   const id = match.params.id;
   const venue = data && data.find((item) => item.id === parseInt(id));
+  const [featureList, setFeatureList] = useState([]);
 
   const [fields, setFields] = useForm({
     name: venue?.venueName,
@@ -23,8 +24,17 @@ const VenueEditPage = ({ match }) => {
   });
 
   const { name, price, address, people, area, description } = fields;
+  const defaultSelectValues = venue?.features.map((item) => {
+    return { value: item, label: item };
+  });
 
-  console.log('xxxx--', description);
+  const handleInputChange = (options) => {
+    const feat = options.map((opt) => opt.value);
+    setFeatureList(feat);
+  };
+
+  console.log('features--', featureList);
+
   return (
     <div className="venue-edit">
       <h1 className="venue-edit__heading">Update Venue Information</h1>
@@ -42,7 +52,15 @@ const VenueEditPage = ({ match }) => {
           type="text"
           rows={4}
         />
-        <Select options={options} className="basic-multi-select" isMulti />
+        <Select
+          options={options}
+          className="venue-edit__select"
+          isMulti
+          id="features"
+          placeholder="Select features"
+          defaultValue={defaultSelectValues}
+          onChange={handleInputChange}
+        />
       </div>
     </div>
   );

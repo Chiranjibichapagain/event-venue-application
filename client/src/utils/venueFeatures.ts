@@ -4,12 +4,12 @@ export const options = [
     label: 'Internet'
   },
   {
-    value: 'Sound System',
-    label: 'Sound System'
+    value: 'Sound system',
+    label: 'Sound system'
   },
   {
-    value: 'HD Projector',
-    label: 'HD Projector'
+    value: 'HD projector',
+    label: 'HD projector'
   },
   {
     value: 'Fully equipped kitchen',

@@ -13,4 +13,10 @@
   &__form {
     width: 40%;
   }
+
+  &__select {
+    width: 94%;
+    margin: 10px;
+    border-radius: $r-medium;
+  }
 }
