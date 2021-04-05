@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
@@ -12,11 +13,11 @@ import './VenueEditPage.scss';
 import Button from '../../components/Button';
 
 const VenueEditPage = ({ match }) => {
+  const history = useHistory();
   const id = match.params.id;
   const venue = data && data.find((item) => item.id === parseInt(id));
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
-  const [newPhoto, setNewPhoto] = useState<string>('');
 
   const [fields, setFields] = useForm({
     name: venue?.venueName,
@@ -65,7 +66,7 @@ const VenueEditPage = ({ match }) => {
   };
 
   const handleUpdateVenue = () => {
-    console.log('updated!!');
+    history.push('/admin');
   };
 
   console.log('xxx--', photoList);

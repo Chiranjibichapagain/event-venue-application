@@ -1,0 +1,32 @@
+@import '../../scss/config';
+
+.venue-edit {
+  width: 95vw;
+  margin: 0px auto;
+  @include absolute-center;
+  flex-direction: column;
+
+  &__heading {
+    margin: 0 0 20px 0;
+  }
+
+  &__form {
+    width: 40%;
+    @include absolute-center;
+    flex-direction: column;
+  }
+
+  &__label {
+    width: 100%;
+    margin: 20px 15px 0px 55px;
+    font-family: $roboto;
+    font-weight: bolder;
+    color: $dark;
+  }
+
+  &__select {
+    width: 94%;
+    margin: 10px;
+    border-radius: $r-medium;
+  }
+}
