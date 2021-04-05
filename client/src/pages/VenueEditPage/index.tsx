@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 
 import { data } from '../../utils/dummydata';
-import { featureOptions, photoOptions } from '../../utils/venueConstants';
+import { featureOptions, images } from '../../utils/venueConstants';
 import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
@@ -15,6 +16,7 @@ const VenueEditPage = ({ match }) => {
   const venue = data && data.find((item) => item.id === parseInt(id));
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
+  const [newPhoto, setNewPhoto] = useState<string>('');
 
   const [fields, setFields] = useForm({
     name: venue?.venueName,
@@ -36,7 +38,18 @@ const VenueEditPage = ({ match }) => {
       value: item,
       label: (
         <div>
-          <img src={item} height="100px" width="120px" />
+          <img src={item} height="70px" width="90px" />
+        </div>
+      )
+    };
+  });
+
+  const photoOptions = images.map((item) => {
+    return {
+      value: item,
+      label: (
+        <div>
+          <img src={item} height="70px" width="90px" />
         </div>
       )
     };
@@ -55,7 +68,7 @@ const VenueEditPage = ({ match }) => {
     console.log('updated!!');
   };
 
-  console.log('features--', photoList);
+  console.log('xxx--', photoList);
 
   return (
     <div className="venue-edit">
@@ -90,7 +103,7 @@ const VenueEditPage = ({ match }) => {
           onChange={handleFeatureListChange}
         />
         <p className="venue-edit__label">Venue Photos</p>
-        <Select
+        <CreatableSelect
           options={photoOptions}
           className="venue-edit__select"
           isMulti

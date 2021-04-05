@@ -7,6 +7,8 @@ import image6 from '../Assets/data_photos/febrian-zakaria-BVmOeq52hMI-unsplash.j
 import image7 from '../Assets/data_photos/s-o-c-i-a-l-c-u-t-EwQhB7yNGOU-unsplash.jpg';
 import image8 from '../Assets/data_photos/slidebean-_6rmAEDLtiQ-unsplash.jpg';
 
+export const images = [image1, image2, image3, image4, image5, image6, image7, image8];
+
 export const featureOptions = [
   {
     value: 'Internet',

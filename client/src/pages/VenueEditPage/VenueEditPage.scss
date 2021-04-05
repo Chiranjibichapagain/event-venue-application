@@ -12,10 +12,13 @@
 
   &__form {
     width: 40%;
+    @include absolute-center;
+    flex-direction: column;
   }
 
   &__label {
-    margin: 20px 15px 0px 15px;
+    width: 100%;
+    margin: 20px 15px 0px 55px;
     font-family: $roboto;
     font-weight: bolder;
     color: $dark;
