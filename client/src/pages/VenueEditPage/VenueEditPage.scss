@@ -14,6 +14,13 @@
     width: 40%;
   }
 
+  &__label {
+    margin: 20px 15px 0px 15px;
+    font-family: $roboto;
+    font-weight: bolder;
+    color: $dark;
+  }
+
   &__select {
     width: 94%;
     margin: 10px;

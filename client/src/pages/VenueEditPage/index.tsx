@@ -7,35 +7,14 @@ import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
 
-import image1 from '../../Assets/data_photos/chuttersnap-Q_KdjKxntH8-unsplash.jpg';
-import image8 from '../../Assets/data_photos/slidebean-_6rmAEDLtiQ-unsplash.jpg';
-
 import './VenueEditPage.scss';
+import Button from '../../components/Button';
 
 const VenueEditPage = ({ match }) => {
   const id = match.params.id;
   const venue = data && data.find((item) => item.id === parseInt(id));
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
-
-  const options = [
-    {
-      value: 'image1',
-      label: (
-        <div>
-          <img src={image1} height="30px" width="30px" />
-        </div>
-      )
-    },
-    {
-      value: 'image8',
-      label: (
-        <div>
-          <img src={image8} height="30px" width="30px" />
-        </div>
-      )
-    }
-  ];
 
   const [fields, setFields] = useForm({
     name: venue?.venueName,
@@ -47,11 +26,20 @@ const VenueEditPage = ({ match }) => {
   });
 
   const { name, price, address, people, area, description } = fields;
+
   const defaultFeatures = venue?.features.map((item) => {
     return { value: item, label: item };
   });
+
   const defaultPhotos = venue?.photos.map((item) => {
-    return { value: item, label: item };
+    return {
+      value: item,
+      label: (
+        <div>
+          <img src={item} height="100px" width="120px" />
+        </div>
+      )
+    };
   });
 
   const handleFeatureListChange = (options) => {
@@ -63,15 +51,27 @@ const VenueEditPage = ({ match }) => {
     setPhotoList(photos);
   };
 
+  const handleUpdateVenue = () => {
+    console.log('updated!!');
+  };
+
   console.log('features--', photoList);
 
   return (
     <div className="venue-edit">
       <h1 className="venue-edit__heading">Update Venue Information</h1>
       <div className="venue-edit__form">
+        <p className="venue-edit__label">Venue Name</p>
         <Input id="name" value={name} handleInputChange={setFields} type="text" />
+        <p className="venue-edit__label">Venue Size</p>
         <Input id="area" value={area} handleInputChange={setFields} type="text" />
+        <p className="venue-edit__label">Number of people</p>
         <Input id="people" value={people} handleInputChange={setFields} type="number" />
+        <p className="venue-edit__label">Address</p>
+        <Input id="address" value={address} handleInputChange={setFields} type="text" />
+        <p className="venue-edit__label">Price (€)</p>
+        <Input id="price" value={price} handleInputChange={setFields} type="number" />
+        <p className="venue-edit__label">Description</p>
         <Textarea
           id="description"
           value={description}
@@ -79,8 +79,7 @@ const VenueEditPage = ({ match }) => {
           type="text"
           rows={4}
         />
-        <Input id="address" value={address} handleInputChange={setFields} type="text" />
-        <Input id="price" value={price} handleInputChange={setFields} type="number" />
+        <p className="venue-edit__label">Features</p>
         <Select
           options={featureOptions}
           className="venue-edit__select"
@@ -90,15 +89,18 @@ const VenueEditPage = ({ match }) => {
           defaultValue={defaultFeatures}
           onChange={handleFeatureListChange}
         />
+        <p className="venue-edit__label">Venue Photos</p>
         <Select
-          options={options}
+          options={photoOptions}
           className="venue-edit__select"
           isMulti
           id="features"
           placeholder="Select features"
-          defaultValue={options}
+          defaultValue={defaultPhotos}
           onChange={handlePhotoListChange}
         />
+
+        <Button text="Update" modifier="small" handleClick={handleUpdateVenue} />
       </div>
     </div>
   );
