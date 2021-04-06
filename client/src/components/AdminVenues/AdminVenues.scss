@@ -151,4 +151,17 @@
   &__button-div {
     width: 45%;
   }
+
+  &__action {
+    background-color: $light;
+    padding: 8px;
+    border-radius: $r-small;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }

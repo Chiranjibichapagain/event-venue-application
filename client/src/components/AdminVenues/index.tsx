@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AdminVenuesProps, Venue } from '../../types';
-import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaUsers,
+  FaMapMarkerAlt,
+  FaTrashAlt,
+  FaPencilAlt
+} from 'react-icons/fa';
 
 import './AdminVenues.scss';
 import Button from '../Button';
@@ -25,6 +32,10 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
   };
 
   const editVenue = () => {
+    history.push(`/admin/venueEdit/${venue?.id}`);
+  };
+
+  const deleteVenue = () => {
     history.push(`/admin/venueEdit/${venue?.id}`);
   };
 
@@ -101,7 +112,18 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
             <div className="admin-venues__bottom-div">
               <div className="admin-venues__price-div">{venue.price}€/h</div>
               <div className="admin-venues__button-div">
-                <Button modifier="small" handleClick={editVenue} text="Edit" />
+                <FaPencilAlt
+                  onClick={editVenue}
+                  className="admin-venues__action"
+                  size={40}
+                  color="#195e4b"
+                />
+                <FaTrashAlt
+                  onClick={deleteVenue}
+                  className="admin-venues__action"
+                  size={40}
+                  color="#db3c0b"
+                />
               </div>
             </div>
           </div>

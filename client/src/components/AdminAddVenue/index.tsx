@@ -72,7 +72,7 @@ const AdminAddVenue = () => {
           className="venue-edit__select"
           isMulti
           id="features"
-          placeholder="Select features"
+          placeholder="Add photo URLs"
           onChange={handlePhotoListChange}
         />
 
