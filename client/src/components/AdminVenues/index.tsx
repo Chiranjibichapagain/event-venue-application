@@ -115,13 +115,13 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
                 <FaPencilAlt
                   onClick={editVenue}
                   className="admin-venues__action"
-                  size={40}
+                  size={30}
                   color="#195e4b"
                 />
                 <FaTrashAlt
                   onClick={deleteVenue}
                   className="admin-venues__action"
-                  size={40}
+                  size={30}
                   color="#db3c0b"
                 />
               </div>

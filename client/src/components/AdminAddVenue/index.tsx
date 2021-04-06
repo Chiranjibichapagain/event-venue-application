@@ -42,9 +42,9 @@ const AdminAddVenue = () => {
   console.log('xxx--', photoList, featureList);
 
   return (
-    <div className="venue-edit">
-      <h1 className="venue-edit__heading">Update Venue Information</h1>
-      <div className="venue-edit__form">
+    <div className="new-venue">
+      <h1 className="new-venue__heading">Add a new venue</h1>
+      <div className="new-venue__form">
         <Input id="name" value={name} handleInputChange={setFields} type="text" />
         <Input id="area" value={area} handleInputChange={setFields} type="text" />
         <Input id="people" value={people} handleInputChange={setFields} type="number" />
@@ -58,18 +58,18 @@ const AdminAddVenue = () => {
           rows={4}
         />
 
-        <p className="venue-edit__label">Features</p>
+        <p className="new-venue__label">Features</p>
         <CreatableSelect
           options={featureOptions}
-          className="venue-edit__select"
+          className="new-venue__select"
           isMulti
           id="features"
           placeholder="Select features"
           onChange={handleFeatureListChange}
         />
-        <p className="venue-edit__label">Venue Photos</p>
+        <p className="new-venue__label">Venue Photos</p>
         <CreatableSelect
-          className="venue-edit__select"
+          className="new-venue__select"
           isMulti
           id="features"
           placeholder="Add photo URLs"
