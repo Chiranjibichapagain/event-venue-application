@@ -48,7 +48,7 @@ function AdminPage() {
       <div className="admin__main">
         {view === 'bookings' && <AdminBooking data={data} />}
         {view === 'venues' && <AdminVenues data={data} />}
-        {view === 'new-venue' && <AdminAddVenue />}
+        {view === 'new-venue' && <AdminAddVenue setPage={setView} />}
       </div>
     </div>
   );

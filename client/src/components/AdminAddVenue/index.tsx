@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 
 import './AdminAddVenue.scss';
 
-const AdminAddVenue = () => {
+const AdminAddVenue = ({ setPage }) => {
   const history = useHistory();
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
@@ -35,22 +35,51 @@ const AdminAddVenue = () => {
     setPhotoList(photos);
   };
 
-  const handleUpdateVenue = () => {
-    history.push('/admin');
+  const handleCreateVenue = () => {
+    setPage('venues');
   };
-
-  console.log('xxx--', photoList, featureList);
 
   return (
     <div className="new-venue">
       <h1 className="new-venue__heading">Add a new venue</h1>
       <div className="new-venue__form">
-        <Input id="name" value={name} handleInputChange={setFields} type="text" />
-        <Input id="area" value={area} handleInputChange={setFields} type="text" />
-        <Input id="people" value={people} handleInputChange={setFields} type="number" />
-        <Input id="address" value={address} handleInputChange={setFields} type="text" />
-        <Input id="price" value={price} handleInputChange={setFields} type="number" />
+        <Input
+          placeholder="Venue Name"
+          id="name"
+          value={name}
+          handleInputChange={setFields}
+          type="text"
+        />
+        <Input
+          placeholder="Venue area in sqm"
+          id="area"
+          value={area}
+          handleInputChange={setFields}
+          type="text"
+        />
+        <Input
+          placeholder="Max number of people"
+          id="people"
+          value={people}
+          handleInputChange={setFields}
+          type="number"
+        />
+        <Input
+          placeholder="Venue Address"
+          id="address"
+          value={address}
+          handleInputChange={setFields}
+          type="text"
+        />
+        <Input
+          placeholder="Price per day"
+          id="price"
+          value={price}
+          handleInputChange={setFields}
+          type="number"
+        />
         <Textarea
+          placeholder="Venue description"
           id="description"
           value={description}
           handleInputChange={setFields}
@@ -76,7 +105,7 @@ const AdminAddVenue = () => {
           onChange={handlePhotoListChange}
         />
 
-        <Button text="Create" modifier="small" handleClick={handleUpdateVenue} />
+        <Button text="Create" modifier="small" handleClick={handleCreateVenue} />
       </div>
     </div>
   );
