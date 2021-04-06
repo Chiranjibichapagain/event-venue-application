@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+import {venueRouter} from './routes/venueRouter'
+
 
 
 // mongoose
@@ -17,6 +19,10 @@ const cors = require("cors");
 //   .catch((error) => {
 //     logger.error("error connection to MongoDB:", error.message);
 //   });
+
+app.use("/api/venue", venueRouter );
+// app.use("/api/booking", );
+// app.use("/api/admin",);
 
 app.use(cors());
 app.use(express.json());
