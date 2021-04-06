@@ -11,7 +11,7 @@ export const data = [
   {
     id: 1,
     venueName: 'Longue-1',
-    area: '120 msq',
+    area: '120',
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
@@ -62,7 +62,7 @@ export const data = [
   {
     id: 2,
     venueName: 'Longue-2',
-    area: '100 msq',
+    area: '100',
     people: 20,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
@@ -111,7 +111,7 @@ export const data = [
   {
     id: 3,
     venueName: 'Longue-3',
-    area: '160 msq',
+    area: '160',
     people: 50,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
@@ -160,7 +160,7 @@ export const data = [
   {
     id: 4,
     venueName: 'Longue-4',
-    area: '200 msq',
+    area: '200',
     people: 120,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
@@ -202,7 +202,7 @@ export const data = [
   {
     id: 5,
     venueName: 'Longue-5',
-    area: '120 msq',
+    area: '120',
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',
@@ -252,7 +252,7 @@ export const data = [
   {
     id: 6,
     venueName: 'Longue-6',
-    area: '120 msq',
+    area: '120',
     people: 30,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu eros suscipit ante blandit feugiat vel quis elit. Morbi ullamcorper nisl vehicula sapien facilisis cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. ',

@@ -13,8 +13,8 @@ const PaymentPage = ({ match }) => {
   const [flipped, setFlipped] = useState(false);
   const [placeholder, setPlaceholder] = useState('Month/Year');
   const [fields, setFields] = useForm({
-    number: '000000000000',
-    name: 'Full Name',
+    number: '',
+    name: '',
     cvv: '',
     expiry: 'Month-Year'
   });

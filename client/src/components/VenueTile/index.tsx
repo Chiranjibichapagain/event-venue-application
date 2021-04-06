@@ -75,7 +75,7 @@ const VenueTile = ({ data }: VenueProps) => {
         <div className="tile__info-item">
           <div className="tile__info">
             <FaRulerHorizontal size={20} color="#195e4b" />
-            <p className="tile__text tile__text--small">{data.area}</p>
+            <p className="tile__text tile__text--small">{data.area} msq</p>
           </div>
           <div className="tile__info">
             <FaUsers size={20} color="#195e4b" />
