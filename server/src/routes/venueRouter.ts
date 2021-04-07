@@ -1,5 +1,6 @@
 export const venueRouter = require('express').Router();
-import {getAllVenues} from '../controllers/venue'
+import {getAllVenues, addNewVenue} from '../controllers/venue'
 
 venueRouter.get('/', getAllVenues)
+venueRouter.post('/', addNewVenue)
 

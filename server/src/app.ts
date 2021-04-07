@@ -5,9 +5,11 @@ const cors = require("cors");
 const mongoose= require("mongoose")
 
 const config = require("./utils/config");
+import { bookingRouter } from './routes/bookingRouter';
 import {venueRouter} from './routes/venueRouter'
 
-
+app.use(cors());
+app.use(express.json());
 
 mongoose
   .connect(config.MONGODB_URI, {
@@ -22,11 +24,10 @@ mongoose
   });
 
 app.use("/api/venue", venueRouter );
-// app.use("/api/booking", );
+app.use("/api/booking",bookingRouter );
 // app.use("/api/admin",);
 
-app.use(cors());
-app.use(express.json());
+
 
 
 
