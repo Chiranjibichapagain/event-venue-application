@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import Booking from "../modals/Booking"
+const Booking = require("../modals/Booking")
 
 
 export const getAllBookings = async(req:Request, res:Response) => {

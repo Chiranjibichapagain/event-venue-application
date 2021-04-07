@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import Venue from "../modals/Venue"
+const Venue= require ("../modals/Venue")
 
 
 export const getAllVenues = async(req:Request, res:Response) => {
