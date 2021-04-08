@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose= require("mongoose")
 
 const config = require("./utils/config");
+import { adminRouter } from './routes/adminRouter';
 import { bookingRouter } from './routes/bookingRouter';
 import {venueRouter} from './routes/venueRouter'
 
@@ -25,7 +26,7 @@ mongoose
 
 app.use("/api/venue", venueRouter );
 app.use("/api/booking",bookingRouter );
-// app.use("/api/admin",);
+app.use("/api/admin", adminRouter);
 
 
 
