@@ -27,4 +27,4 @@ adminSchema.set('toJSON', {
   },
 });
 
-module.exports = mongoose.model('Venue', adminSchema);
+module.exports = mongoose.model('Admin', adminSchema);
