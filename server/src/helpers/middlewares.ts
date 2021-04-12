@@ -6,8 +6,9 @@ export const tokenExtractor = (request:Request, response:Response, next:NextFunc
   const authorization = request.get("authorization");
   if (authorization && authorization.toLowerCase().startsWith("bearer")) {
     return authorization.substring(7);
+  } else {
+    response.status(401).send('excess denied')
   }
-  return null;
 
   next();
 };
