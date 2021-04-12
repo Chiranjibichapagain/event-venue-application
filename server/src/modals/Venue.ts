@@ -4,32 +4,32 @@ const mongoose = require('mongoose');
 const venueSchema = new mongoose.Schema({
   venueName: {
     type: String,
-    require: true,
+    require: 'Venue Name is required',
   },
 
   area: {
     type: Number,
-    require: true,
+    require: 'Area is required',
   },
 
   people: {
     type: Number,
-    require: true,
+    require: 'People number is required',
   },
 
   price: {
     type: Number,
-    require: true,
+    require: 'Price is required',
   },
 
   description: {
     type: String,
-    require: true,
+    require: 'Description is required',
   },
 
   address: {
     type: String,
-    require: true,
+    require: 'Address is required',
   },
 
   features: [

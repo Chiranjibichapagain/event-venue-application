@@ -1,5 +1,6 @@
 export const adminRouter = require('express').Router();
-import {getAllAdmins, addNewAdminUser} from '../controllers/admin'
+import {getAllAdmins, addNewAdminUser, logAdminUser} from '../controllers/admin'
 
 adminRouter.get('/', getAllAdmins)
 adminRouter.post('/', addNewAdminUser)
+adminRouter.post('/login', logAdminUser)

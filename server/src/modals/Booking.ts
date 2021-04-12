@@ -11,22 +11,21 @@ const bookingSchema = new mongoose.Schema({
   clientInfo: {
     name: {
       type: String,
-      require: true,
+      require: 'Name is required',
     },
 
     email: {
       type: String,
-      require: true,
+      require: 'Email is required',
     },
 
     phone: {
       type: String,
-      require: true,
+      require: 'Phone number is required',
     },
 
     message: {
       type: String,
-      require: true,
     },
   },
 });
