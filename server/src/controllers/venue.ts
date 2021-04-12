@@ -51,7 +51,7 @@ export const updateVenue = async (req:Request, res:Response, next:NextFunction) 
             console.log('test---', updatedVenue)
             await Venue.findByIdAndUpdate(venueId, updatedVenue, { new: true })
                 .then((updated: any) => {
-                res.json(updated)
+                res.status(200).json({message:`Venue ${venue.venueName} successfully updated`, updatedVenue:updated})
             })
             
         } else {
@@ -60,6 +60,21 @@ export const updateVenue = async (req:Request, res:Response, next:NextFunction) 
         
     } catch (error) {
         next(new NotFoundError('No venue with the given ID found'))
+    }
+}
+
+export const deleteVenue = async(req:Request, res:Response, next:NextFunction) => {
+    try {
+        const { venueId } = req.params
+        const venue = await Venue.findOne({ _id: venueId })
+        if (venue) {
+            await Venue.findByIdAndDelete(venueId)
+            res.status(200).json({message:`Venue ${venue.venueName} successfully deleted`})
+        } else {
+            throw Error
+        }
+    } catch (error) {
+       next(new NotFoundError('No venue with the given ID found')) 
     }
 }
 
