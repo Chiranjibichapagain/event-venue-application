@@ -31,7 +31,4 @@ app.use("/api/booking",bookingRouter );
 app.use("/api/admin", adminRouter);
 
 
-
-
-
 module.exports = app;

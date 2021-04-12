@@ -13,7 +13,7 @@ export const getAllVenues = async(req:Request, res:Response, next:NextFunction) 
         }
         
     } catch (error) {
-        next(new NotFoundError('No venues found'))
+        next(new NotFoundError('No venues found', error))
     }
 }
 
@@ -28,7 +28,7 @@ export const getSingleVenue = async(req:Request, res:Response, next:NextFunction
         }
         
     } catch (error) {
-        next(new NotFoundError('No venue with the given ID found'))
+        next(new NotFoundError('No venue with the given ID found', error))
     }
 }
 
@@ -59,7 +59,7 @@ export const updateVenue = async (req:Request, res:Response, next:NextFunction) 
         }
         
     } catch (error) {
-        next(new NotFoundError('No venue with the given ID found'))
+        next(new NotFoundError('No venue with the given ID found', error))
     }
 }
 
@@ -74,11 +74,11 @@ export const deleteVenue = async(req:Request, res:Response, next:NextFunction) =
             throw Error
         }
     } catch (error) {
-       next(new NotFoundError('No venue with the given ID found')) 
+       next(new NotFoundError('No venue with the given ID found', error)) 
     }
 }
 
-export const addNewVenue = async (req: Request, res: Response) => {
+export const addNewVenue = async (req: Request, res: Response, next:NextFunction) => {
     try {
         const { venueName, area, people, description, photos, features, price, address } = req.body
         const newVenue = {
@@ -96,7 +96,7 @@ export const addNewVenue = async (req: Request, res: Response) => {
         res.json(savedVenue)
         
     } catch (error) {
-        console.log('error----', error)
+        next(new BadRequestError('Failed to add the venue', error))
     }
 }
 
