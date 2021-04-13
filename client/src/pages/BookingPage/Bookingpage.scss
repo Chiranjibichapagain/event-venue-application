@@ -45,6 +45,14 @@
       font-size: $t-small;
       margin: 15px;
     }
+
+    &--error {
+      color: red;
+    }
+
+    &--hidden {
+      opacity: 0;
+    }
   }
 
   &__list {

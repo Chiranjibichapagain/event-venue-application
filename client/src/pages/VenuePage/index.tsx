@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom';
 
 import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../../components/Button';
+import { getOneVenue } from '../../services/venueServices';
 import { Venue } from '../../types';
 
 import './VenuePage.scss';
-import { getOneVenue } from '../../services/venueServices';
+
 const VenuePage = ({ match }) => {
   const history = useHistory();
   const [venue, setVenue] = useState<Venue>();
