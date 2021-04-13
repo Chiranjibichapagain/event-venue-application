@@ -23,6 +23,7 @@ const Input = ({
       onBlur={handleBlur}
       placeholder={placeholder}
       type={type}
+      required
       className={`input input--${modifier}`}
     />
   );

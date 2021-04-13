@@ -15,6 +15,7 @@ const adminSchema = new mongoose.Schema({
   password: {
     type: String,
     require: 'Password is required',
+    minlength:4
   },
   
 });

@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '../../components/Button';
+import Modal from 'react-modal';
 
+import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useForm } from '../../Hooks/useForm';
 
 import './AdminLoginPage.scss';
+import { createAccount } from '../../services/adminServices';
 
 function AdminLoginPage() {
   const history = useHistory();
   const [pageView, setPageView] = useState('login');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [error, setError] = useState('error');
   const [fields, setFields] = useForm({
     name: '',
     email: '',
@@ -18,18 +22,56 @@ function AdminLoginPage() {
   });
   const { name, email, password, rePassword } = fields;
 
-  const handleLogin = () => {
-    history.push('/admin');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (!email || !password) {
+      setError('All fields are required');
+    } else {
+      history.push('/admin');
+    }
   };
-  const handleCreateAccount = () => {
-    console.log('created!!');
+  const handleCreateAccount = async (e) => {
+    e.preventDefault();
+    if (!name || !email || !password) {
+      setError('All fields are required');
+    } else {
+      if (password !== rePassword) {
+        setError('Password not matched');
+      } else {
+        await createAccount({ name, email, password })
+          .then((res) => {
+            res.data && setIsModalOpen(true);
+          })
+          .catch((error) => {
+            error.response ? setError(error.response.data.error) : setError('Uknown Error');
+          });
+      }
+    }
+  };
+
+  const customStyles = {
+    content: {
+      background: '#3aafa9',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)'
+    }
   };
 
   return (
     <div className="admin-log">
       {pageView === 'login' && (
-        <div className="admin-log__form">
+        <form className="admin-log__form">
           <h1 className="admin-log__heading">Log In</h1>
+          <p
+            className={
+              error !== 'error' ? 'admin-log__error' : 'admin-log__error admin-log__error--hide'
+            }
+          >
+            {error}
+          </p>
           <Input
             type="text"
             handleInputChange={setFields}
@@ -51,12 +93,19 @@ function AdminLoginPage() {
               Create
             </span>
           </p>
-        </div>
+        </form>
       )}
 
       {pageView === 'register' && (
-        <div className="admin-log__form">
+        <form className="admin-log__form">
           <h1 className="admin-log__heading">Create an Account</h1>
+          <p
+            className={
+              error !== 'error' ? 'admin-log__error' : 'admin-log__error admin-log__error--hide'
+            }
+          >
+            {error}
+          </p>
           <Input
             type="text"
             handleInputChange={setFields}
@@ -82,7 +131,7 @@ function AdminLoginPage() {
             type="password"
             handleInputChange={setFields}
             placeholder="Re-Password"
-            id="rePpassword"
+            id="rePassword"
             value={rePassword}
           />
           <Button text="Create Account" modifier="small" handleClick={handleCreateAccount} />
@@ -92,8 +141,24 @@ function AdminLoginPage() {
               Login
             </span>
           </p>
-        </div>
+        </form>
       )}
+      <Modal isOpen={isModalOpen} style={customStyles}>
+        <div onClick={() => setIsModalOpen(false)} className="close">
+          X
+        </div>
+        <div className="content">
+          <h3 className="content__title">REGISTRATION SUCCESSFULL</h3>
+          <p className="content__text">
+            Congratulations! you now are able to create and manage your venues.{' '}
+          </p>
+          <Button
+            modifier="small"
+            text="Admin Dashboard"
+            handleClick={() => history.push('/admin')}
+          />
+        </div>
+      </Modal>
     </div>
   );
 }

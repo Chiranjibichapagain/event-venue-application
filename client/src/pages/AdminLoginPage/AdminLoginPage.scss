@@ -12,6 +12,13 @@
     color: $dark;
     letter-spacing: 5px;
   }
+  &__error {
+    margin: 0;
+    color: red;
+    &--hide {
+      opacity: 0;
+    }
+  }
 
   &__form {
     width: 30%;
@@ -32,6 +39,34 @@
     color: $link;
     font-weight: bold;
     cursor: pointer;
+  }
+}
+
+.close {
+  width: 100%;
+  text-align: end;
+  font-family: 'Roboto', sans-serif;
+  color: $dark;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.content {
+  width: 30vw;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    color: $light;
+    font-size: 1.5em;
+  }
+
+  &__text {
+    font-size: 1em;
+    text-align: center;
+    color: $dark;
   }
 }
 
