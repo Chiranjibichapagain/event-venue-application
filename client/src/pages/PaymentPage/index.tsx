@@ -20,7 +20,7 @@ const PaymentPage = ({ match }) => {
   });
 
   const toPay = () => {
-    history.push('/');
+    history.push('/products');
   };
 
   return (

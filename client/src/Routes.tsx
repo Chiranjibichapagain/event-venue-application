@@ -13,8 +13,8 @@ import VenueEditPage from './pages/VenueEditPage';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={HomePage} />
-    <Route exact path="/welcomepage" component={LandingPage} />
+    <Route exact path="/products" component={HomePage} />
+    <Route exact path="/" component={LandingPage} />
     <Route exact path="/venue/:venueId" component={VenuePage} />
     <Route exact path="/venue/:venueId/booking" component={BookingPage} />
     <Route exact path="/venue/:bookingInfo/payment" component={PaymentPage} />

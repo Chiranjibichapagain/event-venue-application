@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from '../../components/Button';
 
 import Input from '../../components/Input';
@@ -7,6 +8,7 @@ import { useForm } from '../../Hooks/useForm';
 import './AdminLoginPage.scss';
 
 function AdminLoginPage() {
+  const history = useHistory();
   const [pageView, setPageView] = useState('login');
   const [fields, setFields] = useForm({
     name: '',
@@ -17,7 +19,7 @@ function AdminLoginPage() {
   const { name, email, password, rePassword } = fields;
 
   const handleLogin = () => {
-    console.log('loggedd in!!');
+    history.push('/admin');
   };
   const handleCreateAccount = () => {
     console.log('created!!');

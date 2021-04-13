@@ -106,7 +106,7 @@ const BookingPage = ({ match }) => {
             rows={5}
             placeholder="Write message, questions etc."
           />
-          <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
+          <Button text="Make Payment" modifier="small" handleClick={toPay} />
         </div>
       </div>
     </div>
