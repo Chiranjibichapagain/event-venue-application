@@ -6,7 +6,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
   const location = useLocation();
 
   useEffect(() => {
-    const userData = { name: 'user', code: '345sdf8' };
+    const userData = localStorage.getItem('venue-app');
     userData ? setIsAuthenticated(true) : setIsAuthenticated(false);
   }, [location.pathname]);
 
@@ -14,7 +14,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) =>
-        isAuthenticated ? <Component {...props} /> : <Redirect to={{ pathname: '/welcomepage' }} />
+        isAuthenticated ? <Component {...props} /> : <Redirect to={{ pathname: '/admin/login' }} />
       }
     />
   );

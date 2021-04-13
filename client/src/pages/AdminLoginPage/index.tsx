@@ -9,7 +9,7 @@ import { useForm } from '../../Hooks/useForm';
 import './AdminLoginPage.scss';
 import { createAccount, login } from '../../services/adminServices';
 
-function AdminLoginPage() {
+function AdminLoginPage({ setLog }) {
   const history = useHistory();
   const [pageView, setPageView] = useState('login');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,8 +29,11 @@ function AdminLoginPage() {
     } else {
       login({ email, password })
         .then((res) => {
-          res.data && localStorage.setItem('venue-app', JSON.stringify(res.data));
-          res.data && history.push('/admin');
+          if (res.data) {
+            setLog(true);
+            localStorage.setItem('venue-app', JSON.stringify(res.data));
+            history.push('/admin');
+          }
         })
         .catch((error) => {
           error.response ? setError(error.response.data.error) : setError('Uknown Error');

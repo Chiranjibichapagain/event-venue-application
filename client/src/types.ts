@@ -1,12 +1,13 @@
 import { Day } from 'react-modern-calendar-datepicker';
 
-export type UserData = {
+type UserInfo = {
   email: string;
-  familyName: string;
-  givenName: string;
-  googleId: string;
-  imageUrl: string;
   name: string;
+  userId: string;
+};
+export type UserData = {
+  token: string;
+  userInfo: UserInfo;
 };
 
 export type ButtonProps = {
