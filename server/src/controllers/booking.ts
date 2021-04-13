@@ -86,9 +86,9 @@ export const addNewBooking = async (req: Request, res: Response, next: NextFunct
       dates
     }
 
+    
     const savedBooking = await new Booking(newBooking).save()
     const bookingID =savedBooking.id
-      console.log('xxx--', bookingID)
     Venue.findOneAndUpdate({ _id: venueId }, { $push: { bookings: bookingID } }, { upsert: true })
       .then((result: any) => {
       console.log(result)
