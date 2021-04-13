@@ -11,6 +11,7 @@ import { data } from '../../utils/dummydata';
 import { useExtractDays } from '../../Hooks/useExtractDays';
 
 import './Bookingpage.scss';
+import { makeBooking } from '../../services/bookingServices';
 
 const BookingPage = ({ match }) => {
   const id = match.params.venueId;
@@ -31,15 +32,13 @@ const BookingPage = ({ match }) => {
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
   const totalCost = venue ? venue.price * selectedDays.length : 0;
 
-  const bookingInfo = {
-    selectedDays,
-    totalCost,
-    fields
-  };
-
-  console.log('try-it', bookingInfo);
-
-  const toPay = () => {
+  const confirmAndPay = () => {
+    const bookingData = {
+      venueId: id,
+      clientInfo: { name, email, phone, message },
+      dates: selectedDays
+    };
+    makeBooking(bookingData);
     history.push(`/venue/${totalCost}/payment`);
   };
 
@@ -106,7 +105,7 @@ const BookingPage = ({ match }) => {
             rows={5}
             placeholder="Write message, questions etc."
           />
-          <Button text="Make Payment" modifier="small" handleClick={toPay} />
+          <Button text="Confirm booking" modifier="small" handleClick={confirmAndPay} />
         </div>
       </div>
     </div>
