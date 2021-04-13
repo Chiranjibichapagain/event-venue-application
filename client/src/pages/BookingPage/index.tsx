@@ -35,7 +35,8 @@ const BookingPage = ({ match }) => {
   const totalCost = venue ? venue.price * selectedDays.length : 0;
 
   const confirmAndPay = () => {
-    if (!name && !email && !phone && selectedDays.length < 1) {
+    console.log('test---', selectedDays);
+    if (!name || !email || !phone || selectedDays.length < 1) {
       setError('All information are required!');
     } else {
       const bookingData = {
@@ -43,7 +44,7 @@ const BookingPage = ({ match }) => {
         clientInfo: { name, email, phone, message },
         dates: selectedDays
       };
-      makeBooking(bookingData);
+      // makeBooking(bookingData);
       history.push(`/venue/${totalCost}/payment`);
     }
   };
