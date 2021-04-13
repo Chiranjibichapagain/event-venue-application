@@ -6,7 +6,7 @@ const { NotFoundError, BadRequestError } = require('../helpers/apiError')
 
 export const getAllBookings = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const bookings = await Booking.find({})
+    const bookings = await Booking.find({}).populate('venue')
     if (bookings) {
       res.json(bookings)
 
@@ -21,7 +21,7 @@ export const getAllBookings = async (req: Request, res: Response, next: NextFunc
 
 export const getSingleBooking = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const {bookingId}=req.params
+    const { bookingId } = req.params
       const booking = await Booking.findOne({_id:bookingId})
       if (booking) {
         res.json(booking)
@@ -83,9 +83,9 @@ export const addNewBooking = async (req: Request, res: Response, next: NextFunct
     const { venueId, clientInfo, dates } = req.body
     const newBooking = {
       clientInfo,
-      dates
+      dates,
+      venue:venueId
     }
-
     
     const savedBooking = await new Booking(newBooking).save()
     const bookingID =savedBooking.id

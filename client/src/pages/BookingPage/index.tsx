@@ -18,9 +18,10 @@ const BookingPage = ({ match }) => {
   const id = match.params.venueId;
   const [venue, setVenue] = useState<Venue>();
   const [error, setError] = useState('error');
-  const [bookings] = useExtractDays(venue);
+  const [bookings] = useExtractDays(venue?.bookings);
 
   const history = useHistory();
+  console.log('lets--see', venue);
 
   const [fields, setFields] = useForm({
     name: '',
@@ -35,7 +36,6 @@ const BookingPage = ({ match }) => {
   const totalCost = venue ? venue.price * selectedDays.length : 0;
 
   const confirmAndPay = () => {
-    console.log('test---', selectedDays);
     if (!name || !email || !phone || selectedDays.length < 1) {
       setError('All information are required!');
     } else {
@@ -44,7 +44,7 @@ const BookingPage = ({ match }) => {
         clientInfo: { name, email, phone, message },
         dates: selectedDays
       };
-      // makeBooking(bookingData);
+      makeBooking(bookingData);
       history.push(`/venue/${totalCost}/payment`);
     }
   };

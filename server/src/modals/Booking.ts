@@ -28,6 +28,10 @@ const bookingSchema = new mongoose.Schema({
       type: String,
     },
   },
+  venue: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Venue',
+  }
 });
 
 bookingSchema.set('toJSON', {

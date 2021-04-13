@@ -5,7 +5,7 @@ const {NotFoundError, BadRequestError}= require('../helpers/apiError')
 
 export const getAllVenues = async(req:Request, res:Response, next:NextFunction) => {
     try {
-        const venues = await Venue.find({})
+        const venues = await Venue.find({}).populate('bookings')
         if (venues.length > 0) {
             res.json(venues)
         } else {
