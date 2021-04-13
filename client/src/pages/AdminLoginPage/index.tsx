@@ -7,7 +7,7 @@ import Input from '../../components/Input';
 import { useForm } from '../../Hooks/useForm';
 
 import './AdminLoginPage.scss';
-import { createAccount } from '../../services/adminServices';
+import { createAccount, login } from '../../services/adminServices';
 
 function AdminLoginPage() {
   const history = useHistory();
@@ -27,7 +27,14 @@ function AdminLoginPage() {
     if (!email || !password) {
       setError('All fields are required');
     } else {
-      history.push('/admin');
+      login({ email, password })
+        .then((res) => {
+          res.data && localStorage.setItem('venue-app', JSON.stringify(res.data));
+          res.data && history.push('/admin');
+        })
+        .catch((error) => {
+          error.response ? setError(error.response.data.error) : setError('Uknown Error');
+        });
     }
   };
   const handleCreateAccount = async (e) => {
@@ -150,12 +157,15 @@ function AdminLoginPage() {
         <div className="content">
           <h3 className="content__title">REGISTRATION SUCCESSFULL</h3>
           <p className="content__text">
-            Congratulations! you now are able to create and manage your venues.{' '}
+            Congratulations! you have become an admin. Login and start creating and managing venues{' '}
           </p>
           <Button
             modifier="small"
-            text="Admin Dashboard"
-            handleClick={() => history.push('/admin')}
+            text="Go to Login"
+            handleClick={() => {
+              setPageView('login');
+              setIsModalOpen(false);
+            }}
           />
         </div>
       </Modal>

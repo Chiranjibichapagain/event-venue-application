@@ -52,18 +52,18 @@ export const logAdminUser = async (req:Request, res:Response) => {
         const user = await Admin.findOne({ email: email })
         const correctPassword = !user ? null : await bcrypt.compare(password, user.password)
         if (!(user && correctPassword)) {
-            return res.status(401).json({error: 'Invalid username or password!'})
+            throw new Error('Email and password not matched!')
         }
 
-        const tokenInfo = {
+        const userInfo = {
             email,
             name:user.name,
             userId: user.id
         }
-        const token = await JWT.sign(tokenInfo, SECRET)
-        res.status(200).send({token, tokenInfo})
+        const token = await JWT.sign(userInfo, SECRET)
+        res.status(200).send({token, userInfo})
 
     } catch (error) {
-       console.log('error---', error) 
+       res.status(401).json({error:error.message})
     }
 }

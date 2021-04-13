@@ -7,5 +7,5 @@ export const createAccount = async (userData) => {
 };
 
 export const login = async (credentials) => {
-  return await axios.post(baseUrl, credentials);
+  return await axios.post(`${baseUrl}/login`, credentials);
 };
