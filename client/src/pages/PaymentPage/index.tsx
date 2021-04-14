@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import PaymentCard from 'react-payment-card-component';
 
@@ -11,6 +12,7 @@ import './PaymentPage.scss';
 const PaymentPage = ({ match }) => {
   const history = useHistory();
   const [flipped, setFlipped] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [placeholder, setPlaceholder] = useState('Month/Year');
   const [fields, setFields] = useForm({
     number: '',
@@ -19,8 +21,15 @@ const PaymentPage = ({ match }) => {
     expiry: 'Month-Year'
   });
 
-  const toPay = () => {
-    history.push('/products');
+  const customStyles = {
+    content: {
+      background: '#195e4b',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)'
+    }
   };
 
   return (
@@ -72,8 +81,23 @@ const PaymentPage = ({ match }) => {
             minLength={3}
             maxLength={3}
           />
-          <Button text="Confirm & pay" modifier="small" handleClick={toPay} />
+          <Button text="Confirm & pay" modifier="small" handleClick={() => setIsModalOpen(true)} />
         </form>
+        <Modal isOpen={isModalOpen} style={customStyles}>
+          <div onClick={() => setIsModalOpen(false)} className="close">
+            X
+          </div>
+          <div className="confirm-modal">
+            <h1 className="confirm-modal__title">BOOKING SUCCESSFULL!</h1>
+            <p className="confirm-modal__text">
+              <b>Booking succeeded!</b> <br /> You will shortly recieve a confirmation message in
+              your email.{' '}
+            </p>
+            <div className="confirm-modal__btn-div">
+              <Button modifier="small" text="OK" handleClick={() => history.push('/products')} />
+            </div>
+          </div>
+        </Modal>
       </div>
     </div>
   );

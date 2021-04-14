@@ -26,3 +26,41 @@
     align-items: center;
   }
 }
+
+.close {
+  font-family: 'Roboto', sans-serif;
+  color: $dark;
+  cursor: pointer;
+}
+
+.confirm-modal {
+  width: 40vw;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: $light;
+    margin: 20px 0;
+  }
+
+  &__btn-div {
+    display: flex;
+    width: 50%;
+    margin-top: 20px;
+  }
+  &__btn-seperator {
+    width: 40px;
+  }
+
+  &__text {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
+    color: $light;
+  }
+}

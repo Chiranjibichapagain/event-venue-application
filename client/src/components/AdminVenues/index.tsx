@@ -14,15 +14,17 @@ import './AdminVenues.scss';
 import Button from '../Button';
 
 const AdminVenues = ({ data }) => {
-  const [venueSelection, setVenueSelection] = useState('Longue-1');
+  const [venueSelection, setVenueSelection] = useState(data && data[0].venueName);
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [venue, setVenue] = useState<Venue>();
   const history = useHistory();
 
   useEffect(() => {
-    const venueData = data.find((v) => v.venueName === venueSelection);
+    const venueData = data && data.find((v) => v.venueName === venueSelection);
     setVenue(venueData);
   }, [venueSelection]);
+
+  console.log('tryyyy--', venue);
 
   const handleRightArrow = () => {
     venue && setCurrentImage(currentImage === venue.photos.length - 1 ? 0 : currentImage + 1);
@@ -46,8 +48,8 @@ const AdminVenues = ({ data }) => {
         onChange={(e: any): void => setVenueSelection(e.target.value)}
         value={venueSelection}
       >
-        {data.map((v, index) => (
-          <option key={index}>{v.venueName}</option>
+        {data.map((v) => (
+          <option key={v.id}>{v.venueName}</option>
         ))}
       </select>
       {venue && (
