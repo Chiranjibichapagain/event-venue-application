@@ -16,6 +16,16 @@ export const useExtractDays = (data) => {
   const allDates = dates.concat.apply([], dates);
   const bookings = allDates.map((item) => ({ day: item.day, month: item.month, year: item.year }));
 
-  console.log('hook', bookings);
   return [bookings];
+};
+
+export const useExtractBookingInfo = (venue, selectedDay) => {
+  if (selectedDay.length != 0) {
+    const x = venue.bookings;
+    const bookingInfo = x.find((b) => b.dates.find((d) => d.day === selectedDay.day));
+    return [bookingInfo];
+  } else {
+    const bookingInfo = [];
+    return [bookingInfo];
+  }
 };

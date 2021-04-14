@@ -4,7 +4,7 @@ import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaCalendar, FaUser, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 import { AdminBookingsProps, Venue } from '../../types';
-import { useExtractDays } from '../../Hooks/useExtractDays';
+import { useExtractBookingInfo, useExtractDays } from '../../Hooks/useExtractDays';
 
 import './AdminBooking.scss';
 
@@ -14,15 +14,17 @@ const AdminBooking = ({ data }) => {
   }
 
   const [venueSelection, setVenueSelection] = useState(data[0].venueName);
-  const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
+  const [selectedDay, setSelectedDay] = React.useState<Day[]>([]);
 
   const venue = data.find((v) => v.venueName === venueSelection);
   const [bookings] = useExtractDays(venue);
-  const bookingInfo = venue.bookings.find((b) => b.dates === selectedDays[0]);
+  const [bookingInfo] = useExtractBookingInfo(venue, selectedDay);
 
-  console.log('ddd--', bookings);
+  console.log('sss--', bookingInfo);
+  const handleError = (disabledDay) => {
+    setSelectedDay(disabledDay);
+  };
 
-  // console.log('venue--', venue.bookings[0].dates);
   return (
     <div className="admin-bookings">
       <div className="admin-bookings__calender-div">
@@ -36,29 +38,31 @@ const AdminBooking = ({ data }) => {
         <Calendar
           calendarClassName="admin-bookings__calender"
           calendarSelectedDayClassName="calender__selected"
-          value={bookings}
-          onChange={setSelectedDays}
+          disabledDays={bookings}
+          onDisabledDayError={handleError}
           shouldHighlightWeekends
         />
       </div>
-      {/* {bookingInfo && (
+      {bookingInfo.length != 0 && (
         <div className="admin-bookings__info">
           <h2 className="admin-bookings__info-title">Booking Details</h2>
           <div className="admin-bookings__info-item">
             <FaCalendar size={30} color="#195e4b" />
-            <p className="admin-bookings__info-text">{`${bookingInfo?.dateInfo.day}-${bookingInfo?.dateInfo.month}-${bookingInfo?.dateInfo.year}`}</p>
+            {bookingInfo.dates.map((date, index) => (
+              <p className="admin-bookings__info-text">{`${date.day}-${date.month}-${date.year}`}</p>
+            ))}
           </div>
           <div className="admin-bookings__info-item">
             <FaUser size={30} color="#195e4b" />
-            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.name}</p>
+            <p className="admin-bookings__info-text">{bookingInfo.clientInfo.name}</p>
           </div>
           <div className="admin-bookings__info-item">
             <FaEnvelope size={30} color="#195e4b" />
-            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.email}</p>
+            <p className="admin-bookings__info-text">{bookingInfo.clientInfo.email}</p>
           </div>
           <div className="admin-bookings__info-item">
             <FaPhoneAlt size={30} color="#195e4b" />
-            <p className="admin-bookings__info-text">{bookingInfo?.clientInfo.phone}</p>
+            <p className="admin-bookings__info-text">{bookingInfo.clientInfo.phone}</p>
           </div>
           <div className="admin-bookings__info-item">
             <p className="admin-bookings__info-text admin-bookings__info-text--msg">
@@ -66,7 +70,7 @@ const AdminBooking = ({ data }) => {
             </p>
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
