@@ -24,7 +24,7 @@ export type ClientInfo = {
 };
 
 export type Booking = {
-  dateInfo: Day;
+  dates: Day[];
   clientInfo: ClientInfo;
 };
 

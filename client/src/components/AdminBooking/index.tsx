@@ -8,20 +8,21 @@ import { useExtractDays } from '../../Hooks/useExtractDays';
 
 import './AdminBooking.scss';
 
-const AdminBooking = ({ data }: AdminBookingsProps) => {
-  const [venueSelection, setVenueSelection] = useState('Longue-1');
-  const [venue, setVenue] = useState<Venue>();
+const AdminBooking = ({ data }) => {
+  if (!data) {
+    return <h1>No data</h1>;
+  }
+
+  const [venueSelection, setVenueSelection] = useState(data[0].venueName);
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
+
+  const venue = data.find((v) => v.venueName === venueSelection);
   const [bookings] = useExtractDays(venue);
-  const bookingInfo = venue?.bookings.find((b) => b.dateInfo === selectedDays[0]);
+  const bookingInfo = venue.bookings.find((b) => b.dates === selectedDays[0]);
 
-  console.log('selected--', bookingInfo);
+  console.log('ddd--', bookings);
 
-  useEffect(() => {
-    const venueData = data.find((v) => v.venueName === venueSelection);
-    setVenue(venueData);
-  }, [venueSelection]);
-
+  // console.log('venue--', venue.bookings[0].dates);
   return (
     <div className="admin-bookings">
       <div className="admin-bookings__calender-div">
@@ -30,9 +31,7 @@ const AdminBooking = ({ data }: AdminBookingsProps) => {
           onChange={(e: any): void => setVenueSelection(e.target.value)}
           value={venueSelection}
         >
-          {data.map((v, index) => (
-            <option key={index}>{v.venueName}</option>
-          ))}
+          {data && data.map((v, index) => <option key={index}>{v.venueName}</option>)}
         </select>
         <Calendar
           calendarClassName="admin-bookings__calender"
@@ -42,7 +41,7 @@ const AdminBooking = ({ data }: AdminBookingsProps) => {
           shouldHighlightWeekends
         />
       </div>
-      {bookingInfo && (
+      {/* {bookingInfo && (
         <div className="admin-bookings__info">
           <h2 className="admin-bookings__info-title">Booking Details</h2>
           <div className="admin-bookings__info-item">
@@ -67,7 +66,7 @@ const AdminBooking = ({ data }: AdminBookingsProps) => {
             </p>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

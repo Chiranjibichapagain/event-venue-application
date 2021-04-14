@@ -40,7 +40,7 @@ export const useFilter = (price, size) => {
       filteredData.map((d) => d.price)
     );
 
-    setVenue(filteredData);
+    // setVenue(filteredData);
   };
 
   return [venue];

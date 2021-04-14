@@ -13,7 +13,7 @@ import {
 import './AdminVenues.scss';
 import Button from '../Button';
 
-const AdminVenues = ({ data }: AdminVenuesProps) => {
+const AdminVenues = ({ data }) => {
   const [venueSelection, setVenueSelection] = useState('Longue-1');
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [venue, setVenue] = useState<Venue>();

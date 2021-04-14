@@ -18,10 +18,10 @@ const BookingPage = ({ match }) => {
   const id = match.params.venueId;
   const [venue, setVenue] = useState<Venue>();
   const [error, setError] = useState('error');
-  const [bookings] = useExtractDays(venue?.bookings);
+  // const [bookings] = useExtractDays(venue?.bookings);
 
   const history = useHistory();
-  console.log('lets--see', venue);
+  console.log('lets--see', venue?.bookings[0].dates);
 
   const [fields, setFields] = useForm({
     name: '',
@@ -31,6 +31,7 @@ const BookingPage = ({ match }) => {
   });
 
   const { name, email, phone, message } = fields;
+  const bookings = venue?.bookings;
 
   const [selectedDays, setSelectedDays] = React.useState<Day[]>([]);
   const totalCost = venue ? venue.price * selectedDays.length : 0;
@@ -84,7 +85,7 @@ const BookingPage = ({ match }) => {
                 onChange={setSelectedDays}
                 onDisabledDayError={() => window.alert('This date are already booked!')}
                 shouldHighlightWeekends
-                disabledDays={bookings}
+                // disabledDays={bookings.}
               />
             </div>
             <div className="booking__form">

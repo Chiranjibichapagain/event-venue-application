@@ -2,16 +2,26 @@ import React, { useState, useEffect } from 'react';
 
 import { FaCalendar, FaIgloo, FaPlusCircle } from 'react-icons/fa';
 
-import { data } from '../../utils/dummydata';
-
-import './AdminPage.scss';
-import Input from '../../components/Input';
 import AdminBooking from '../../components/AdminBooking';
 import AdminVenues from '../../components/AdminVenues';
 import AdminAddVenue from '../../components/AdminAddVenue';
 
+import './AdminPage.scss';
+import { getAllVenues } from '../../services/venueServices';
+
 function AdminPage() {
   const [view, setView] = useState('bookings');
+  const [data, setData] = useState('');
+
+  const fetchVenues = () => {
+    getAllVenues().then((response: any) => {
+      setData(response.data);
+    });
+  };
+
+  useEffect(() => {
+    fetchVenues();
+  }, []);
 
   return (
     <div className="admin">

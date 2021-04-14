@@ -1,23 +1,21 @@
 import { Day } from 'react-modern-calendar-datepicker';
 import { getABooking } from '../services/bookingServices';
 
-export const useExtractDays = (bookings) => {
-  const dates: Day[] = [];
+type Dates = {
+  _id: string;
+  day: number;
+  month: number;
+  year: number;
+};
 
-  const getData = async () => {
-    await getABooking(bookings && bookings[0]).then(async (res) => {
-      dates.push(res.data.dates);
-    });
-  };
+export const useExtractDays = (data) => {
+  const dates: Dates[] = [];
+  if (data.bookings.length != 0) {
+    data.bookings.map((item) => dates.push(item.dates));
+  }
+  const allDates = dates.concat.apply([], dates);
+  const bookings = allDates.map((item) => ({ day: item.day, month: item.month, year: item.year }));
 
-  getData();
-
-  // bookings &&
-  //   bookings.map((item) => {
-  //     getABooking(item).then((res) => {
-  //       dates.push({ day: 3, month: 4, year: 2021 });
-  //     });
-  //   });
-  console.log('test--', dates);
+  console.log('hook', bookings);
   return [bookings];
 };

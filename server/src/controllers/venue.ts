@@ -20,7 +20,7 @@ export const getAllVenues = async(req:Request, res:Response, next:NextFunction) 
 export const getSingleVenue = async(req:Request, res:Response, next:NextFunction) => {
     try {
         const {venueId}=req.params
-        const venue = await Venue.findOne({_id:venueId})
+        const venue = await Venue.findOne({_id:venueId}).populate('bookings')
         if (venue) {
             res.json(venue)
         } else {
