@@ -48,8 +48,11 @@ const AdminBooking = ({ data }) => {
           <h2 className="admin-bookings__info-title">Booking Details</h2>
           <div className="admin-bookings__info-item">
             <FaCalendar size={30} color="#195e4b" />
-            {bookingInfo.dates.map((date, index) => (
-              <p className="admin-bookings__info-text">{`${date.day}-${date.month}-${date.year}`}</p>
+            {bookingInfo.dates.map((date) => (
+              <p
+                key={date._id}
+                className="admin-bookings__info-text"
+              >{`${date.day}-${date.month}-${date.year}`}</p>
             ))}
           </div>
           <div className="admin-bookings__info-item">

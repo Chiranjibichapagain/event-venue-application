@@ -10,7 +10,7 @@ type Dates = {
 
 export const useExtractDays = (data) => {
   const dates: Dates[] = [];
-  if (data.bookings.length != 0) {
+  if (data && data.bookings.length != 0) {
     data.bookings.map((item) => dates.push(item.dates));
   }
   const allDates = dates.concat.apply([], dates);

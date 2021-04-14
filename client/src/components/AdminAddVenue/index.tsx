@@ -83,7 +83,6 @@ const AdminAddVenue = ({ setPage }) => {
           id="description"
           value={description}
           handleInputChange={setFields}
-          type="text"
           rows={4}
         />
 

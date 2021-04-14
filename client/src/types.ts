@@ -66,7 +66,6 @@ export type InputProps = {
 export type TextareaProps = {
   handleInputChange: () => void;
   placeholder?: string;
-  type: string;
   value: string | number;
   id: string;
   rows: number;

@@ -1,14 +1,15 @@
 @import '../../scss/config';
 
 .textarea {
-  width: 90%;
+  width: 100%;
   border: 1px solid $primary;
-  margin: 10px;
+  margin: 10px 0px;
   border-radius: $r-medium;
   padding: 5px 10px;
   font-size: $t-x-s;
   background-color: $light;
   color: $dark;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {

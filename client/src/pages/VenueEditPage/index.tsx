@@ -86,13 +86,7 @@ const VenueEditPage = ({ match }) => {
         <p className="venue-edit__label">Price (€)</p>
         <Input id="price" value={price} handleInputChange={setFields} type="number" />
         <p className="venue-edit__label">Description</p>
-        <Textarea
-          id="description"
-          value={description}
-          handleInputChange={setFields}
-          type="text"
-          rows={4}
-        />
+        <Textarea id="description" value={description} handleInputChange={setFields} rows={4} />
         <p className="venue-edit__label">Features</p>
         <Select
           options={featureOptions}
