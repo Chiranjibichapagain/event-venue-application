@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa';
 
 import './AdminVenues.scss';
+
 import Button from '../Button';
 
 const AdminVenues = ({ data }) => {
@@ -23,8 +24,6 @@ const AdminVenues = ({ data }) => {
     const venueData = data && data.find((v) => v.venueName === venueSelection);
     setVenue(venueData);
   }, [venueSelection]);
-
-  console.log('tryyyy--', venue);
 
   const handleRightArrow = () => {
     venue && setCurrentImage(currentImage === venue.photos.length - 1 ? 0 : currentImage + 1);

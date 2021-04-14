@@ -18,14 +18,14 @@
 
   &__label {
     width: 100%;
-    margin: 20px 15px 0px 55px;
+    margin: 20px 0 0;
     font-family: $roboto;
     font-weight: bolder;
     color: $dark;
   }
 
   &__select {
-    width: 94%;
+    width: 100%;
     margin: 10px;
     border-radius: $r-medium;
   }

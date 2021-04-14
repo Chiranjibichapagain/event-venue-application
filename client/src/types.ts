@@ -58,7 +58,8 @@ export type InputProps = {
   placeholder?: string;
   type: string;
   modifier?: string;
-  value: string | number;
+  value?: string | number;
+  defaultValue?: string | number;
   id: string;
   minLength?: number;
   maxLength?: number;
@@ -66,7 +67,8 @@ export type InputProps = {
 export type TextareaProps = {
   handleInputChange: () => void;
   placeholder?: string;
-  value: string | number;
+  value?: string | number;
+  defaultValue?: string | number;
   id: string;
   rows: number;
 };

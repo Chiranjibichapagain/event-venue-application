@@ -9,6 +9,7 @@ const Input = ({
   modifier,
   id,
   value,
+  defaultValue,
   handleClick,
   handleFocus,
   handleBlur
@@ -17,6 +18,7 @@ const Input = ({
     <input
       id={id}
       value={value}
+      defaultValue={defaultValue}
       onClick={handleClick}
       onChange={handleInputChange}
       onFocus={handleFocus}
