@@ -29,8 +29,6 @@ const VenueEditPage = ({ match }) => {
     description: ''
   });
 
-  const { name, price, address, people, area, description } = fields;
-
   console.log('0000---', venue.price);
 
   const defaultFeatures = venue?.features.map((item) => {
