@@ -12,6 +12,7 @@ import Textarea from '../../components/Textarea';
 import './VenueEditPage.scss';
 import Button from '../../components/Button';
 import { useOneVenue } from '../../Hooks/useData';
+import { editVenue } from '../../services/venueServices';
 
 const VenueEditPage = ({ match }) => {
   const history = useHistory();
@@ -29,7 +30,9 @@ const VenueEditPage = ({ match }) => {
     description: ''
   });
 
-  console.log('0000---', venue.price);
+  const { name, price, area, address, people, description } = fields;
+
+  console.log('0000---', venue?.price);
 
   const defaultFeatures = venue?.features.map((item) => {
     return { value: item, label: item };
@@ -67,7 +70,22 @@ const VenueEditPage = ({ match }) => {
   };
 
   const handleUpdateVenue = () => {
-    history.push('/admin');
+    const updates = {
+      name,
+      price,
+      area,
+      address,
+      people,
+      description,
+      features: featureList,
+      photos: photoList
+    };
+
+    editVenue(id, updates).then((response) => {
+      if (response.data) {
+        history.push('/admin');
+      }
+    });
   };
 
   return (
