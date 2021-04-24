@@ -69,7 +69,8 @@ const VenueEditPage = ({ match }) => {
     setPhotoList(photos);
   };
 
-  const handleUpdateVenue = () => {
+  const handleUpdateVenue = (e: any) => {
+    e.preventDefault();
     const updates = {
       name,
       price,
@@ -83,6 +84,7 @@ const VenueEditPage = ({ match }) => {
 
     editVenue(id, updates).then((response) => {
       if (response.data) {
+        console.log('xxx--', response.data);
         history.push('/admin');
       }
     });
