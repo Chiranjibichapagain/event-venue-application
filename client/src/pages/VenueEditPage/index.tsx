@@ -13,11 +13,13 @@ import './VenueEditPage.scss';
 import Button from '../../components/Button';
 import { useOneVenue } from '../../Hooks/useData';
 import { editVenue } from '../../services/venueServices';
+import { useUser } from '../../Hooks/useUser';
 
 const VenueEditPage = ({ match }) => {
   const history = useHistory();
   const id = match.params.id;
   const [venue] = useOneVenue(id);
+  const [user] = useUser();
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
 
@@ -71,6 +73,7 @@ const VenueEditPage = ({ match }) => {
 
   const handleUpdateVenue = (e: any) => {
     e.preventDefault();
+    const config = { headers: { authorization: `bearer ${user?.token}` } };
     const updates = {
       name,
       price,
@@ -82,10 +85,10 @@ const VenueEditPage = ({ match }) => {
       photos: photoList
     };
 
-    editVenue(id, updates).then((response) => {
+    editVenue(id, updates, config).then((response) => {
       if (response.data) {
         console.log('xxx--', response.data);
-        history.push('/admin');
+        // history.push('/admin');
       }
     });
   };

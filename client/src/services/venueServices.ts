@@ -10,6 +10,6 @@ export const getOneVenue = async (venueId) => {
   return await axios.get(`${baseUrl}/${venueId}`);
 };
 
-export const editVenue = async (venueId, updates) => {
-  return await axios.put(`${baseUrl}/${venueId}`, updates);
+export const editVenue = async (venueId, updates, config) => {
+  return await axios.put(`${baseUrl}/${venueId}`, updates, config);
 };

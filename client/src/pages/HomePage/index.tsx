@@ -5,7 +5,6 @@ import axios from 'axios';
 import VenueTile from '../../components/VenueTile';
 import { getAllVenues } from '../../services/venueServices';
 import { Venue } from '../../types';
-// import { data } from '../../utils/dummydata';
 
 import './HomePage.scss';
 
