@@ -9,11 +9,14 @@ import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
 
 import './AdminAddVenue.scss';
+import { useUser } from '../../Hooks/useUser';
+import { addVenue } from '../../services/venueServices';
 
 const AdminAddVenue = ({ setPage }) => {
   const history = useHistory();
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
+  const [user] = useUser();
 
   const [fields, setFields] = useForm({
     name: '',
@@ -35,8 +38,29 @@ const AdminAddVenue = ({ setPage }) => {
     setPhotoList(photos);
   };
 
-  const handleCreateVenue = () => {
-    setPage('venues');
+  const handleCreateVenue = (e: any) => {
+    e.preventDefault();
+    const venue = {
+      venueName: name,
+      area,
+      people,
+      description,
+      photos: photoList,
+      features: featureList,
+      price,
+      address
+    };
+    const config = { headers: { authorization: `bearer ${user?.token}` } };
+    addVenue(venue, config)
+      .then((response: any) => {
+        if (response.data) {
+          console.log('new venue--', response.data);
+          location.reload();
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (

@@ -17,3 +17,7 @@ export const editVenue = async (venueId, updates, config) => {
 export const deleteVenue = async (venueId, config) => {
   return await axios.delete(`${baseUrl}/${venueId}`, config);
 };
+
+export const addVenue = async (venue, config) => {
+  return await axios.post(baseUrl, venue, config);
+};
