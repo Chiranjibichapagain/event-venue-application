@@ -10,14 +10,16 @@ import {
   FaPencilAlt
 } from 'react-icons/fa';
 
-import './AdminVenues.scss';
+import { useUser } from '../../Hooks/useUser';
 
-import Button from '../Button';
+import './AdminVenues.scss';
+import { deleteVenue } from '../../services/venueServices';
 
 const AdminVenues = ({ data }) => {
   const [venueSelection, setVenueSelection] = useState(data && data[0].venueName);
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [venue, setVenue] = useState<Venue>();
+  const [user] = useUser();
   const history = useHistory();
 
   useEffect(() => {
@@ -36,8 +38,14 @@ const AdminVenues = ({ data }) => {
     history.push(`/admin/venueEdit/${venue?.id}`);
   };
 
-  const deleteVenue = () => {
-    history.push(`/admin/venueEdit/${venue?.id}`);
+  const handleDelete = () => {
+    const config = { headers: { authorization: `bearer ${user?.token}` } };
+    deleteVenue(venue?.id, config).then((response) => {
+      if (response.data) {
+        history.push('/admin');
+        location.reload();
+      }
+    });
   };
 
   return (
@@ -120,7 +128,7 @@ const AdminVenues = ({ data }) => {
                   color="#195e4b"
                 />
                 <FaTrashAlt
-                  onClick={deleteVenue}
+                  onClick={handleDelete}
                   className="admin-venues__action"
                   size={30}
                   color="#db3c0b"

@@ -85,12 +85,15 @@ const VenueEditPage = ({ match }) => {
       photos: photoList
     };
 
-    editVenue(id, updates, config).then((response) => {
-      if (response.data) {
-        console.log('xxx--', response.data);
-        // history.push('/admin');
-      }
-    });
+    editVenue(id, updates, config)
+      .then((response) => {
+        if (response.data) {
+          history.push('/admin');
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 
   return (

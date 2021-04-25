@@ -20,7 +20,6 @@ const HomePage = () => {
   useEffect(() => {
     fetchVenues();
   }, []);
-  console.log('venues--', data);
 
   return (
     <div className="home">
