@@ -31,7 +31,7 @@
     font-size: $t-small;
     text-align: center;
     margin: 0 10px;
-    color: #101357;
+    color: $primary;
   }
 
   &__profile-div {
@@ -42,7 +42,7 @@
 
   &__icon {
     font-size: $t-big;
-    color: #101357;
+    color: $primary;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 

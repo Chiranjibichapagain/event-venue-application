@@ -14,9 +14,9 @@
 
   &--big {
     height: 65px;
-    background-color: $secondary;
-    border: 2px solid $secondary;
-    color: $dark;
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid $primary;
+    color: $primary;
     font-size: $t-medium;
     border-radius: 20px;
   }
@@ -29,7 +29,8 @@
   }
 
   &--big:hover {
-    transform: scale(1.1);
+    background-color: $primary;
+    color: white;
   }
   &--small:hover {
     background-color: rgba(255, 255, 255, 0);
