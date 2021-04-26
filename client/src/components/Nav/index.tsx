@@ -49,7 +49,7 @@ const Nav = ({ log }) => {
           <div className="nav__profile-div">
             <p className="nav__profile-name">{` Hi ${firstName && firstName[0]}!`}</p>
           </div>
-          <FaSignOutAlt onClick={handleLogout} className="nav__icon" color="white" size={40} />
+          <FaSignOutAlt onClick={handleLogout} className="nav__icon" />
         </div>
       )}
     </div>

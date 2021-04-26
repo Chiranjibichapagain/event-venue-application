@@ -28,11 +28,10 @@
   }
 
   &__profile-name {
-    font-size: 15px;
+    font-size: $t-small;
     text-align: center;
-    font-weight: bold;
     margin: 0 10px;
-    color: white;
+    color: #101357;
   }
 
   &__profile-div {
@@ -42,11 +41,13 @@
   }
 
   &__icon {
+    font-size: $t-big;
+    color: #101357;
     cursor: pointer;
-  }
+    transition: 0.3s ease-in-out;
 
-  &__profile-img {
-    width: 3vw;
-    border-radius: $r-medium;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }

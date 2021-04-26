@@ -9,20 +9,23 @@
   font-size: $t-small;
   margin: 10px 0px;
   padding: 5px 10px;
+  outline: none;
   transition: 0.3s ease-in-out;
 
   &--big {
+    height: 65px;
     background-color: $secondary;
     border: 2px solid $secondary;
     color: $dark;
+    font-size: $t-medium;
     border-radius: 20px;
-    outline: none;
   }
   &--small {
     background-color: $light;
     border: 2px solid $light;
     border-radius: $r-medium;
-    color: $secondary;
+    color: $primary;
+    font-size: $t-medium;
   }
 
   &--big:hover {
@@ -30,7 +33,6 @@
   }
   &--small:hover {
     background-color: rgba(255, 255, 255, 0);
-    color: $dark;
     box-shadow: none;
   }
 }

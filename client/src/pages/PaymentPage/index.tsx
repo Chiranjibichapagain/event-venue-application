@@ -23,7 +23,7 @@ const PaymentPage = ({ match }) => {
 
   const customStyles = {
     content: {
-      background: '#195e4b',
+      background: '#fea49f',
       top: '50%',
       left: '50%',
       right: 'auto',
@@ -57,7 +57,7 @@ const PaymentPage = ({ match }) => {
           <Input
             type="text"
             id="name"
-            value={fields.number}
+            value={fields.name}
             handleInputChange={setFields}
             placeholder="Card holder's name"
           />

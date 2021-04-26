@@ -66,11 +66,11 @@ const BookingPage = ({ match }) => {
           <div className="booking__head">
             <p className="booking__text booking__text--big">{venue.venueName}</p>{' '}
             <div className="booking__people-div">
-              <FaMapMarkerAlt color="#2a2a2a" size={30} />
+              <FaMapMarkerAlt color="#101357" size={30} />
               <p className="booking__text booking__text--medium"> {venue.address} </p>
             </div>
             <div className="booking__people-div">
-              <FaUsers color="#2a2a2a" size={35} />
+              <FaUsers color="#101357" size={35} />
               <p className="booking__text booking__text--medium"> {venue.people} </p>
             </div>
             <p className="booking__text booking__text--medium">{`${venue.price}€/day`}</p>

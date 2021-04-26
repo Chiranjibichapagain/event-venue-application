@@ -7,9 +7,10 @@
   margin: 10px 0px;
   border-radius: $r-medium;
   padding: 5px 10px;
-  font-size: $t-x-s;
+  font-size: $t-small;
   background-color: $light;
   color: $dark;
+  outline: none;
   box-sizing: border-box;
 
   &--month::before {
