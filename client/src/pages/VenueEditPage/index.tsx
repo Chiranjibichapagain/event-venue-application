@@ -86,12 +86,12 @@ const VenueEditPage = ({ match }) => {
     };
 
     editVenue(id, updates, config)
-      .then((response) => {
+      .then((response: any) => {
         if (response.data) {
           history.push('/admin');
         }
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.log(error.response.data);
       });
   };
