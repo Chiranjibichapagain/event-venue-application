@@ -141,9 +141,9 @@
   }
 
   &__bottom-div {
-    height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 10px 0px;
   }
