@@ -23,7 +23,7 @@
     width: 17vw;
     margin-right: 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -31,14 +31,20 @@
     font-size: 15px;
     text-align: center;
     font-weight: bold;
-    margin: 5px 0px 0px 25px;
-    color: $dark;
+    margin: 0 10px;
+    color: white;
   }
+
   &__profile-div {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
+  &__icon {
+    cursor: pointer;
+  }
+
   &__profile-img {
     width: 3vw;
     border-radius: $r-medium;

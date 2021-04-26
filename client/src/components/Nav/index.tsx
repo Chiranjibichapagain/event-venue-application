@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useHistory } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
 
 import { UserData } from '../../types';
 
-import logo from '../../Assets/logo3.png';
+import logo from '../../Assets/logo.svg';
 
 import './Nav.scss';
 import Button from '../Button';
@@ -45,10 +46,10 @@ const Nav = ({ log }) => {
       <img onClick={toHome} className="nav__logo" src={logo} alt="logo" />
       {userData && (
         <div className="nav__log-div">
-          <Button modifier="small" text="Log Out" handleClick={handleLogout} />
           <div className="nav__profile-div">
             <p className="nav__profile-name">{` Hi ${firstName && firstName[0]}!`}</p>
           </div>
+          <FaSignOutAlt onClick={handleLogout} className="nav__icon" color="white" size={40} />
         </div>
       )}
     </div>
