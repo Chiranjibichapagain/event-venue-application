@@ -12,15 +12,20 @@ const Textarea = ({
   rows
 }: TextareaProps) => {
   return (
-    <textarea
-      className="textarea"
-      placeholder={placeholder}
-      onChange={handleInputChange}
-      value={value}
-      defaultValue={defaultValue}
-      id={id}
-      rows={rows}
-    />
+    <>
+      <label htmlFor={id} className="label">
+        {placeholder}
+      </label>
+      <textarea
+        className="textarea"
+        placeholder={placeholder}
+        onChange={handleInputChange}
+        value={value}
+        defaultValue={defaultValue}
+        id={id}
+        rows={rows}
+      />
+    </>
   );
 };
 

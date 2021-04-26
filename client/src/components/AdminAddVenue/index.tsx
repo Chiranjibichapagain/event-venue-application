@@ -54,13 +54,20 @@ const AdminAddVenue = ({ setPage }) => {
     addVenue(venue, config)
       .then((response: any) => {
         if (response.data) {
-          console.log('new venue--', response.data);
           location.reload();
         }
       })
       .catch((error) => {
         console.log(error.response.data);
       });
+  };
+
+  const customStyles = {
+    control: (base) => ({
+      ...base,
+      height: 50,
+      minHeight: 50
+    })
   };
 
   return (
@@ -112,6 +119,7 @@ const AdminAddVenue = ({ setPage }) => {
 
         <p className="new-venue__label">Features</p>
         <CreatableSelect
+          styles={customStyles}
           options={featureOptions}
           className="new-venue__select"
           isMulti
@@ -121,6 +129,7 @@ const AdminAddVenue = ({ setPage }) => {
         />
         <p className="new-venue__label">Venue Photos</p>
         <CreatableSelect
+          styles={customStyles}
           className="new-venue__select"
           isMulti
           id="features"

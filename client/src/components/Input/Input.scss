@@ -3,7 +3,7 @@
 .input {
   width: 100%;
   height: 45px;
-  border: 1px solid $primary;
+  border: none;
   margin: 10px 0px;
   border-radius: $r-medium;
   padding: 5px 10px;
@@ -26,4 +26,13 @@
   &--month:focus {
     color: $dark;
   }
+}
+
+.label {
+  width: 100%;
+  text-align: start;
+  margin-top: 10px;
+  font-family: $roboto;
+  font-size: $t-small;
+  color: $dark;
 }

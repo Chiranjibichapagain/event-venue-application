@@ -15,19 +15,24 @@ const Input = ({
   handleBlur
 }: InputProps) => {
   return (
-    <input
-      id={id}
-      value={value}
-      defaultValue={defaultValue}
-      onClick={handleClick}
-      onChange={handleInputChange}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      placeholder={placeholder}
-      type={type}
-      required
-      className={`input input--${modifier}`}
-    />
+    <>
+      <label htmlFor={id} className="label">
+        {placeholder}
+      </label>
+      <input
+        id={id}
+        value={value}
+        defaultValue={defaultValue}
+        onClick={handleClick}
+        onChange={handleInputChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder={placeholder}
+        type={type}
+        required
+        className={`input input--${modifier}`}
+      />
+    </>
   );
 };
 
