@@ -42,7 +42,7 @@ export const updateVenue = async (req: Request, res: Response, next: NextFunctio
         price: price ? price : venue.price,
         description: description ? description : venue.description,
         address: address ? address : venue.address,
-        features: features ? features : venue.features,
+        features: features.length > 1 ? features : venue.features,
         photos: photos.length > 1 ? photos : venue.photos
       };
       await Venue.findByIdAndUpdate(venueId, updatedVenue, { new: true }).then((updated: any) => {
