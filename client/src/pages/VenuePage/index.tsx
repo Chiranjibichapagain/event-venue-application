@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
 import { FaArrowLeft, FaArrowRight, FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
 import Button from '../../components/Button';
@@ -36,7 +37,7 @@ const VenuePage = ({ match }) => {
   };
 
   return (
-    <div>
+    <div className="venue-main">
       {venue && (
         <div className="venue">
           <div className="venue__image-div">
@@ -100,6 +101,7 @@ const VenuePage = ({ match }) => {
           </div>
         </div>
       )}
+      {!venue && <ReactLoading type={'bars'} color={'green'} height={300} width={175} />}
     </div>
   );
 };
