@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import ReactLoading from 'react-loading';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaCalendar, FaUser, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
@@ -10,7 +11,7 @@ import './AdminBooking.scss';
 
 const AdminBooking = ({ data }) => {
   if (!data) {
-    return <h1>No data</h1>;
+    return <ReactLoading type={'bars'} color={'green'} height={300} width={175} />;
   }
 
   const [venueSelection, setVenueSelection] = useState(data[0].venueName);
