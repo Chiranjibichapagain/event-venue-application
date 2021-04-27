@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Filters from '../../components/Filters';
-import axios from 'axios';
+import ReactLoading from 'react-loading';
 
 import VenueTile from '../../components/VenueTile';
 import { getAllVenues } from '../../services/venueServices';
@@ -25,6 +25,9 @@ const HomePage = () => {
     <div className="home">
       <div className="home__venues">
         {data && data.map((venue: Venue) => <VenueTile key={venue.id} data={venue} />)}
+        {data.length === 0 && (
+          <ReactLoading type={'bars'} color={'green'} height={300} width={175} />
+        )}
       </div>
     </div>
   );
