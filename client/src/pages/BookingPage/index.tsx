@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
@@ -60,7 +61,7 @@ const BookingPage = ({ match }) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="booking-main">
       {venue && (
         <div className="booking">
           <div className="booking__head">
@@ -144,6 +145,7 @@ const BookingPage = ({ match }) => {
           </div>
         </div>
       )}
+      {!venue && <ReactLoading type={'bars'} color={'green'} height={300} width={175} />}
     </div>
   );
 };

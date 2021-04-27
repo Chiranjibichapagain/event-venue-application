@@ -1,5 +1,9 @@
 @import '../../scss/config';
 
+.booking-main {
+  @include absolute-center;
+}
+
 .booking {
   width: 95vw;
   margin: 0px auto;
