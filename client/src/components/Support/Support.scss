@@ -1,0 +1,48 @@
+@import '../../scss/config';
+
+.support {
+  position: absolute;
+
+  &__register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__messages {
+    position: relative;
+    height: 330px;
+    top: 0px;
+    overflow-y: auto;
+  }
+
+  &__form {
+    position: relative;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__send {
+    color: $light;
+    font-size: $t-big;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: greenyellow;
+    }
+  }
+
+  &__heading,
+  &__text {
+    color: $light;
+    text-align: center;
+  }
+
+  &__set-user-div {
+    margin-top: 50px;
+  }
+}

@@ -16,9 +16,9 @@ const Input = ({
 }: InputProps) => {
   return (
     <>
-      <label htmlFor={id} className="label">
+      {/* <label htmlFor={id} className="label">
         {placeholder}
-      </label>
+      </label> */}
       <input
         id={id}
         value={value}

@@ -15,10 +15,10 @@ const LandingPage = () => {
   return (
     <div className="landing">
       <h1 className="landing__head">YOU THINK, WE ORGANIZE!</h1>
-      <Room />
       <div className="landing__btn">
         <Button text="Explore venues" modifier="big" handleClick={handleClick} />
       </div>
+      <Room />
     </div>
   );
 };
