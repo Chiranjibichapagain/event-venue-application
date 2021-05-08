@@ -31,7 +31,6 @@ io.on('connection', (socket: any) => {
         { upsert: true }
       )
         .then((result: any) => {
-          console.log(result);
           io.emit('returned-message', savedChat);
         })
         .catch((error: any) => {
@@ -55,7 +54,6 @@ io.on('connection', (socket: any) => {
         io.emit('room-not-found');
       }
     } catch (error) {
-      console.log('trigger here');
       io.emit('room-not-found');
     }
   });

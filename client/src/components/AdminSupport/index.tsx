@@ -26,7 +26,6 @@ const AdminSupport = ({ setNotification }) => {
     if (activeRoom) {
       if (message) {
         const newMessage = { message, name: 'Organize', type: 'organize', roomId: activeRoom.id };
-        console.log('test-admin-message', newMessage);
         socket.emit('new-message', newMessage);
         socket.on('returned-message', (newMessage: any) => {
           setData([...data, newMessage]);
@@ -50,8 +49,6 @@ const AdminSupport = ({ setNotification }) => {
   useEffect(() => {
     fetchChatrooms();
   }, []);
-
-  // console.log('room-count', roomCount);
 
   useEffect(() => {
     const activeRoom = rooms.find((room: Room) => room.id === active);
