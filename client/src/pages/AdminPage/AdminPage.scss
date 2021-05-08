@@ -16,13 +16,14 @@
   }
 
   &__nav-items {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1.5em;
-    border-radius: 6px 0px 0px 6px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    border-bottom: 1px solid grey;
 
     &--active {
       background-color: $lightRed;
@@ -39,6 +40,14 @@
     width: 5em;
     color: $dark;
     font-size: $t-small;
+  }
+
+  &__notification {
+    color: red;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 10px;
   }
 
   &__main {

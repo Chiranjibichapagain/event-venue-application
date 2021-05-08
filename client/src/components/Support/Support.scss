@@ -10,6 +10,7 @@
     align-items: center;
   }
   &__messages {
+    width: 95%;
     position: relative;
     height: 330px;
     top: 0px;
@@ -43,6 +44,7 @@
   }
 
   &__set-user-div {
+    width: 90%;
     margin-top: 50px;
   }
 }

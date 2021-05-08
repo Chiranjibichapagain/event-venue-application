@@ -8,7 +8,7 @@
   align-items: flex-end;
 
   &__span {
-    width: 80%;
+    max-width: 80%;
     font-size: 0.8em;
     text-align: right;
     margin-right: 7px;
@@ -16,9 +16,9 @@
   }
 
   &__text {
-    width: 80%;
+    max-width: 80%;
     margin: 0;
-    padding: 8px;
+    padding: 8px 12px;
     background-color: rgba(255, 255, 255, 0.87);
     border-radius: 10px;
     margin-top: 5px;
@@ -29,9 +29,12 @@
 .chat-g {
   width: 100%;
   margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   &__span {
-    width: 80%;
+    max-width: 80%;
     font-size: 0.8em;
     text-align: left;
     margin-left: 7px;
@@ -39,9 +42,9 @@
   }
 
   &__text {
-    width: 80%;
+    max-width: 80%;
     margin: 0;
-    padding: 8px;
+    padding: 8px 12px;
     background-color: yellowgreen;
     border-radius: 10px;
     margin-top: 5px;

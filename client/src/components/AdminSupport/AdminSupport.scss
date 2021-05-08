@@ -1,0 +1,96 @@
+@import '../../scss/config';
+
+.a-support {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__rooms {
+    width: 200px;
+    min-height: 450px;
+    background-color: $light;
+    margin-right: 30px;
+  }
+
+  &__chat {
+    width: 650px;
+    min-height: 500px;
+  }
+
+  &__conversation {
+    background-color: rgb(95, 67, 67);
+    padding: 15px;
+    border-radius: $r-big;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    overflow-y: auto;
+  }
+
+  &__room {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(179, 179, 179);
+    background-color: grey;
+    color: $light;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &--inactive {
+      background-color: $light;
+      color: $dark;
+    }
+  }
+
+  &__room-text {
+    width: 140px;
+    text-align: start;
+  }
+
+  &__room-icon {
+    color: brown;
+    font-size: $t-small;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
+  &__form {
+    position: relative;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__send {
+    color: $light;
+    font-size: $t-big;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      color: greenyellow;
+    }
+  }
+
+  &__fallback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__fallback-text {
+    color: $light;
+    font-size: $t-medium;
+    margin-bottom: 20px;
+  }
+
+  &__fallback-image {
+    width: 200px;
+  }
+}

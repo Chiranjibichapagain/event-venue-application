@@ -8,17 +8,24 @@ const chatSchema = new mongoose.Schema(
       require: 'Name is required'
     },
 
-    sender: {
+    name: {
       type: String,
-      require: 'Email is required'
+      require: 'sender is required'
     },
 
     time: {
-      type: String
+      type: String,
+      require: 'time is required'
     },
 
     type: {
-      type: String
+      type: String,
+      require: 'type is required'
+    },
+
+    room: {
+      type: String,
+      require: 'Room id is required'
     }
   },
   { timeStamps: true }

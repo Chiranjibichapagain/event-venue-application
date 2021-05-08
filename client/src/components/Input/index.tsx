@@ -12,7 +12,8 @@ const Input = ({
   defaultValue,
   handleClick,
   handleFocus,
-  handleBlur
+  handleBlur,
+  required
 }: InputProps) => {
   return (
     <>
@@ -29,7 +30,7 @@ const Input = ({
         onBlur={handleBlur}
         placeholder={placeholder}
         type={type}
-        required
+        required={required}
         className={`input input--${modifier}`}
       />
     </>

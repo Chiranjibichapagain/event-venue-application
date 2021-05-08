@@ -61,6 +61,7 @@ export type InputProps = {
   value?: string | number;
   defaultValue?: string | number;
   id: string;
+  required?: boolean;
   minLength?: number;
   maxLength?: number;
 };
@@ -79,4 +80,19 @@ export type AdminBookingsProps = {
 
 export type AdminVenuesProps = {
   data: Venue[];
+};
+
+export type Chat = {
+  id: string;
+  message: string;
+  name: string;
+  time: string;
+  type: string;
+};
+
+export type Room = {
+  chat: Chat[];
+  name: string;
+  email: string;
+  id: string;
 };

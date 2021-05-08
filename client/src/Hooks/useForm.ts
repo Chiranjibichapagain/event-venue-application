@@ -7,6 +7,9 @@ export const useForm = (initialState: any) => {
     fields,
     (event: any) => {
       setFields({ ...fields, [event.target.id]: event.target.value });
+    },
+    () => {
+      setFields(initialState);
     }
   ];
 };
