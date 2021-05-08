@@ -1,14 +1,14 @@
 const app = require('./app');
 const http = require('http');
+import { Server, Socket } from 'socket.io';
 const config = require('./utils/config');
 const Chat = require('./modals/Chat');
 const Chatroom = require('./modals/Chatroom');
 
 const server = http.createServer(app);
-const { Server } = require('socket.io');
 const io = new Server(server, { cors: { origin: '*' } });
 
-io.on('connection', (socket: any) => {
+io.on('connection', (socket: Socket) => {
   socket.on('create-room', async (roomInfo: any) => {
     const { name, email } = roomInfo;
     const newRoom = new Chatroom({ name, email, chat: [] });
