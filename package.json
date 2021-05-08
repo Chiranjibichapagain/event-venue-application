@@ -4,7 +4,11 @@
   "description": "Venue booking app",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon ./src/index.ts"
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node index.ts",
+    "dev": "nodemon ./src/index.ts"
   },
   "keywords": [],
   "author": "",

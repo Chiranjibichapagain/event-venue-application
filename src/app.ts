@@ -29,4 +29,9 @@ app.use('/api/venue', venueRouter);
 app.use('/api/booking', bookingRouter);
 app.use('/api/admin', adminRouter);
 
+//Heroku---
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 module.exports = app;
