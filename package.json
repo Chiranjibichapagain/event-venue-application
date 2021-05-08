@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Venue booking app",
   "main": "index.ts",
+  "engines": {
+    "node": "14.15.5"
+  },
   "scripts": {
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
