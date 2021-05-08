@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:5000/api/booking';
+const baseUrl = 'api/booking';
 
 export const makeBooking = async (bookingData) => {
   return await axios.post(baseUrl, bookingData);
