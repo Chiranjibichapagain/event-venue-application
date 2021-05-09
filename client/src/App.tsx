@@ -10,20 +10,15 @@ import Support from './components/Support';
 import Routes from './Routes';
 
 function App() {
-  const location = useLocation;
   const [log, setLog] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isChatbotOpen, setIsChatbotOpen] = useState(true);
-
-  const { pathname } = window.location;
 
   useEffect(() => {
     if (log) {
       setIsChatbotOpen(false);
     }
   }, [log]);
-
-  console.log('test--log', log);
 
   return (
     <div className="app">
