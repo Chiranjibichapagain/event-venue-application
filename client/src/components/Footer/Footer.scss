@@ -1,6 +1,7 @@
 @import '../../scss/config';
 
 .footer {
+  width: 100%;
   background-color: $primary;
   overflow: hidden;
   margin-top: 50px;
@@ -40,5 +41,22 @@
 
   &__a-tag {
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    &__items {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__vl {
+      display: none;
+    }
+
+    &__info-item {
+      margin: 0 0 20px 10px;
+    }
   }
 }

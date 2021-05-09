@@ -39,18 +39,20 @@ const PaymentPage = ({ match }) => {
 
   return (
     <div className="pay">
-      <h1 className="pay__head">Make payment</h1>
+      <h1 className="pay__heading">Make payment</h1>
       <div className="pay__body">
-        <PaymentCard
-          bank="itau"
-          type="gold"
-          brand="visa"
-          number={fields.number.substring(0, 15)}
-          cvv={fields.cvv.substring(0, 3)}
-          holderName={fields.name}
-          expiration={fields.expiry.replace('-', '/')}
-          flipped={flipped}
-        />
+        <div className="pay__card-div">
+          <PaymentCard
+            bank="itau"
+            type="gold"
+            brand="visa"
+            number={fields.number.substring(0, 15)}
+            cvv={fields.cvv.substring(0, 3)}
+            holderName={fields.name}
+            expiration={fields.expiry.replace('-', '/')}
+            flipped={flipped}
+          />
+        </div>
         <form className="pay__form">
           <Input
             type="number"

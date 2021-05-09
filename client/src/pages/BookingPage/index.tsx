@@ -4,6 +4,7 @@ import ReactLoading from 'react-loading';
 import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaUsers, FaMapMarkerAlt } from 'react-icons/fa';
+import { AiFillEuroCircle } from 'react-icons/ai';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -64,17 +65,21 @@ const BookingPage = ({ match }) => {
     <div className="booking-main">
       {venue && (
         <div className="booking">
+          <h1 className="booking__title">Booking</h1>
           <div className="booking__head">
             <p className="booking__text booking__text--big">{venue.venueName}</p>{' '}
-            <div className="booking__people-div">
-              <FaMapMarkerAlt color="#101357" size={30} />
+            <div className="booking__icon-div">
+              <FaMapMarkerAlt className="booking__icon" />
               <p className="booking__text booking__text--medium"> {venue.address} </p>
             </div>
-            <div className="booking__people-div">
-              <FaUsers color="#101357" size={35} />
+            <div className="booking__icon-div">
+              <FaUsers className="booking__icon" />
               <p className="booking__text booking__text--medium"> {venue.people} </p>
             </div>
-            <p className="booking__text booking__text--medium">{`${venue.price}€/day`}</p>
+            <div className="booking__icon-div">
+              <AiFillEuroCircle className="booking__icon" />
+              <p className="booking__text booking__text--medium">{`${venue.price}€/day`}</p>
+            </div>
           </div>
           <div className="booking__body">
             <div className="booking__date-picker">

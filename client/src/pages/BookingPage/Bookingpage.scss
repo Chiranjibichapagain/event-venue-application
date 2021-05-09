@@ -12,6 +12,11 @@
   justify-content: space-around;
   align-items: center;
 
+  &__title {
+    margin: 0 0 25px;
+    color: $dark;
+  }
+
   &__head {
     background-color: $light;
     box-shadow: $sh-small;
@@ -25,9 +30,15 @@
     box-sizing: border-box;
   }
 
-  &__people-div {
+  &__icon-div {
     display: flex;
     align-items: center;
+  }
+
+  &__icon {
+    width: 25px;
+    color: #101357;
+    font-size: 20px;
   }
 
   &__text {
@@ -113,5 +124,50 @@
 
   &__selected {
     background-color: $primary !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .booking {
+    width: 100vw;
+    padding-bottom: 320px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .booking {
+    padding: 0 20px;
+
+    &__head {
+      width: 100%;
+    }
+
+    &__body {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .booking {
+    &__head {
+      height: 200px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__body {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__date-picker {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    &__form {
+      width: 100%;
+    }
   }
 }

@@ -70,3 +70,27 @@
     }
   }
 }
+
+// @media screen and (max-width: 1024px) {
+// }
+// @media screen and (max-width: 768px) {
+// }
+// @media screen and (max-width: 600px) {
+// }
+// @media screen and (max-width: 340px) {
+// }
+
+@media screen and (max-width: 600px) {
+  .nav {
+    height: 80px;
+    margin-bottom: 10px;
+    &__admin-log {
+      margin-right: 20px;
+    }
+
+    &__logo {
+      width: 80px;
+      margin-left: 20px;
+    }
+  }
+}

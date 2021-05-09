@@ -195,3 +195,9 @@
     transform: scaleX(1);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .room {
+    margin-top: 50px;
+  }
+}

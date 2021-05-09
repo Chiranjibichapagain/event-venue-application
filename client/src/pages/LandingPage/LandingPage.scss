@@ -60,3 +60,24 @@
     transform: scale(1);
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .landing {
+    &__btn {
+      margin-top: 50px;
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing {
+    &__head {
+      text-align: center;
+    }
+
+    &__btn {
+      width: 80%;
+    }
+  }
+}

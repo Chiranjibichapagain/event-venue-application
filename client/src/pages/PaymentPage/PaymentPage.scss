@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: center;
 
-  &__head {
+  &__heading {
     margin: 0px 0px 50px 0px;
     color: $dark;
   }
@@ -17,6 +17,11 @@
     width: 60%;
     display: flex;
     justify-content: space-around;
+  }
+
+  &__card-div {
+    width: 50%;
+    margin-right: 20px;
   }
 
   &__form {
@@ -45,6 +50,7 @@
     font-weight: bold;
     color: $primary;
     margin: 20px 0;
+    text-align: center;
   }
 
   &__btn-div {
@@ -62,5 +68,62 @@
     font-size: 1em;
     text-align: center;
     color: $primary;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .pay {
+    width: 100vw;
+    padding-bottom: 520px;
+
+    &__body {
+      width: 75%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .pay {
+    padding-bottom: 190px;
+
+    &__body {
+      width: 95%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .pay {
+    padding-bottom: 0;
+
+    &__heading {
+      margin-bottom: 0;
+    }
+
+    &__body {
+      width: 98%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card-div {
+      width: 95%;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__form {
+      width: 95%;
+    }
+  }
+
+  .confirm-modal {
+    width: 70vw;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  ._2D_VfCL6PDramYdGNPlSSA {
+    max-width: 300px !important;
   }
 }
