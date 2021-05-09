@@ -36,15 +36,11 @@ const Nav = ({ log }) => {
     history.push('/');
   };
 
-  const toHome = () => {
-    history.push('./');
-  };
-
   // const googleClient = '1022731832769-0epv227hsfh2rpvsgroeg558uttkhg4b.apps.googleusercontent.com';
   return (
     <div className="nav">
       <div className="nav__main">
-        <img onClick={toHome} className="nav__logo" src={logo} alt="logo" />
+        <img onClick={() => history.push('/')} className="nav__logo" src={logo} alt="logo" />
         {!userData && (
           <p onClick={() => history.push('/admin/login')} className="nav__admin-log">
             Admin Login

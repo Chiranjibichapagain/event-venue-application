@@ -18,10 +18,12 @@ function App() {
   const { pathname } = window.location;
 
   useEffect(() => {
-    if (pathname.includes('admin')) {
+    if (log) {
       setIsChatbotOpen(false);
     }
-  }, [location.pathname]);
+  }, [log]);
+
+  console.log('test--log', log);
 
   return (
     <div className="app">
