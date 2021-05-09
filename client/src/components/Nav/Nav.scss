@@ -9,6 +9,25 @@
   align-items: center;
   margin-bottom: 20px;
 
+  &__main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__admin-log {
+    margin-right: 100px;
+    font-weight: bold;
+    color: $primary;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   &__logo {
     margin-left: 100px;
     width: 120px;

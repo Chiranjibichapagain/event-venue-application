@@ -43,7 +43,14 @@ const Nav = ({ log }) => {
   // const googleClient = '1022731832769-0epv227hsfh2rpvsgroeg558uttkhg4b.apps.googleusercontent.com';
   return (
     <div className="nav">
-      <img onClick={toHome} className="nav__logo" src={logo} alt="logo" />
+      <div className="nav__main">
+        <img onClick={toHome} className="nav__logo" src={logo} alt="logo" />
+        {!userData && (
+          <p onClick={() => history.push('/admin/login')} className="nav__admin-log">
+            Admin Login
+          </p>
+        )}
+      </div>
       {userData && (
         <div className="nav__log-div">
           <div className="nav__profile-div">
