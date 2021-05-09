@@ -50,7 +50,7 @@ const Nav = ({ log }) => {
       {userData && (
         <div className="nav__log-div">
           <div className="nav__profile-div">
-            <p className="nav__profile-name">{` Hi ${firstName && firstName[0]}!`}</p>
+            <p className="nav__profile-name">{firstName && firstName[0]}</p>
           </div>
           <FaSignOutAlt onClick={handleLogout} className="nav__icon" />
         </div>
