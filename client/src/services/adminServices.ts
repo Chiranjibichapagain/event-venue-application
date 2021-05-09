@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:5000/api/admin';
+const baseUrl = 'api/admin';
 
 export const createAccount = async (userData) => {
   return await axios.post(baseUrl, userData);
