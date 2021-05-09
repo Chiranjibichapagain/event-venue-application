@@ -32,6 +32,11 @@ const PaymentPage = ({ match }) => {
     }
   };
 
+  const openModal = (e: any) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="pay">
       <h1 className="pay__head">Make payment</h1>
@@ -81,7 +86,7 @@ const PaymentPage = ({ match }) => {
             minLength={3}
             maxLength={3}
           />
-          <Button text="Confirm & pay" modifier="small" handleClick={() => setIsModalOpen(true)} />
+          <Button text="Confirm & pay" modifier="small" handleClick={openModal} />
         </form>
         <Modal isOpen={isModalOpen} style={customStyles}>
           <div onClick={() => setIsModalOpen(false)} className="close">
@@ -94,7 +99,7 @@ const PaymentPage = ({ match }) => {
               your email.{' '}
             </p>
             <div className="confirm-modal__btn-div">
-              <Button modifier="small" text="OK" handleClick={() => history.push('/products')} />
+              <Button modifier="small" text="OK" handleClick={() => history.push('/')} />
             </div>
           </div>
         </Modal>
