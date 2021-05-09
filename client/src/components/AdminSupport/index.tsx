@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import { IoMdSend } from 'react-icons/io';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -12,7 +12,6 @@ import SupportChat from '../SupportChat';
 
 const AdminSupport = ({ setNotification }) => {
   const socket = io('http://localhost:5000');
-  const conversation = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<Chat[]>([]);
   const [rooms, setRooms] = useState<any[]>([]);
   const [active, setActive] = useState<string>('');
@@ -29,6 +28,10 @@ const AdminSupport = ({ setNotification }) => {
         socket.emit('new-message', newMessage);
         socket.on('returned-message', (newMessage: any) => {
           setData([...data, newMessage]);
+          const el = document.getElementById(newMessage.id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
         });
         reset();
       }
@@ -77,9 +80,9 @@ const AdminSupport = ({ setNotification }) => {
         ))}
       </div>
       <div className="a-support__chat">
-        <div ref={conversation} className="a-support__conversation">
+        <div className="a-support__conversation">
           {data.length > 0 ? (
-            data.map((chat: Chat) => <SupportChat message={chat} />)
+            data.map((chat: Chat) => <SupportChat id={chat.id} message={chat} />)
           ) : (
             <div className="a-support__fallback">
               <p className="a-support__fallback-text">

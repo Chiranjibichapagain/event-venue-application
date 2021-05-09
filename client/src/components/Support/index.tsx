@@ -19,14 +19,14 @@ const Support = () => {
   const [fields, setFields, reset] = useForm({
     message: '',
     email: '',
-    name: userName ? userName : ''
+    name: ''
   });
 
   useEffect(() => {
     const LS = localStorage.getItem('venue-guest');
     if (LS) {
-      const { roomId, name } = JSON.parse(LS);
       setLogged(true);
+      const { roomId, name } = JSON.parse(LS);
       setRoomId(roomId);
       setUserName(name);
       fetchChat();
@@ -43,11 +43,12 @@ const Support = () => {
       socket.on('fetched-chat', (chatList: Chat[]) => {
         setChatList([...chatList]);
       });
-      socket.on('room-not-found', () => {
-        setLogged(false);
-      });
     }
   };
+
+  socket.on('room-not-found', () => {
+    setLogged(false);
+  });
 
   const startChat = (e: any) => {
     e.preventDefault();
@@ -63,11 +64,15 @@ const Support = () => {
   };
 
   const sendMessage = () => {
-    if (message && name && roomId) {
-      const newMessage = { message, name, type: 'guest', roomId };
+    if (message && userName && roomId) {
+      const newMessage = { message, name: userName ? userName : name, type: 'guest', roomId };
       socket.emit('new-message', newMessage);
       socket.on('returned-message', (newMessage: any) => {
         setChatList([...chatList, newMessage]);
+        const el = document.getElementById(newMessage.id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
       });
       reset();
     }
@@ -79,7 +84,7 @@ const Support = () => {
         <div className="support__chat-box">
           <div className="support__messages">
             {chatList.length > 0 ? (
-              chatList.map((message) => <SupportChat message={message} />)
+              chatList.map((message) => <SupportChat id={message.id} message={message} />)
             ) : (
               <p style={{ color: 'white' }}>Send a message and start chatting!</p>
             )}
@@ -99,7 +104,7 @@ const Support = () => {
       ) : (
         <div className="support__register">
           <h2 className="support__heading">Hi there! Welcome to our customer support chat. </h2>
-          <p className="support__text">Please enter your name and ask questions!</p>
+          <p className="support__text">Please enter your details and ask questions!</p>
           <div className="support__set-user-div">
             <Input
               required={true}
