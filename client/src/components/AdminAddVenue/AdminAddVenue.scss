@@ -8,6 +8,7 @@
 
   &__heading {
     margin: 0 0 20px 0;
+    text-align: center;
   }
 
   &__form {
@@ -28,5 +29,27 @@
     width: 100%;
     margin: 10px;
     border-radius: $r-medium;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .new-venue {
+    &__form {
+      width: 75%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .new-venue {
+    &__form {
+      width: 85%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .new-venue {
+    &__form {
+      width: 98%;
+    }
   }
 }

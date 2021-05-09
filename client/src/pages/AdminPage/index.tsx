@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import io from 'socket.io-client';
 
 import { FaCalendar, FaIgloo, FaPlusCircle } from 'react-icons/fa';
 import { BiSupport } from 'react-icons/bi';
+import { RiMenuUnfoldFill } from 'react-icons/ri';
 
 import AdminBooking from '../../components/AdminBooking';
 import AdminVenues from '../../components/AdminVenues';
@@ -13,9 +13,9 @@ import { getAllVenues } from '../../services/venueServices';
 import AdminSupport from '../../components/AdminSupport';
 
 function AdminPage() {
-  const socket = io('http://localhost:5000');
   const [view, setView] = useState('bookings');
   const [data, setData] = useState('');
+  const [smallScreen, setSmallScreen] = useState(false);
   const [notification, setNotification] = useState<string>('');
 
   const fetchVenues = () => {
@@ -31,13 +31,17 @@ function AdminPage() {
   const handleSupportClick = () => {
     setView('support');
     setNotification('');
+    setSmallScreen(false);
   };
 
   return (
     <div className="admin">
-      <div className="admin__aside">
+      <RiMenuUnfoldFill onClick={() => setSmallScreen(!smallScreen)} className="admin__menu-icon" />
+      <div className={smallScreen ? 'admin__aside-ss ' : 'admin__aside'}>
         <div
-          onClick={() => setView('bookings')}
+          onClick={() => {
+            setView('bookings'), setSmallScreen(false);
+          }}
           className={
             view === 'bookings' ? 'admin__nav-items admin__nav-items--active' : 'admin__nav-items'
           }
@@ -46,7 +50,9 @@ function AdminPage() {
           <FaCalendar className="admin__icon" /> <span className="admin__nav-text">Bookings</span>
         </div>
         <div
-          onClick={() => setView('venues')}
+          onClick={() => {
+            setView('venues'), setSmallScreen(false);
+          }}
           className={
             view === 'venues' ? 'admin__nav-items admin__nav-items--active' : 'admin__nav-items'
           }
@@ -55,7 +61,9 @@ function AdminPage() {
           <FaIgloo className="admin__icon" /> <span className="admin__nav-text">Venues</span>
         </div>
         <div
-          onClick={() => setView('new-venue')}
+          onClick={() => {
+            setView('new-venue'), setSmallScreen(false);
+          }}
           className={
             view === 'new-venue' ? 'admin__nav-items admin__nav-items--active' : 'admin__nav-items'
           }

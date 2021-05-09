@@ -84,6 +84,8 @@
   .nav {
     height: 80px;
     margin-bottom: 10px;
+    border-bottom: 1px solid rgb(56, 35, 39);
+
     &__admin-log {
       margin-right: 20px;
     }
@@ -91,6 +93,11 @@
     &__logo {
       width: 80px;
       margin-left: 20px;
+    }
+
+    &__log-div {
+      flex-direction: column-reverse;
+      margin-right: 20px;
     }
   }
 }

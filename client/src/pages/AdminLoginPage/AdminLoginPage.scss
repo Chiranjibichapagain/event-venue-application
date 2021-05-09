@@ -11,7 +11,7 @@
   &__heading {
     font-family: $open-sans;
     color: $dark;
-    letter-spacing: 5px;
+    text-align: center;
   }
   &__error {
     margin: 0;
@@ -83,5 +83,28 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .admin-log {
+    padding-bottom: 590px;
+
+    &__form {
+      width: 50%;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .admin-log {
+    padding-bottom: 250px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .admin-log {
+    padding-bottom: 0;
+    &__form {
+      width: 98%;
+    }
   }
 }

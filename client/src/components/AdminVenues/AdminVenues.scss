@@ -165,3 +165,34 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .admin-venues {
+    &__select {
+      width: 98%;
+      margin: 20px 0 10px 0;
+    }
+
+    &__main {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__image-div {
+      width: 98%;
+      margin-bottom: 20px;
+    }
+
+    &__info-div {
+      width: 90%;
+    }
+
+    &__button-div {
+      width: 50%;
+    }
+
+    &__price-div {
+      width: 40%;
+    }
+  }
+}

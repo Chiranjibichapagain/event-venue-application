@@ -36,3 +36,9 @@
   font-size: $t-small;
   color: $dark;
 }
+
+@media screen and (max-width: 1024px) {
+  .input {
+    height: 55px;
+  }
+}

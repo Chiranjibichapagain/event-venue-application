@@ -30,9 +30,11 @@
   }
 
   &__info-text {
+    width: 290px;
     color: $dark;
     font-size: $t-small;
-    margin: 0px 15px;
+    overflow-y: auto;
+    margin: 0px 10px;
 
     &--msg {
       font-size: $t-x-s;
@@ -54,5 +56,23 @@
   &__calender {
     width: 100%;
     z-index: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-bookings {
+    flex-direction: column;
+
+    &__calender-div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    &__info {
+      width: 90%;
+    }
   }
 }
