@@ -1,5 +1,7 @@
 export {};
+import { Request, Response } from 'express';
 const express = require('express');
+const path = require('path');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -33,5 +35,8 @@ app.use('/api/admin', adminRouter);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
+app.get('*', (request: Request, response: Response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 module.exports = app;
