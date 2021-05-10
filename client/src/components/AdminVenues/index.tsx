@@ -16,7 +16,7 @@ import { useUser } from '../../Hooks/useUser';
 import './AdminVenues.scss';
 import Loading from '../Loading';
 
-const AdminVenues = ({ data, setStatus, status }) => {
+const AdminVenues = ({ data, setStatus }) => {
   if (data.length < 1) {
     return <Loading />;
   }

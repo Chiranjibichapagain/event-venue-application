@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { Config, Venue } from '../types';
 
-const baseUrl = 'https://event-back-server.herokuapp.com/api/venue';
-// const baseUrl = 'http://localhost:5000/api/venue';
+// const baseUrl = 'https://event-back-server.herokuapp.com/api/venue';
+const baseUrl = 'http://localhost:5000/api/venue';
 
 export const getAllVenues = async () => {
   return await axios.get(baseUrl);

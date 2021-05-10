@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaCalendar, FaUser, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
-import Loading from '../Loading';
 import { AdminBookingsProps, Venue } from '../../types';
 import { useExtractBookingInfo, useExtractDays } from '../../Hooks/useExtractDays';
 
