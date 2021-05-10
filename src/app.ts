@@ -35,7 +35,7 @@ app.use('/api/admin', adminRouter);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-app.get('*', (request: Request, response: Response) => {
+app.get('/*', (request: Request, response: Response) => {
   response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
