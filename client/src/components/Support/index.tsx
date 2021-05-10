@@ -31,7 +31,7 @@ const Support = () => {
       setUserName(name);
       fetchChat();
     }
-  }, [logged]);
+  }, []);
 
   const { message, email, name } = fields;
 
@@ -58,6 +58,7 @@ const Support = () => {
       socket.on('created-room', (room: Room) => {
         setRoomId(room.id);
         setLogged(true);
+        setUserName(name);
         localStorage.setItem('venue-guest', JSON.stringify({ roomId: room.id, name }));
       });
     }
@@ -90,14 +91,16 @@ const Support = () => {
             )}
           </div>
           <form className="support__form">
-            <Input
-              required={true}
-              placeholder="write a message"
-              type="text"
-              id="message"
-              value={message}
-              handleInputChange={setFields}
-            />
+            <div className="support__input-div">
+              <Input
+                required={true}
+                placeholder="write a message"
+                type="text"
+                id="message"
+                value={message}
+                handleInputChange={setFields}
+              />
+            </div>
             <IoMdSend onClick={sendMessage} className="support__send" />
           </form>
         </div>
@@ -113,7 +116,6 @@ const Support = () => {
               id="email"
               value={email}
               handleInputChange={setFields}
-              label="Email"
             />
             <Input
               required={true}
@@ -122,7 +124,6 @@ const Support = () => {
               id="name"
               value={name}
               handleInputChange={setFields}
-              label="Name"
             />
             <Button text="start" modifier="small" handleClick={startChat} />
           </div>
