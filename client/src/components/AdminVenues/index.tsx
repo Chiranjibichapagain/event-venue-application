@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { AdminVenuesProps, Venue } from '../../types';
+import { Venue } from '../../types';
 import {
   FaArrowLeft,
   FaArrowRight,
@@ -16,7 +16,7 @@ import { useUser } from '../../Hooks/useUser';
 import './AdminVenues.scss';
 import Loading from '../Loading';
 
-const AdminVenues = ({ data }: AdminVenuesProps) => {
+const AdminVenues = ({ data, setStatus, status }) => {
   if (data.length < 1) {
     return <Loading />;
   }
@@ -30,7 +30,7 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
   useEffect(() => {
     const venueData = data && data.find((v: Venue) => v.venueName === venueSelection);
     setVenue(venueData);
-  }, [venueSelection]);
+  }, [venueSelection, data]);
 
   const handleRightArrow = () => {
     venue && setCurrentImage(currentImage === venue.photos.length - 1 ? 0 : currentImage + 1);
@@ -48,8 +48,10 @@ const AdminVenues = ({ data }: AdminVenuesProps) => {
     if (venue) {
       deleteVenue(venue.id, config).then((response) => {
         if (response.data) {
-          history.push('/admin');
-          location.reload();
+          setStatus('deleted');
+          setTimeout(() => {
+            setStatus('');
+          }, 500);
         }
       });
     }

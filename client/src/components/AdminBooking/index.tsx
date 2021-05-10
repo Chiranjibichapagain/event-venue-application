@@ -10,11 +10,9 @@ import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import './AdminBooking.scss';
 
 const AdminBooking = ({ data }: AdminBookingsProps) => {
-  if (data.length < 1) {
-    return <Loading />;
-  }
-
-  const [venueSelection, setVenueSelection] = useState(data[0].venueName);
+  const [venueSelection, setVenueSelection] = useState<string>(
+    data.length > 0 ? data[0].venueName : ''
+  );
   const [selectedDay, setSelectedDay] = React.useState<Day[]>([]);
 
   const venue = data.find((v: Venue) => v.venueName === venueSelection);

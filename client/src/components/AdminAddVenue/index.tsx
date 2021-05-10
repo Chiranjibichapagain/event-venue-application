@@ -13,7 +13,7 @@ import { addVenue } from '../../services/venueServices';
 import './AdminAddVenue.scss';
 import { FeatureOption } from '../../types';
 
-const AdminAddVenue = () => {
+const AdminAddVenue = ({ setView, setStatus }) => {
   const [featureList, setFeatureList] = useState<string[]>([]);
   const [photoList, setPhotoList] = useState<string[]>([]);
   const [user] = useUser();
@@ -54,7 +54,11 @@ const AdminAddVenue = () => {
     addVenue(venue, config)
       .then((response: AxiosResponse) => {
         if (response.data) {
-          location.reload();
+          setView('venues');
+          setStatus('created');
+          setTimeout(() => {
+            setStatus('');
+          }, 500);
         }
       })
       .catch((error) => {
@@ -65,7 +69,6 @@ const AdminAddVenue = () => {
   const customStyles = {
     control: (base) => ({
       ...base,
-      height: 50,
       minHeight: 50
     })
   };

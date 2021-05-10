@@ -16,6 +16,7 @@ import { Venue } from '../../types';
 
 function AdminPage() {
   const [view, setView] = useState<string>('bookings');
+  const [status, setStatus] = useState<string>('');
   const [data, setData] = useState<Venue[]>([]);
   const [smallScreen, setSmallScreen] = useState<boolean>(false);
   const [notification, setNotification] = useState<string>('');
@@ -28,7 +29,7 @@ function AdminPage() {
 
   useEffect(() => {
     fetchVenues();
-  }, []);
+  }, [status]);
 
   const handleSupportClick = () => {
     setView('support');
@@ -87,8 +88,8 @@ function AdminPage() {
 
       <div className="admin__main">
         {view === 'bookings' && <AdminBooking data={data} />}
-        {view === 'venues' && <AdminVenues data={data} />}
-        {view === 'new-venue' && <AdminAddVenue />}
+        {view === 'venues' && <AdminVenues data={data} setStatus={setStatus} status={status} />}
+        {view === 'new-venue' && <AdminAddVenue setView={setView} setStatus={setStatus} />}
         {view === 'support' && <AdminSupport setNotification={setNotification} />}
       </div>
     </div>
