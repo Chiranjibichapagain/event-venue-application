@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { Booking } from '../types';
-const baseUrl = 'http://localhost:5000/api/booking';
+
+const baseUrl = 'https://event-back-server.herokuapp.com/api/booking';
+// const baseUrl = 'http://localhost:5000/api/booking';
 
 export const makeBooking = async (bookingData: Booking) => {
   return await axios.post(baseUrl, bookingData);
