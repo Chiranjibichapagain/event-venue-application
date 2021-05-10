@@ -33,10 +33,9 @@ app.use('/api/admin', adminRouter);
 
 //Heroku---
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, 'client/')));
+  app.get('/*', function (req: Request, res: Response) {
+    res.sendFile(path.join(__dirname, 'client/index.html'));
+  });
 }
-app.get('*', (request: Request, response: Response) => {
-  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
-
 module.exports = app;
