@@ -1,34 +1,38 @@
 export {};
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose, { Document } from 'mongoose';
 
-const chatroomSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: 'Name is required'
-    },
+export type ChatroomDocument = Document & {
+  name: string;
+  email: string;
+  chat: string;
+};
 
-    email: {
-      type: String,
-      required: 'Email is required'
-    },
-
-    chat: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Chat'
-      }
-    ]
+const chatroomSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: 'Name is required'
   },
-  { timeStamps: true }
-);
+
+  email: {
+    type: String,
+    required: 'Email is required'
+  },
+
+  chat: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Chat'
+    }
+  ]
+});
 
 chatroomSchema.set('toJSON', {
-  transform: (document: any, returnedObject: any) => {
+  transform: (document: ChatroomDocument, returnedObject: Partial<ChatroomDocument>) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
   }
 });
 
-module.exports = mongoose.model('Chatroom', chatroomSchema);
+module.exports = mongoose.model<ChatroomDocument>('Chatroom', chatroomSchema);

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 const Venue = require('../modals/Venue');
+const Booking = require('../modals/Booking');
 const { NotFoundError, BadRequestError } = require('../helpers/apiError');
 
 export const getAllVenues = async (req: Request, res: Response, next: NextFunction) => {
@@ -66,6 +67,7 @@ export const deleteVenue = async (req: Request, res: Response, next: NextFunctio
     if (venue) {
       await Venue.findByIdAndDelete(venueId);
       res.status(200).json({ message: `Venue ${venue.venueName} successfully deleted` });
+      await Booking.deleteMany({ venue: venueId });
     } else {
       throw Error;
     }

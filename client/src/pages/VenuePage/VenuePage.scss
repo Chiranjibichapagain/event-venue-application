@@ -1,5 +1,9 @@
 @import '../../scss/config';
 
+.venue-main {
+  @include absolute-center;
+}
+
 .venue {
   width: 95vw;
   margin: 0px auto;

@@ -1,19 +1,26 @@
 import { Day } from 'react-modern-calendar-datepicker';
+import { SetStateAction } from 'react';
 
 type UserInfo = {
   email: string;
   name: string;
   userId: string;
 };
+
 export type UserData = {
   token: string;
   userInfo: UserInfo;
 };
 
-export type ButtonProps = {
-  text: string;
-  modifier?: string;
-  handleClick: (() => void) | ((id: any) => void);
+export type UserRegistrationData = {
+  email: string;
+  name: string;
+  password: string;
+};
+
+export type Credentials = {
+  email: string;
+  password: string;
 };
 
 export type ClientInfo = {
@@ -28,8 +35,16 @@ export type Booking = {
   clientInfo: ClientInfo;
 };
 
+type Header = {
+  authorization: string;
+};
+
+export type Config = {
+  headers: Header;
+};
+
 export type Venue = {
-  id: number;
+  id: string;
   venueName: string;
   area: string;
   people: number;
@@ -41,13 +56,36 @@ export type Venue = {
   bookings: Booking[];
 };
 
-export type VenueProps = {
-  data: Venue;
+export type Chat = {
+  id: string;
+  message: string;
+  name: string;
+  time: string;
+  type: 'organize' | 'guest';
 };
 
-export type FilterProps = {
-  setSize: React.Dispatch<React.SetStateAction<string>>;
-  setPrice: React.Dispatch<React.SetStateAction<string>>;
+export type Room = {
+  chat: Chat[];
+  name: string;
+  email: string;
+  id: string;
+};
+
+export type FeatureOption = {
+  value: string;
+  label: string;
+};
+
+////********** components/pages prop types *******/////// */
+
+export type ButtonProps = {
+  text: string;
+  modifier?: string;
+  handleClick: (() => void) | ((id: any) => void);
+};
+
+export type VenueProps = {
+  data: Venue;
 };
 
 export type InputProps = {
@@ -64,6 +102,7 @@ export type InputProps = {
   required?: boolean;
   minLength?: number;
   maxLength?: number;
+  label?: string;
 };
 export type TextareaProps = {
   handleInputChange: () => void;
@@ -72,6 +111,7 @@ export type TextareaProps = {
   defaultValue?: string | number;
   id: string;
   rows: number;
+  label: string;
 };
 
 export type AdminBookingsProps = {
@@ -82,17 +122,11 @@ export type AdminVenuesProps = {
   data: Venue[];
 };
 
-export type Chat = {
-  id: string;
-  message: string;
-  name: string;
-  time: string;
-  type: string;
+export type NavProps = {
+  log: boolean;
 };
 
-export type Room = {
-  chat: Chat[];
-  name: string;
-  email: string;
+export type SupportChatProps = {
+  message: Chat;
   id: string;
 };

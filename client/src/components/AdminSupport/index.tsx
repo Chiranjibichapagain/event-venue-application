@@ -6,9 +6,11 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Input from '../Input';
 import { useForm } from '../../Hooks/useForm';
 import supportGif from '../../Assets/illustration/helper.gif';
-import './AdminSupport.scss';
 import { Chat, Room } from '../../types';
 import SupportChat from '../SupportChat';
+
+import './AdminSupport.scss';
+import Loading from '../Loading';
 
 const AdminSupport = ({ setNotification }) => {
   const socket = io('http://localhost:5000');
@@ -26,7 +28,7 @@ const AdminSupport = ({ setNotification }) => {
       if (message) {
         const newMessage = { message, name: 'Organize', type: 'organize', roomId: activeRoom.id };
         socket.emit('new-message', newMessage);
-        socket.on('returned-message', (newMessage: any) => {
+        socket.on('returned-message', (newMessage: Chat) => {
           setData([...data, newMessage]);
           const el = document.getElementById(newMessage.id);
           if (el) {
@@ -39,7 +41,7 @@ const AdminSupport = ({ setNotification }) => {
   };
   const fetchChatrooms = () => {
     socket.emit('fetch-rooms');
-    socket.on('all-chatrooms', (data: any) => {
+    socket.on('all-chatrooms', (data: Room[]) => {
       setRooms(data);
     });
   };
@@ -67,7 +69,7 @@ const AdminSupport = ({ setNotification }) => {
   return rooms.length > 0 ? (
     <div className="a-support">
       <div className="a-support__rooms">
-        {rooms.map((room: any) => (
+        {rooms.map((room: Room) => (
           <div
             className={
               active === room.id ? 'a-support__room' : 'a-support__room a-support__room--inactive'
@@ -93,19 +95,21 @@ const AdminSupport = ({ setNotification }) => {
           )}
         </div>
         <div className="a-support__form">
-          <Input
-            placeholder="write a message"
-            type="text"
-            id="message"
-            value={message}
-            handleInputChange={setFields}
-          />
+          <div className="a-support__input-div">
+            <Input
+              placeholder="write a message"
+              type="text"
+              id="message"
+              value={message}
+              handleInputChange={setFields}
+            />
+          </div>
           <IoMdSend onClick={sendMessage} className="a-support__send" />
         </div>
       </div>
     </div>
   ) : (
-    <h1>No chat to display</h1>
+    <Loading />
   );
 };
 

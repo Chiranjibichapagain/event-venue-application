@@ -20,7 +20,7 @@ import Textarea from '../../components/Textarea';
 const BookingPage = ({ match }) => {
   const id = match.params.venueId;
   const [venue, setVenue] = useState<Venue>();
-  const [error, setError] = useState('error');
+  const [error, setError] = useState<string>('error');
   const [bookings] = useExtractDays(venue && venue);
 
   const history = useHistory();
@@ -123,13 +123,15 @@ const BookingPage = ({ match }) => {
                 type="text"
                 placeholder="Full Name"
                 handleInputChange={setFields}
+                label="Name"
               />
               <Input
                 value={email}
                 id="email"
                 type="email"
-                placeholder="Email address"
+                placeholder="YoureEmail address"
                 handleInputChange={setFields}
+                label="Email"
               />
               <Input
                 value={phone}
@@ -137,6 +139,7 @@ const BookingPage = ({ match }) => {
                 type="tel"
                 placeholder="Phone Number"
                 handleInputChange={setFields}
+                label="Phone"
               />
               <Textarea
                 handleInputChange={setFields}
@@ -144,6 +147,7 @@ const BookingPage = ({ match }) => {
                 id="message"
                 rows={5}
                 placeholder="Write message, questions etc."
+                label="Message"
               />
               <Button text="Confirm booking" modifier="small" handleClick={confirmAndPay} />
             </div>

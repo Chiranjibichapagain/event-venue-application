@@ -1,6 +1,7 @@
 const app = require('./app');
 const http = require('http');
 import { Server, Socket } from 'socket.io';
+import { NewMessage, RoomInfo } from './types';
 const config = require('./utils/config');
 const Chat = require('./modals/Chat');
 const Chatroom = require('./modals/Chatroom');
@@ -9,7 +10,7 @@ const server = http.createServer(app);
 const io = new Server(server, { cors: { origin: '*' } });
 
 io.on('connection', (socket: Socket) => {
-  socket.on('create-room', async (roomInfo: any) => {
+  socket.on('create-room', async (roomInfo: RoomInfo) => {
     const { name, email } = roomInfo;
     const newRoom = new Chatroom({ name, email, chat: [] });
     const room = await newRoom.save();
@@ -18,7 +19,7 @@ io.on('connection', (socket: Socket) => {
     }
   });
 
-  socket.on('new-message', async (newMessage: any) => {
+  socket.on('new-message', async (newMessage: NewMessage) => {
     const { message, name, type, roomId } = newMessage;
     const chat = { message, name, type, time: new Date(), room: roomId };
     const newChat = new Chat(chat);
@@ -33,7 +34,7 @@ io.on('connection', (socket: Socket) => {
         .then((result: any) => {
           io.emit('returned-message', savedChat);
         })
-        .catch((error: any) => {
+        .catch((error: Error) => {
           console.log(error);
         });
     }
@@ -60,7 +61,7 @@ io.on('connection', (socket: Socket) => {
 
   socket.on('delete-room', async (id: string) => {
     try {
-      await Chatroom.findOneAndDelete({ _id: id }, async (err: any) => {
+      await Chatroom.findOneAndDelete({ _id: id }, async (err: Error) => {
         if (!err) {
           const rooms = await Chatroom.find({}).populate('chat');
           io.emit('all-chatrooms', rooms);

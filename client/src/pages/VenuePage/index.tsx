@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AxiosResponse } from 'axios';
 import { useHistory } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
@@ -16,7 +17,7 @@ const VenuePage = ({ match }) => {
 
   const id = match.params.venueId;
   const fetchVenue = () => {
-    getOneVenue(id).then((res) => {
+    getOneVenue(id).then((res: AxiosResponse) => {
       setVenue(res.data);
     });
   };
@@ -59,7 +60,7 @@ const VenuePage = ({ match }) => {
               />
             </div>
             <div className="venue__circle-div">
-              {venue.photos.map((photo: any, index) => (
+              {venue.photos.map((photo: string, index) => (
                 <div
                   key={index}
                   className={

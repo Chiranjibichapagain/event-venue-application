@@ -1,42 +1,48 @@
 export {};
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose, { Document } from 'mongoose';
 
-const chatSchema = new mongoose.Schema(
-  {
-    message: {
-      type: String,
-      require: 'Name is required'
-    },
+export type ChatDocument = Document & {
+  message: string;
+  name: string;
+  type: 'organize' | 'guest';
+  time: string;
+  roomId: string;
+};
 
-    name: {
-      type: String,
-      require: 'sender is required'
-    },
-
-    time: {
-      type: String,
-      require: 'time is required'
-    },
-
-    type: {
-      type: String,
-      require: 'type is required'
-    },
-
-    room: {
-      type: String,
-      require: 'Room id is required'
-    }
+const chatSchema = new mongoose.Schema({
+  message: {
+    type: String,
+    require: 'Name is required'
   },
-  { timeStamps: true }
-);
+
+  name: {
+    type: String,
+    require: 'sender is required'
+  },
+
+  time: {
+    type: String,
+    require: 'time is required'
+  },
+
+  type: {
+    type: String,
+    require: 'type is required'
+  },
+
+  room: {
+    type: String,
+    require: 'Room id is required'
+  }
+});
 
 chatSchema.set('toJSON', {
-  transform: (document: any, returnedObject: any) => {
+  transform: (document: ChatDocument, returnedObject: Partial<ChatDocument>) => {
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
     delete returnedObject.__v;
   }
 });
 
-module.exports = mongoose.model('Chat', chatSchema);
+module.exports = mongoose.model<ChatDocument>('Chat', chatSchema);

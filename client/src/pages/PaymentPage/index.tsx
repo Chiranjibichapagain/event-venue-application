@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import PaymentCard from 'react-payment-card-component';
@@ -9,7 +9,7 @@ import Input from '../../components/Input';
 
 import './PaymentPage.scss';
 
-const PaymentPage = ({ match }) => {
+const PaymentPage = () => {
   const history = useHistory();
   const [flipped, setFlipped] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +32,7 @@ const PaymentPage = ({ match }) => {
     }
   };
 
-  const openModal = (e: any) => {
+  const openModal = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setIsModalOpen(true);
   };
@@ -59,7 +59,8 @@ const PaymentPage = ({ match }) => {
             id="number"
             value={fields.number}
             handleInputChange={setFields}
-            placeholder="Card Number"
+            placeholder="Number of your bank card"
+            label="Card Number"
           />
           <Input
             type="text"
@@ -67,6 +68,7 @@ const PaymentPage = ({ match }) => {
             value={fields.name}
             handleInputChange={setFields}
             placeholder="Card holder's name"
+            label="Name"
           />
           <Input
             type="month"
@@ -76,6 +78,7 @@ const PaymentPage = ({ match }) => {
             placeholder={placeholder}
             modifier="month"
             handleFocus={() => setPlaceholder('')}
+            label="Expiry date"
           />
           <Input
             type="text"
@@ -84,9 +87,10 @@ const PaymentPage = ({ match }) => {
             handleInputChange={setFields}
             handleFocus={() => setFlipped(true)}
             handleBlur={() => setFlipped(false)}
-            placeholder="CVV"
+            placeholder="Card CVC"
             minLength={3}
             maxLength={3}
+            label="CVC"
           />
           <Button text="Confirm & pay" modifier="small" handleClick={openModal} />
         </form>

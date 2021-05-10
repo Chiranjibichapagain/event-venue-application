@@ -9,12 +9,13 @@ const Textarea = ({
   value,
   defaultValue,
   id,
-  rows
+  rows,
+  label
 }: TextareaProps) => {
   return (
     <>
       <label htmlFor={id} className="label">
-        {placeholder}
+        {label}
       </label>
       <textarea
         className="textarea"

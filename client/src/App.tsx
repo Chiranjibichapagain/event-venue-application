@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { BiSupport } from 'react-icons/bi';
 
 import './App.scss';
@@ -10,9 +9,9 @@ import Support from './components/Support';
 import Routes from './Routes';
 
 function App() {
-  const [log, setLog] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(true);
+  const [log, setLog] = useState<boolean>(false);
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState<boolean>(true);
 
   useEffect(() => {
     if (log) {

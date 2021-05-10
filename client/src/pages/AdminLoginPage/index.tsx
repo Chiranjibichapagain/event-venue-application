@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -22,7 +22,7 @@ function AdminLoginPage({ setLog }) {
   });
   const { name, email, password, rePassword } = fields;
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (!email || !password) {
       setError('All fields are required');
@@ -40,7 +40,7 @@ function AdminLoginPage({ setLog }) {
         });
     }
   };
-  const handleCreateAccount = async (e) => {
+  const handleCreateAccount = async (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (!name || !email || !password) {
       setError('All fields are required');
@@ -85,9 +85,10 @@ function AdminLoginPage({ setLog }) {
           <Input
             type="text"
             handleInputChange={setFields}
-            placeholder="Email"
+            placeholder="Your email address"
             id="email"
             value={email}
+            label="Email"
           />
           <Input
             type="password"
@@ -95,6 +96,7 @@ function AdminLoginPage({ setLog }) {
             placeholder="Password"
             id="password"
             value={password}
+            label="Password"
           />
           <Button text="Login" modifier="small" handleClick={handleLogin} />
           <p className="admin-log__text">
@@ -122,13 +124,15 @@ function AdminLoginPage({ setLog }) {
             placeholder="Full Name"
             id="name"
             value={name}
+            label="Name"
           />
           <Input
             type="text"
             handleInputChange={setFields}
-            placeholder="Email"
+            placeholder="Your email address"
             id="email"
             value={email}
+            label="Email"
           />
           <Input
             type="password"
@@ -136,13 +140,15 @@ function AdminLoginPage({ setLog }) {
             placeholder="Password"
             id="password"
             value={password}
+            label="Password"
           />
           <Input
             type="password"
             handleInputChange={setFields}
-            placeholder="Re-Password"
+            placeholder="Repeat password"
             id="rePassword"
             value={rePassword}
+            label="Re-password"
           />
           <Button text="Create Account" modifier="small" handleClick={handleCreateAccount} />
           <p className="admin-log__text">

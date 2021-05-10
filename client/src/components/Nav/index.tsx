@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 import { FaSignOutAlt } from 'react-icons/fa';
 
-import { UserData } from '../../types';
+import { NavProps, UserData } from '../../types';
 
 import logo from '../../Assets/logo.svg';
-
 import './Nav.scss';
-import Button from '../Button';
 
-const Nav = ({ log }) => {
+const Nav = ({ log }: NavProps) => {
   const history = useHistory();
   const [userData, setUserData] = useState<UserData | null>();
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const handleLoginSuccess = (response: any) => {
-  //   const data = response.profileObj;
-  //   const stringData = JSON.stringify(data);
-  //   localStorage.setItem('booking-user-info', stringData);
-  //   setLog(true);
-  // };
 
   useEffect(() => {
     const localData = localStorage.getItem('venue-app');
@@ -36,7 +25,6 @@ const Nav = ({ log }) => {
     history.push('/');
   };
 
-  // const googleClient = '1022731832769-0epv227hsfh2rpvsgroeg558uttkhg4b.apps.googleusercontent.com';
   return (
     <div className="nav">
       <div className="nav__main">
@@ -50,7 +38,9 @@ const Nav = ({ log }) => {
       {userData && (
         <div className="nav__log-div">
           <div className="nav__profile-div">
-            <p className="nav__profile-name">{firstName && firstName[0]}</p>
+            <p onClick={() => history.push('/admin')} className="nav__profile-name">
+              {firstName && firstName[0]}
+            </p>
           </div>
           <FaSignOutAlt onClick={handleLogout} className="nav__icon" />
         </div>

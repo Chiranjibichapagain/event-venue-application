@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Filters from '../../components/Filters';
-import ReactLoading from 'react-loading';
+import Loading from '../../components/Loading';
 
 import VenueTile from '../../components/VenueTile';
 import { getAllVenues } from '../../services/venueServices';
@@ -25,9 +24,7 @@ const HomePage = () => {
     <div className="home">
       <div className="home__venues">
         {data && data.map((venue: Venue) => <VenueTile key={venue.id} data={venue} />)}
-        {data.length === 0 && (
-          <ReactLoading type={'bars'} color={'green'} height={300} width={175} />
-        )}
+        {data.length === 0 && <Loading />}
       </div>
     </div>
   );

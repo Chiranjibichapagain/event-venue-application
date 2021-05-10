@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
+import { AxiosResponse } from 'axios';
 import { useHistory } from 'react-router-dom';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
-import { data } from '../../utils/dummydata';
 import { featureOptions, images } from '../../utils/venueConstants';
 import { useForm } from '../../Hooks/useForm';
 import Input from '../../components/Input';
@@ -14,6 +14,7 @@ import Button from '../../components/Button';
 import { useOneVenue } from '../../Hooks/useData';
 import { editVenue } from '../../services/venueServices';
 import { useUser } from '../../Hooks/useUser';
+import { FeatureOption } from '../../types';
 
 const VenueEditPage = ({ match }) => {
   const history = useHistory();
@@ -33,8 +34,6 @@ const VenueEditPage = ({ match }) => {
   });
 
   const { name, price, area, address, people, description } = fields;
-
-  console.log('0000---', venue?.price);
 
   const defaultFeatures = venue?.features.map((item) => {
     return { value: item, label: item };
@@ -62,16 +61,16 @@ const VenueEditPage = ({ match }) => {
     };
   });
 
-  const handleFeatureListChange = (options) => {
-    const feat = options.map((opt) => opt.value);
+  const handleFeatureListChange = (options: FeatureOption[]) => {
+    const feat = options.map((opt: FeatureOption) => opt.value);
     setFeatureList(feat);
   };
-  const handlePhotoListChange = (options) => {
+  const handlePhotoListChange = (options: FeatureOption[]) => {
     const photos = options.map((opt) => opt.value);
     setPhotoList(photos);
   };
 
-  const handleUpdateVenue = (e: any) => {
+  const handleUpdateVenue = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const config = { headers: { authorization: `bearer ${user?.token}` } };
     const updates = {
@@ -86,7 +85,7 @@ const VenueEditPage = ({ match }) => {
     };
 
     editVenue(id, updates, config)
-      .then((response: any) => {
+      .then((response: AxiosResponse) => {
         if (response.data) {
           history.push('/admin');
         }
@@ -101,42 +100,47 @@ const VenueEditPage = ({ match }) => {
       <h1 className="venue-edit__heading">Update Venue Information</h1>
       {venue && (
         <form className="venue-edit__form">
-          <p className="venue-edit__label">Venue Name</p>
           <Input
-            id="name"
+            id="name of the venue"
             defaultValue={venue.venueName}
             handleInputChange={setFields}
             type="text"
+            label="Name"
           />
-          <p className="venue-edit__label">Venue Size</p>
-          <Input id="area" defaultValue={venue.area} handleInputChange={setFields} type="text" />
-          <p className="venue-edit__label">Number of people</p>
+          <Input
+            label="Area"
+            id="area"
+            defaultValue={venue.area}
+            handleInputChange={setFields}
+            type="text"
+          />
           <Input
             id="people"
             defaultValue={venue.people}
             handleInputChange={setFields}
             type="number"
+            label="Capacity"
           />
-          <p className="venue-edit__label">Address</p>
           <Input
             id="address"
             defaultValue={venue.address}
             handleInputChange={setFields}
             type="text"
+            label="Address"
           />
-          <p className="venue-edit__label">Price (€)</p>
           <Input
             id="price"
             defaultValue={venue.price}
             handleInputChange={setFields}
             type="number"
+            label="Price"
           />
-          <p className="venue-edit__label">Description</p>
           <Textarea
             id="description"
             defaultValue={venue.description}
             handleInputChange={setFields}
             rows={4}
+            label="Description"
           />
           <p className="venue-edit__label">Features</p>
           <Select

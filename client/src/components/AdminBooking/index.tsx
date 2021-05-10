@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import ReactLoading from 'react-loading';
-import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import { Calendar, Day } from 'react-modern-calendar-datepicker';
 import { FaCalendar, FaUser, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
+import Loading from '../Loading';
 import { AdminBookingsProps, Venue } from '../../types';
 import { useExtractBookingInfo, useExtractDays } from '../../Hooks/useExtractDays';
 
+import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 import './AdminBooking.scss';
 
-const AdminBooking = ({ data }) => {
-  if (!data) {
-    return <ReactLoading type={'bars'} color={'green'} height={300} width={175} />;
+const AdminBooking = ({ data }: AdminBookingsProps) => {
+  if (data.length < 1) {
+    return <Loading />;
   }
 
   const [venueSelection, setVenueSelection] = useState(data[0].venueName);
   const [selectedDay, setSelectedDay] = React.useState<Day[]>([]);
 
-  const venue = data.find((v) => v.venueName === venueSelection);
+  const venue = data.find((v: Venue) => v.venueName === venueSelection);
   const [bookings] = useExtractDays(venue);
   const [bookingInfo] = useExtractBookingInfo(venue, selectedDay);
 
-  console.log('sss--', bookingInfo);
   const handleError = (disabledDay) => {
     setSelectedDay(disabledDay);
   };

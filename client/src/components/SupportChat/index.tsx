@@ -1,7 +1,8 @@
 import React from 'react';
+import { SupportChatProps } from '../../types';
 
 import './SupportChat.scss';
-const SupportChat = ({ message, id }) => {
+const SupportChat = ({ message, id }: SupportChatProps) => {
   const getTime = (time) => {
     return time.slice(15, 21);
   };

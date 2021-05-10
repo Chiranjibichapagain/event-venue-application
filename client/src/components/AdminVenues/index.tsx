@@ -10,20 +10,25 @@ import {
   FaPencilAlt
 } from 'react-icons/fa';
 
+import { deleteVenue } from '../../services/venueServices';
 import { useUser } from '../../Hooks/useUser';
 
 import './AdminVenues.scss';
-import { deleteVenue } from '../../services/venueServices';
+import Loading from '../Loading';
 
-const AdminVenues = ({ data }) => {
-  const [venueSelection, setVenueSelection] = useState(data && data[0].venueName);
+const AdminVenues = ({ data }: AdminVenuesProps) => {
+  if (data.length < 1) {
+    return <Loading />;
+  }
+
+  const [venueSelection, setVenueSelection] = useState<string>(data && data[0].venueName);
   const [currentImage, setCurrentImage] = useState<number>(0);
   const [venue, setVenue] = useState<Venue>();
   const [user] = useUser();
   const history = useHistory();
 
   useEffect(() => {
-    const venueData = data && data.find((v) => v.venueName === venueSelection);
+    const venueData = data && data.find((v: Venue) => v.venueName === venueSelection);
     setVenue(venueData);
   }, [venueSelection]);
 
@@ -40,12 +45,14 @@ const AdminVenues = ({ data }) => {
 
   const handleDelete = () => {
     const config = { headers: { authorization: `bearer ${user?.token}` } };
-    deleteVenue(venue?.id, config).then((response) => {
-      if (response.data) {
-        history.push('/admin');
-        location.reload();
-      }
-    });
+    if (venue) {
+      deleteVenue(venue.id, config).then((response) => {
+        if (response.data) {
+          history.push('/admin');
+          location.reload();
+        }
+      });
+    }
   };
 
   return (
@@ -80,7 +87,7 @@ const AdminVenues = ({ data }) => {
               />
             </div>
             <div className="admin-venues__circle-div">
-              {venue.photos.map((photo: any, index) => (
+              {venue.photos.map((photo: string, index) => (
                 <div
                   key={index}
                   className={
@@ -112,7 +119,7 @@ const AdminVenues = ({ data }) => {
             <p className="admin-venues__desc">{venue.description}</p>
             <p className="admin-venues__desc-title">features</p>
             <div className="admin-venues__features">
-              {venue.features.map((f, index) => (
+              {venue.features.map((f: string, index) => (
                 <p key={index} className="admin-venues__feature">
                   {f}
                 </p>

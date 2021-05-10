@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import io from 'socket.io-client';
 import { IoMdSend } from 'react-icons/io';
 
@@ -6,16 +6,16 @@ import Input from '../../components/Input';
 import Button from '../Button';
 import SupportChat from '../SupportChat';
 import { useForm } from '../../Hooks/useForm';
+import { Chat, Room } from '../../types';
 
 import './Support.scss';
-import { Chat, Room } from '../../types';
 
 const Support = () => {
   const socket = io('http://localhost:5000');
   const [logged, setLogged] = useState(false);
   const [roomId, setRoomId] = useState('');
   const [userName, setUserName] = useState('');
-  const [chatList, setChatList] = useState<any[]>([]);
+  const [chatList, setChatList] = useState<Chat[]>([]);
   const [fields, setFields, reset] = useForm({
     message: '',
     email: '',
@@ -31,7 +31,7 @@ const Support = () => {
       setUserName(name);
       fetchChat();
     }
-  }, []);
+  }, [logged]);
 
   const { message, email, name } = fields;
 
@@ -50,7 +50,7 @@ const Support = () => {
     setLogged(false);
   });
 
-  const startChat = (e: any) => {
+  const startChat = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (name && email) {
       const roomInfo = { name, email };
@@ -67,7 +67,7 @@ const Support = () => {
     if (message && userName && roomId) {
       const newMessage = { message, name: userName ? userName : name, type: 'guest', roomId };
       socket.emit('new-message', newMessage);
-      socket.on('returned-message', (newMessage: any) => {
+      socket.on('returned-message', (newMessage: Chat) => {
         setChatList([...chatList, newMessage]);
         const el = document.getElementById(newMessage.id);
         if (el) {
@@ -103,7 +103,7 @@ const Support = () => {
         </div>
       ) : (
         <div className="support__register">
-          <h2 className="support__heading">Hi there! Welcome to our customer support chat. </h2>
+          <h2 className="support__heading">Hi! Welcome to our customer support chat. </h2>
           <p className="support__text">Please enter your details and ask questions!</p>
           <div className="support__set-user-div">
             <Input
@@ -113,6 +113,7 @@ const Support = () => {
               id="email"
               value={email}
               handleInputChange={setFields}
+              label="Email"
             />
             <Input
               required={true}
@@ -121,6 +122,7 @@ const Support = () => {
               id="name"
               value={name}
               handleInputChange={setFields}
+              label="Name"
             />
             <Button text="start" modifier="small" handleClick={startChat} />
           </div>

@@ -1,6 +1,3 @@
-import { Day } from 'react-modern-calendar-datepicker';
-import { getABooking } from '../services/bookingServices';
-
 type Dates = {
   _id: string;
   day: number;

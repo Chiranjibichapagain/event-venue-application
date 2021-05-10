@@ -13,13 +13,14 @@ const Input = ({
   handleClick,
   handleFocus,
   handleBlur,
-  required
+  required,
+  label
 }: InputProps) => {
   return (
     <>
-      {/* <label htmlFor={id} className="label">
-        {placeholder}
-      </label> */}
+      <label htmlFor={id} className="label">
+        {label}
+      </label>
       <input
         id={id}
         value={value}

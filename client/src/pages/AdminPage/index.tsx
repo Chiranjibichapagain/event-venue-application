@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AxiosResponse } from 'axios';
 
 import { FaCalendar, FaIgloo, FaPlusCircle } from 'react-icons/fa';
 import { BiSupport } from 'react-icons/bi';
@@ -11,15 +12,16 @@ import AdminAddVenue from '../../components/AdminAddVenue';
 import './AdminPage.scss';
 import { getAllVenues } from '../../services/venueServices';
 import AdminSupport from '../../components/AdminSupport';
+import { Venue } from '../../types';
 
 function AdminPage() {
-  const [view, setView] = useState('bookings');
-  const [data, setData] = useState('');
-  const [smallScreen, setSmallScreen] = useState(false);
+  const [view, setView] = useState<string>('bookings');
+  const [data, setData] = useState<Venue[]>([]);
+  const [smallScreen, setSmallScreen] = useState<boolean>(false);
   const [notification, setNotification] = useState<string>('');
 
   const fetchVenues = () => {
-    getAllVenues().then((response: any) => {
+    getAllVenues().then((response: AxiosResponse) => {
       setData(response.data);
     });
   };
@@ -86,7 +88,7 @@ function AdminPage() {
       <div className="admin__main">
         {view === 'bookings' && <AdminBooking data={data} />}
         {view === 'venues' && <AdminVenues data={data} />}
-        {view === 'new-venue' && <AdminAddVenue setPage={setView} />}
+        {view === 'new-venue' && <AdminAddVenue />}
         {view === 'support' && <AdminSupport setNotification={setNotification} />}
       </div>
     </div>

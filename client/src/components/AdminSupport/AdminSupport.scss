@@ -58,11 +58,13 @@
   }
 
   &__form {
-    position: relative;
-    top: 10px;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+  }
+
+  &__input-div {
+    width: 90%;
   }
 
   &__send {
@@ -88,6 +90,7 @@
     color: $light;
     font-size: $t-medium;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   &__fallback-image {
