@@ -88,7 +88,7 @@ function AdminPage() {
 
       <div className="admin__main">
         {view === 'bookings' && <AdminBooking data={data} />}
-        {view === 'venues' && <AdminVenues data={data} setStatus={setStatus} status={status} />}
+        {view === 'venues' && <AdminVenues data={data} setStatus={setStatus} />}
         {view === 'new-venue' && <AdminAddVenue setView={setView} setStatus={setStatus} />}
         {view === 'support' && <AdminSupport setNotification={setNotification} />}
       </div>
