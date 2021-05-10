@@ -34,11 +34,11 @@ app.use('/api/admin', adminRouter);
 //Heroku---
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-
-  app.get('/*', (request: Request, response: Response) => {
-    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
 }
+
+app.get('/*', (request: Request, response: Response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('client/build'));
