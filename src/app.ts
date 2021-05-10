@@ -32,20 +32,20 @@ app.use('/api/booking', bookingRouter);
 app.use('/api/admin', adminRouter);
 
 //Heroku---
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  app.get('*', (request: Request, response: Response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('client/build'));
 
-//   app.get('*', (request: Request, response: Response) => {
-//     response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+//   app.get('/*', (req: Request, res: Response) => {
+//     res.sendFile(path.join(__dirname, 'client/index.html'));
 //   });
 // }
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/')));
-
-  app.get('/*', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, 'client/index.html'));
-  });
-}
 
 module.exports = app;
