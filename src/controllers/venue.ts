@@ -34,6 +34,7 @@ export const updateVenue = async (req: Request, res: Response, next: NextFunctio
   try {
     const { venueId } = req.params;
     const { venueName, area, people, price, description, address, features, photos } = req.body;
+    console.log(venueName);
     const venue = await Venue.findOne({ _id: venueId });
     if (venue) {
       const updatedVenue = {

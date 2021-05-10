@@ -74,7 +74,7 @@ const VenueEditPage = ({ match }) => {
     e.preventDefault();
     const config = { headers: { authorization: `bearer ${user?.token}` } };
     const updates = {
-      name,
+      venueName: name,
       price,
       area,
       address,
@@ -83,6 +83,8 @@ const VenueEditPage = ({ match }) => {
       features: featureList,
       photos: photoList
     };
+
+    console.log('test--', updates);
 
     editVenue(id, updates, config)
       .then((response: AxiosResponse) => {
@@ -101,7 +103,7 @@ const VenueEditPage = ({ match }) => {
       {venue && (
         <form className="venue-edit__form">
           <Input
-            id="name of the venue"
+            id="name"
             defaultValue={venue.venueName}
             handleInputChange={setFields}
             type="text"

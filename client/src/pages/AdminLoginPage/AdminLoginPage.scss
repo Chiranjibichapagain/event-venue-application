@@ -41,6 +41,11 @@
     font-weight: bold;
     cursor: pointer;
   }
+
+  &__btn-div {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 
 .close {
@@ -105,6 +110,10 @@
     padding-bottom: 0;
     &__form {
       width: 98%;
+    }
+
+    &__btn-div {
+      margin-top: 20px;
     }
   }
 }

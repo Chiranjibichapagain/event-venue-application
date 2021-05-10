@@ -23,7 +23,7 @@ mongoose
   .then(() => {
     console.log('connected to MongoDB');
   })
-  .catch((error: Error) => {
+  .catch((error: any) => {
     console.log('error connection to MongoDB:', error.message);
   });
 
@@ -34,10 +34,9 @@ app.use('/api/admin', adminRouter);
 //Heroku---
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-
-  app.get('*', (request: Request, response: Response) => {
-    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
 }
+app.get('*', (request: Request, response: Response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 module.exports = app;

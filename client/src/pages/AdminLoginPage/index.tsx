@@ -98,7 +98,9 @@ function AdminLoginPage({ setLog }) {
             value={password}
             label="Password"
           />
-          <Button text="Login" modifier="small" handleClick={handleLogin} />
+          <div className="admin-log__btn-div">
+            <Button text="Login" modifier="small" handleClick={handleLogin} />
+          </div>
           <p className="admin-log__text">
             Create a new account?{' '}
             <span className="admin-log__link" onClick={() => setPageView('register')}>
@@ -150,7 +152,9 @@ function AdminLoginPage({ setLog }) {
             value={rePassword}
             label="Re-password"
           />
-          <Button text="Create Account" modifier="small" handleClick={handleCreateAccount} />
+          <div className="admin-log__btn-div">
+            <Button text="Create Account" modifier="small" handleClick={handleCreateAccount} />
+          </div>
           <p className="admin-log__text">
             Already have an account?{' '}
             <span className="admin-log__link" onClick={() => setPageView('login')}>
