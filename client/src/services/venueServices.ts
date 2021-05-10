@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'api/venue';
+const baseUrl = 'http://localhost:5000/api/venue';
 
 export const getAllVenues = async () => {
   return await axios.get(baseUrl);

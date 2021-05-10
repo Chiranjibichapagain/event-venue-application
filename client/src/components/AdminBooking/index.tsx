@@ -44,7 +44,7 @@ const AdminBooking = ({ data }) => {
           shouldHighlightWeekends
         />
       </div>
-      {bookingInfo.length != 0 && (
+      {bookingInfo.length != 0 ? (
         <div className="admin-bookings__info">
           <h2 className="admin-bookings__info-title">Booking Details</h2>
           <div className="admin-bookings__info-item">
@@ -74,6 +74,11 @@ const AdminBooking = ({ data }) => {
             </p>
           </div>
         </div>
+      ) : (
+        <p className="admin-bookings__info-text admin-bookings__info-text--instruction">
+          Disabled days on the calender are booked. Click on the disabled day to view the booking
+          details
+        </p>
       )}
     </div>
   );
